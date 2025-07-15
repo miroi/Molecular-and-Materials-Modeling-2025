@@ -44,11 +44,11 @@ scf_input_data = {
 # Set QE bin directory 
 qe_bin = "/home/dsen/work/bin/qe-7.4.1"
 
-# Job commands, full parallelization
+# Job commands
 pw_command = f'{qe_bin}/bin/pw.x'
 ph_command = f'{qe_bin}/bin/ph.x'
 
-# Post-processing commands, serial
+# Post-processing commands
 dynmat_command = f'{qe_bin}/bin/dynmat.x < dynmat.in > dynmat.out 2>&1'
 
 pw_profile = EspressoProfile(
