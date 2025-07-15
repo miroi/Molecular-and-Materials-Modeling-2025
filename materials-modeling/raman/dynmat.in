@@ -1,0 +1,4 @@
+&INPUT
+   fildyn = 'si.dyn',
+   asr = 'crystal',
+/
