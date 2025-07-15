@@ -42,14 +42,14 @@ scf_input_data = {
 # 2. Machine-specific command setup
 # ==============================================
 # Set QE bin directory 
-#qe_bin = "/home/dsen/work/bin/qe-7.4.1_serial"
-qe_bin = "/home/dsen/work/bin/qe-7.4.1"
+qe_bin = "/home/dsen/work/bin/qe-7.4.1_serial"
+#qe_bin = "/home/dsen/work/bin/qe-7.4.1"
 
 # Job commands
-#pw_command = f'{qe_bin}/bin/pw.x'
-#ph_command = f'{qe_bin}/bin/ph.x'
-pw_command = f'mpirun -np 4 {qe_bin}/bin/pw.x'
-ph_command = f'mpirun -np 4 {qe_bin}/bin/ph.x'
+pw_command = f'{qe_bin}/bin/pw.x'
+ph_command = f'{qe_bin}/bin/ph.x'
+#pw_command = f'mpirun -np 4 {qe_bin}/bin/pw.x'
+#ph_command = f'mpirun -np 4 {qe_bin}/bin/ph.x'
 
 # Post-processing commands (don't run in parallel)
 dynmat_command = f'{qe_bin}/bin/dynmat.x < dynmat.in > dynmat.out 2>&1'
@@ -137,6 +137,3 @@ try:
 except subprocess.CalledProcessError as e:
     print(f"Error running dynmat calculation: {e}", flush=True)
     sys.exit(1)
-
-except Exception as e:
-    print(f"Error in plotting: {e}", flush=True)

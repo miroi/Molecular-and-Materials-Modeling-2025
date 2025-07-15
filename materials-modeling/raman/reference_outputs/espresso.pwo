@@ -1,5 +1,5 @@
 
-     Program PWSCF v.7.4.1 starts on 15Jul2025 at 12:22: 6 
+     Program PWSCF v.7.4.1 starts on 15Jul2025 at 12:59: 2 
 
      This program is part of the open-source Quantum ESPRESSO suite
      for quantum simulation of materials; please cite
@@ -11,7 +11,7 @@
      http://www.quantum-espresso.org/quote
 
      Serial version
-     24067 MiB available memory on the printing compute node when the environment starts
+     22633 MiB available memory on the printing compute node when the environment starts
 
      Reading input from espresso.pwi
 Warning: card &CELL ignored
@@ -229,10 +229,10 @@ Warning: card / ignored
      interpolate  :      0.01s CPU      0.01s WALL (       7 calls)
 
 
-     PWSCF        :      0.19s CPU      0.19s WALL
+     PWSCF        :      0.18s CPU      0.19s WALL
 
 
-   This run was terminated on:  12:22: 6  15Jul2025            
+   This run was terminated on:  12:59: 2  15Jul2025            
 
 =------------------------------------------------------------------------------=
    JOB DONE.
