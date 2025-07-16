@@ -1,0 +1,66 @@
+Requirements:
+---------------------------------------------------------------------------------------------
+(1) Quantum ESPRESSO should be installed in the local machine. 
+
+$ /path/to/qe/bin/pw.x
+
+     Program PWSCF v.7.4.1 starts on 15Jul2025 at  9:33:25
+
+     This program is part of the open-source Quantum ESPRESSO suite
+     for quantum simulation of materials; please cite
+         "P. Giannozzi et al., J. Phys.:Condens. Matter 21 395502 (2009);
+         "P. Giannozzi et al., J. Phys.:Condens. Matter 29 465901 (2017);
+         "P. Giannozzi et al., J. Chem. Phys. 152 154105 (2020);
+          URL http://www.quantum-espresso.org",
+     in publications or presentations arising from this work. More details at
+     http://www.quantum-espresso.org/quote
+
+     Serial version
+     25103 MiB available memory on the printing compute node when the environment starts
+
+     Waiting for input...
+	 
+
+(2) Python (python3-full).
+
+$ python --version
+Python 3.12.3
+
+
+(3) ASE (Atomic Simulation Environment) should be installed and be in path. Install the latest version by: pip install --upgrade git+https://gitlab.com/ase/ase.git@master
+
+$ ase --version
+ase-3.26.0b1
+---------------------------------------------------------------------------------------------
+Structure and potentials
+Si: experimental cif file retrieved from  https://www.ccdc.cam.ac.uk/structures/Search?Ccdcid=60389&DatabaseToSearch=ICSD (single crystal xrd measurements, https://pubs.aip.org/aip/jcp/article-abstract/41/8/2324/81085)
+
+For converting crystal structures to QE format, various online/ offline tools can be used.
+1) https://qeinputgenerator.materialscloud.io/ 
+2) https://seekpath.materialscloud.io/ 
+3) VESTA
+4) ASE
+We will be using the seekpath tool and use the reduced primitive cell with two Si atoms, e.g.:
+
+CELL_PARAMETERS angstrom
+    0.0000000000     2.7149000000     2.7149000000
+    2.7149000000     0.0000000000     2.7149000000
+    2.7149000000     2.7149000000     0.0000000000
+ATOMIC_POSITIONS angstrom
+Si       1.3574500000     4.0723500000     4.0723500000
+Si       0.0000000000     0.0000000000     0.0000000000
+
+Pseudo potential: scalar-relativistic optimised norm-conserving Vanderbilt pseudo potential file (Si.upf) can be downloaded from (https://www.pseudo-dojo.org/)
+---------------------------------------------------------------------------------------------
+TASK 1: Calculate total energy of a Si primitive unitcell
+/path/to/qe/pw.x < Si.in > Si.out to run the job
+grep "JOB DONE."/ "convergence has been achieved" to check if converged successfully
+grep ! *.out to extract the total energy
+---------------------------------------------------------------------------------------------
+TASK 2: Setup an automated cutoff and k-points convergence test for Si primitive unitcell using ASE
+setup your QE executable path in the python script first then run, python3 convergence_test_si.py > convergence_test_si.out
+adjust the following under "Convergence Testing Setup" if needed
+ecutwfc_values = np.arange(20, 120, 5) - means 20 to 120 Ry cutoff values with 5 Ry intervals 
+kpoints_values = [(k,k,k) for k in range(2, 25)] means 2,2,2 3,3,3 ... etc k-points grid
+energy_tol = 0.01 - in meV/atom because ASE converts all energy to eV 
+---------------------------------------------------------------------------------------------
