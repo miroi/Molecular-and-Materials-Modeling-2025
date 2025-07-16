@@ -52,17 +52,37 @@ Si       0.0000000000     0.0000000000     0.0000000000
 
 Pseudo potential: scalar-relativistic optimised norm-conserving Vanderbilt pseudo potential file (Si.upf) can be downloaded from (https://www.pseudo-dojo.org/)
 ---------------------------------------------------------------------------------------------
-TASK 1: Calculate total energy of a Si primitive unitcell
-/path/to/qe/pw.x < Si.in > Si.out to run the job
-grep "JOB DONE."/ "convergence has been achieved" to check if converged successfully
-grep ! *.out to extract the total energy
----------------------------------------------------------------------------------------------
-TASK 2: Setup an automated cutoff and k-points convergence test for Si primitive unitcell using ASE
-setup your QE executable path in the python script first then run, python3 convergence_test_si.py > convergence_test_si.out
-adjust the following under "Convergence Testing Setup" if needed
-ecutwfc_values = np.arange(20, 120, 5) - means 20 to 120 Ry cutoff values with 5 Ry intervals 
-kpoints_values = [(k,k,k) for k in range(2, 25)] means 2,2,2 3,3,3 ... etc k-points grid
-energy_tol = 0.01 - in meV/atom because ASE converts all energy to eV 
-further considerations for convergence tests (1) if stress and forces are reasonable, use tstress = .true. and tprnfor = .true. in SCF input parameters to calculate those (2) degauss if using Gaussian smearing
-TASK 2.1: use the converged ecutwfc and kpoints values and run a single SCF calculation like TASK 1, and calculate stress and forces 
----------------------------------------------------------------------------------------------
+Quantum ESPRESSO I/O basics
+
+The input file for PWscf is structured in a number of NAMELISTS and
+INPUT CARDS.
+&NAMELIST1 ... /
+&NAMELIST2 ... /
+&NAMELIST3 ... /
+INPUT_CARD1
+....
+....
+INPUT_CARD2
+....
+....
+
+NAMELISTS are read in a specific order
+NAMELISTS that are not required are ignored
+Logically independent INPUT_CARDS can be given in any order
+
+There are three mandatory NAMELISTS
+&CONTROL input variables that control the flux of the calculation and the amount of I/O on disk and on the screen.
+&SYSTEM input variables that specify the system under study.
+&ELECTRONS input variables that control the algorithms used to reach the self-consistent solution of KS equations for the electrons.
+	We will also need:
+&IONS needed when ATOMS MOVE! IGNORED otherwise !
+&CELL needed when CELL MOVES! IGNORED otherwise !
+
+There are three mandatory INPUT_CARDS
+ATOMIC_SPECIES name, mass and pseudopotential used for each atomic species present in the system
+ATOMIC_POSITIONS type and coordinates of each atom in the unit cell
+K_POINTS coordinates and weights of the k-points used for BZ integration
+	We will also need:
+CELL_PARAMETERS
+
+Details can be found here: https://www.quantum-espresso.org/Doc/INPUT_PW.html
