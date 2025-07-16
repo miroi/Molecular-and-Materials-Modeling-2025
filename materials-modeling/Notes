@@ -63,4 +63,6 @@ adjust the following under "Convergence Testing Setup" if needed
 ecutwfc_values = np.arange(20, 120, 5) - means 20 to 120 Ry cutoff values with 5 Ry intervals 
 kpoints_values = [(k,k,k) for k in range(2, 25)] means 2,2,2 3,3,3 ... etc k-points grid
 energy_tol = 0.01 - in meV/atom because ASE converts all energy to eV 
+further considerations for convergence tests (1) if stress and forces are reasonable, use tstress = .true. and tprnfor = .true. in SCF input parameters to calculate those (2) degauss if using Gaussian smearing
+TASK 2.1: use the converged ecutwfc and kpoints values and run a single SCF calculation like TASK 1, and calculate stress and forces 
 ---------------------------------------------------------------------------------------------
