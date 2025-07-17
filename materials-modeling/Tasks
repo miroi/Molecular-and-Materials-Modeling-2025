@@ -1,15 +1,34 @@
 ---------------------------------------------------------------------------------------------
-TASK 1: Calculate total energy of a Si primitive unitcell
-/path/to/qe/pw.x < Si.in > Si.out to run the job
-grep "JOB DONE."/ "convergence has been achieved" to check if converged successfully
-grep ! *.out to extract the total energy
+TASK 1: Calculate Total Energy using QE
+
+Step 1.1: Run the SCF Calculation
+Use the following command to run the calculation:
+/path/to/qe/bin/pw.x < Si.in > Si.out
+
+Step 1.2: Check Convergence
+Verify if the calculation converged successfully:
+grep "JOB DONE." Si.out       # Check for completion
+grep "convergence has been achieved" Si.out  # Check SCF convergence
+
+Step 1.3: Extract Total Energy
+To get the final total energy (in Ry):
+grep ! Si.out
+(Output example: !    total energy              =     -16.73649303 Ry)
 ---------------------------------------------------------------------------------------------
-TASK 2: Setup an automated cutoff and k-points convergence test for Si primitive unitcell using ASE
-setup your QE executable path in the python script first then run, python3 convergence_test_si.py > convergence_test_si.out
-adjust the following under "Convergence Testing Setup" if needed
-ecutwfc_values = np.arange(20, 120, 5) - means 20 to 120 Ry cutoff values with 5 Ry intervals 
-kpoints_values = [(k,k,k) for k in range(2, 25)] means 2,2,2 3,3,3 ... etc k-points grid
-energy_tol = 0.01 - in meV/atom because ASE converts all energy to eV 
-further considerations for convergence tests (1) if stress and forces are reasonable, use tstress = .true. and tprnfor = .true. in SCF input parameters to calculate those (2) degauss if using Gaussian smearing
-TASK 2.1: use the converged ecutwfc and kpoints values and run a single SCF calculation like TASK 1, and calculate stress and forces 
+TASK 2: Automated Cutoff and K-points Convergence Test Using ASE
+
+In convergence testing, we systematically increase two key parameters separately (not simultaneously): (1) Plane-wave cutoff energy (ecutwfc) (2) K-points grid density (K_POINTS). The goal is to find the point where the total energy stabilises (saturates) with respect to further changes in these parameters. It can be done manually by running multiple SCF calculations (as in TASK 1) and comparing energies at each step. However the current task uses a ASE python script (convergence_test_si.py) to automate the process. All necessary parameters are already pre-configured in the script, including: (1) QE SCF input parameters (2) Atomic structure of silicon (3) Convergence test logic. Only one modification is required: Replace the QE executable path with your local pw.x location in the script.
+
+The convergence script uses three key parameters to automate testing:
+(1) ecutwfc_values = np.arange(20, 120, 5)  # Tests cutoffs from 20 to 120 Ry in steps of 5 Ry. Determines the range of plane-wave cutoff energies to test.
+(2) kpoints_values = [(k,k,k) for k in range(2, 25)]  # Tests k-grids from (2×2×2) to (25×25×25). Purpose: Defines the k-point meshes to evaluate.
+(3) energy_tol = 0.01 # Sets the convergence threshold (0.01 meV/atom). The script stops when energy changes between steps are smaller than this tolerance.
+
+Adjust ranges (e.g., np.arange(20, 80, 10)), and higher tolerance (e.g. 0.05) for quicker testing.
+
+Step 2.1: Run the ASE job
+python3 convergence_test_si.py > convergence_test_si.out
+
+TASK 2.2: Further Considerations:
+Run a final QE SCF calculation with your converged ecutwfc and kpoints (similar to TASK 1), along with tstress = .true. and tprnfor = .true. in the input file (under &CONTROL) to compute stress and atomic forces. Verify the results by checking the output. For equilibrium structures stress should be less than ±50 kbar and forces should be near zero. How are your results?
 ---------------------------------------------------------------------------------------------

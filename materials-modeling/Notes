@@ -52,7 +52,7 @@ Si       0.0000000000     0.0000000000     0.0000000000
 
 Pseudo potential: scalar-relativistic optimised norm-conserving Vanderbilt pseudo potential file (Si.upf) can be downloaded from (https://www.pseudo-dojo.org/)
 ---------------------------------------------------------------------------------------------
-Quantum ESPRESSO I/O basics
+Quantum ESPRESSO basics
 
 The input file for PWscf is structured in a number of NAMELISTS and
 INPUT CARDS.
@@ -85,4 +85,12 @@ K_POINTS coordinates and weights of the k-points used for BZ integration
 	We will also need:
 CELL_PARAMETERS
 
-Details can be found here: https://www.quantum-espresso.org/Doc/INPUT_PW.html
+Details about input parameters can be found here: https://www.quantum-espresso.org/Doc/INPUT_PW.html
+---------------------------------------------------------------------------------------------
+The Atomic Simulation Environment (ASE) is a set of tools and Python modules for setting up, manipulating, running, visualizing and analyzing atomistic simulations.
+
+1) Can simplify complex multistep calculations
+2) Con combine outputs from multiple codes - e.g. combining DFT energy and forces from Quantum ESPRESSO and vdWenergy and forces from DFT-D4 in a single run
+3) Compatible with many codes
+
+
