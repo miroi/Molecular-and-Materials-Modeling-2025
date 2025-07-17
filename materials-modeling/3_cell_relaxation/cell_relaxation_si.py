@@ -105,7 +105,7 @@ try:
     # Get final results
     relaxed_atoms = ucf.atoms
     final_energy = relaxed_atoms.get_potential_energy()
-    forces = opt.atoms.get_forces()
+    forces = opt.atoms.get_forces() # Forces at convergence
     stress = relaxed_atoms.get_stress() #QE style
     
     # Analysis
