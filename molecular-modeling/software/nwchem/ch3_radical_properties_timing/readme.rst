@@ -30,8 +30,8 @@ Nthr    Wall
 NWChem 7.2.2 (Ubuntu 24.04.2)
 
 Nthr    Wall
-2
-4
-6
+2       11.5s
+4       7.5s
+6       7.7s
 
 
