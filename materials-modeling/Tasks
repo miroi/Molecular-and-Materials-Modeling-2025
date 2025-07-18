@@ -32,7 +32,7 @@ python3 convergence_test_si.py > convergence_test_si.out
 TASK 2.2: Further Considerations:
 Run a final QE SCF calculation with your converged ecutwfc and kpoints (similar to TASK 1), along with tstress = .true. and tprnfor = .true. in the input file (under &CONTROL) to compute stress and atomic forces and inspect the output.
 
-Note: When performing a series of calculations, ASE automatically overwrites the Quantum ESPRESSO output (.pwo) and input (.pwi) files after each step. How many different SCF calculations did ASE run to converge cutoff energy / K-points grid in this task? 
+Note: When performing a series of calculations, ASE automatically overwrites the Quantum ESPRESSO output (.pwo) and input (.pwi) files after each step. How many different SCF calculations did ASE run to converge cutoff energy / K-points grid in this task?
 ---------------------------------------------------------------------------------------------
 TASK 3: Cell relaxation (ASE+QE)
 
@@ -49,4 +49,4 @@ When using QE directly, the calculation type must be set to 'vc-relax', requirin
 Note: ASE automatically saves the complete relaxation history in the trajectory file (relaxation.traj). You can visualize the step-by-step structural evolution using ASE's GUI by loading this trajectory file. This allows you to track how the atomic positions and cell parameters change throughout the optimization process. To view it, simply run: ase gui relaxation.traj 
 This will display all relaxation steps interactively, showing the convergence toward the final optimized structure.
 ---------------------------------------------------------------------------------------------
-TASK 3: Electronic properties: 1 (ASE)
+TASK 4: Electronic properties: 1 (ASE)
