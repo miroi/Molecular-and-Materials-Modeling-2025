@@ -16,8 +16,8 @@ echo
 
 input=dipyridamole_PM7.mop
 
-#mopac $input
-command time -f "%e" mopac $input
+mopac $input
+#command time -f "%e" mopac $input
 
 echo -e "\n MOPAC run ends on \c"; date
 
