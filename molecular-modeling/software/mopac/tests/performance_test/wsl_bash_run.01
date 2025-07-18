@@ -1,0 +1,17 @@
+#!/bin/bash
+
+#export PATH=/opt/mopac/bin:$PATH
+export PATH=/home/milias/work/software/mopac/mopac-23.1.2-linux/bin:$PATH
+export LD_LIBRARY_PATH=/home/milias/work/software/mopac/mopac-23.1.2-linux/lib:$LD_LIBRARY_PATH
+
+echo -e "\n Running MOPAC 23.1.2 on server \"`hostname`\"  "
+
+which mopac; ldd `which mopac`
+echo
+
+input=dipyridamole_PM7.mop
+mopac $input
+
+echo -e "\n MOPAC run ends on \c"; date
+
+exit 0
