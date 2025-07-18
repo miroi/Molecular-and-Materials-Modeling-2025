@@ -8,6 +8,6 @@ only sdf file working for Avogadro2
 THREADS JobTime/s
 1
 2
-6
+6     28.77
 8
-12
+12    29.27
