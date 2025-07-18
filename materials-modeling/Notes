@@ -71,26 +71,28 @@ NAMELISTS that are not required are ignored
 Logically independent INPUT_CARDS can be given in any order
 
 There are three mandatory NAMELISTS
-&CONTROL input variables that control the flux of the calculation and the amount of I/O on disk and on the screen.
-&SYSTEM input variables that specify the system under study.
-&ELECTRONS input variables that control the algorithms used to reach the self-consistent solution of KS equations for the electrons.
-	We will also need:
-&IONS needed when ATOMS MOVE! IGNORED otherwise !
-&CELL needed when CELL MOVES! IGNORED otherwise !
+	&CONTROL input variables that control the flux of the calculation and the amount of I/O on disk and on the screen.
+	&SYSTEM input variables that specify the system under study.
+	&ELECTRONS input variables that control the algorithms used to reach the self-consistent solution of KS equations for the electrons.
+We will also need:
+	&IONS needed when ATOMS MOVE! IGNORED otherwise !
+	&CELL needed when CELL MOVES! IGNORED otherwise !
 
 There are three mandatory INPUT_CARDS
-ATOMIC_SPECIES name, mass and pseudopotential used for each atomic species present in the system
-ATOMIC_POSITIONS type and coordinates of each atom in the unit cell
-K_POINTS coordinates and weights of the k-points used for BZ integration
-	We will also need:
-CELL_PARAMETERS
+	ATOMIC_SPECIES name, mass and pseudopotential used for each atomic species present in the system
+	ATOMIC_POSITIONS type and coordinates of each atom in the unit cell
+	K_POINTS coordinates and weights of the k-points used for BZ integration
+We will also need:
+	CELL_PARAMETERS
 
 Details about input parameters can be found here: https://www.quantum-espresso.org/Doc/INPUT_PW.html
 ---------------------------------------------------------------------------------------------
-The Atomic Simulation Environment (ASE) is a set of tools and Python modules for setting up, manipulating, running, visualizing and analyzing atomistic simulations.
+The Atomic Simulation Environment (ASE) is a powerful Python toolkit designed for atomistic simulations, offering capabilities for setup, execution, analysis, and visualization. Its key advantages include:
 
-1) Can simplify complex multistep calculations
-2) Con combine outputs from multiple codes - e.g. combining DFT energy and forces from Quantum ESPRESSO and vdWenergy and forces from DFT-D4 in a single run
-3) Compatible with many codes
+	(1) Streamlining complex, multistep computational workflows
+	(2) Enabling hybrid calculations by combining outputs from different codes (e.g., using Quantum ESPRESSO for DFT energies/forces while incorporating DFT-D4 for van der Waals corrections)
+	(3) Supporting interoperability with numerous electronic structure codes and force fields
+
+The framework provides researchers with a unified interface for diverse simulation tasks while maintaining flexibility in method combinations.
 
 
