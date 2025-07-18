@@ -105,19 +105,23 @@ try:
     # Get final results
     relaxed_atoms = ucf.atoms
     final_energy = relaxed_atoms.get_potential_energy()
-    forces = opt.atoms.get_forces() # Forces at convergence
-    stress = relaxed_atoms.get_stress() #QE style
-    
+    forces = opt.atoms.get_forces() # From ASE relaxation steps
+    qe_style_forces = relaxed_atoms.get_forces() # From final SCF
+    stress = relaxed_atoms.get_stress()
+     
     # Analysis
     force_norms = np.linalg.norm(forces, axis=1)  # Euclidean norms
     max_force = np.max(force_norms)               # ASE-style max norm
-   
-    pressure = -np.sum(stress[:3]) * 1602.1766208 / 3  # eV/Å³ to kbar
+    max_qe_force = np.max(np.abs(qe_style_forces)) # Max component across all atoms/directions
+    pressure = -np.sum(stress[:3]) * 1602.1766208 / 3
+
+    # Print results
     print("\nFinal results", flush=True)    
-    print(f"  Total Energy: {final_energy:>12.6f} eV", flush=True)
-    print(f"  Maximum force (ASE norm):    {max_force:>8.6f} eV/Å")
-    print(f"  Pressure: {pressure:>8.6f} kbar", flush=True)
-    
+    print(f"  Total Energy              : {final_energy:>12.6f} eV", flush=True)
+    print(f"  ASE-style force (norm)    : {max_force:>8.6f} eV/Å")
+    print(f"  QE-style max force        : {max_qe_force:>8.6f} eV/Å")
+    print(f"  Pressure                  : {pressure:>8.6f} kbar", flush=True)
+
     # Save final structure
     write('final_relaxed_structure.vasp', relaxed_atoms, format='vasp', direct=False)
     print("\nFinal relaxed structure saved to: final_relaxed_structure.vasp", flush=True)

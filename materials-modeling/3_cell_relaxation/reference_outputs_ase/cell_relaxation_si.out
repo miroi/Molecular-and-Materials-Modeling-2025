@@ -2,9 +2,10 @@
 Starting cell relaxation by ASE
 
 Final results
-  Total Energy:  -230.280073 eV
-  Maximum force (ASE norm):    0.006689 eV/Å
-  Pressure: 0.528107 kbar
+  Total Energy              :  -230.280073 eV
+  ASE-style force (norm)    : 0.006689 eV/Å
+  QE-style max force        : 0.000000 eV/Å
+  Pressure                  : 0.528107 kbar
 
 Final relaxed structure saved to: final_relaxed_structure.vasp
 
