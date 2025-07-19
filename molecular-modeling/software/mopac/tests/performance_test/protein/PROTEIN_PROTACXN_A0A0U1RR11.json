@@ -1,0 +1,571 @@
+{
+  "Record": {
+    "RecordType": "Protein",
+    "RecordAccession": "A0A0U1RR11",
+    "RecordTitle": "Centromere protein V-like protein 1 (human)",
+    "RecordExternalURL": "https://www.ncbi.nlm.nih.gov/protein/A0A0U1RR11",
+    "Section": [
+      {
+        "TOCHeading": "Protein Information",
+        "Description": "General information about a protein",
+        "DisplayControls": {
+          "HideThisSection": true
+        },
+        "Section": [
+          {
+            "TOCHeading": "Taxonomy",
+            "Description": "Source organism of this protein.",
+            "DisplayControls": {
+              "MoveToTop": true
+            },
+            "Information": [
+              {
+                "ReferenceNumber": 1,
+                "URL": "https://pubchem.ncbi.nlm.nih.gov/taxonomy/9606",
+                "Value": {
+                  "StringWithMarkup": [
+                    {
+                      "String": "Homo sapiens (human)"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "TOCHeading": "Create Date",
+            "Description": "Date when this protein compound record was created. For more information on various dates for PubChem records, visit the PubChem Record Dates help page.",
+            "URL": "https://pubchem.ncbi.nlm.nih.gov/docs/record-dates",
+            "DisplayControls": {
+              "MoveToTop": true
+            },
+            "Information": [
+              {
+                "ReferenceNumber": 2,
+                "Value": {
+                  "DateISO8601": [
+                    "2017-04-15"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "TOCHeading": "Modify Date",
+            "Description": "Date when this protein record was last modified. For more information on various dates for PubChem records, visit the PubChem Record Dates help page.",
+            "URL": "https://pubchem.ncbi.nlm.nih.gov/docs/record-dates",
+            "DisplayControls": {
+              "MoveToTop": true
+            },
+            "Information": [
+              {
+                "ReferenceNumber": 2,
+                "Value": {
+                  "DateISO8601": [
+                    "2025-07-17"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "TOCHeading": "Record Description",
+            "Description": "Textual summary about this PubChem record",
+            "DisplayControls": {
+              "MoveToTop": true
+            },
+            "Information": [
+              {
+                "ReferenceNumber": 2,
+                "Value": {
+                  "StringWithMarkup": [
+                    {
+                      "String": "Please note that Centromere protein V-like protein 1 (human) does not have data or annotation in PubChem. However, annotations from external sources are available."
+                    }
+                  ]
+                }
+              },
+              {
+                "ReferenceNumber": 10,
+                "Value": {
+                  "StringWithMarkup": [
+                    {
+                      "String": "A protein that is a translation product of the CENPVL1 gene in human."
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "TOCHeading": "Names and Identifiers",
+        "Description": "Protein names, synonyms, and identifiers.",
+        "Section": [
+          {
+            "TOCHeading": "Synonyms",
+            "Description": "Alternative names and abbreviations for this protein.",
+            "DisplayControls": {
+              "ListType": "Columns"
+            },
+            "Information": [
+              {
+                "ReferenceNumber": 13,
+                "Value": {
+                  "StringWithMarkup": [
+                    {
+                      "String": "Centromere protein V-like protein 1"
+                    },
+                    {
+                      "String": "Centromere protein V pseudogene 1"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "TOCHeading": "Other Identifiers",
+            "Description": "Other identifiers assigned to this protein.",
+            "Section": [
+              {
+                "TOCHeading": "UniProt ID",
+                "Description": "Identifier for this protein assigned by UniProt, a popular resource containing protein sequence and functional information.",
+                "URL": "https://www.uniprot.org/",
+                "Information": [
+                  {
+                    "ReferenceNumber": 13,
+                    "URL": "https://www.uniprot.org/uniprot/A0A0U1RR11",
+                    "Value": {
+                      "StringWithMarkup": [
+                        {
+                          "String": "A0A0U1RR11"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "TOCHeading": "PRO ID",
+                "Description": "Identifier for this protein used in the Protein Ontology (PRO), which provides an ontological representation of protein-related entities by explicitly defining them and showing the relationships between them.",
+                "URL": "https://proconsortium.org/",
+                "Information": [
+                  {
+                    "ReferenceNumber": 10,
+                    "URL": "https://proconsortium.org/app/entry/PR:A0A0U1RR11",
+                    "Value": {
+                      "StringWithMarkup": [
+                        {
+                          "String": "PR:A0A0U1RR11"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "TOCHeading": "Pharos Target",
+                "Description": "Link to Pharos target",
+                "URL": "https://pharos.nih.gov/",
+                "Information": [
+                  {
+                    "ReferenceNumber": 9,
+                    "URL": "https://pharos.nih.gov/targets/A0A0U1RR11",
+                    "Value": {
+                      "StringWithMarkup": [
+                        {
+                          "String": "A0A0U1RR11"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "TOCHeading": "Open Targets ID",
+                "Description": "Open Targets identifier",
+                "URL": "https://www.opentargets.org/",
+                "Information": [
+                  {
+                    "ReferenceNumber": 7,
+                    "URL": "https://platform.opentargets.org/target/ENSG00000223591",
+                    "Value": {
+                      "StringWithMarkup": [
+                        {
+                          "String": "ENSG00000223591"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "TOCHeading": "STRING Protein ID",
+                "Description": "The protein identifier used by the STRING db",
+                "URL": "https://string-db.org/",
+                "Information": [
+                  {
+                    "ReferenceNumber": 11,
+                    "URL": "https://string-db.org/network/9606.ENSP00000489273",
+                    "Value": {
+                      "StringWithMarkup": [
+                        {
+                          "String": "9606.ENSP00000489273"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "TOCHeading": "HPA ID",
+                "Description": "The identifier used by the Human Protein Atlas (HPA)",
+                "URL": "https://www.proteinatlas.org/",
+                "Information": [
+                  {
+                    "ReferenceNumber": 3,
+                    "Value": {
+                      "StringWithMarkup": [
+                        {
+                          "String": "ENSG00000223591",
+                          "Markup": [
+                            {
+                              "Start": 0,
+                              "Length": 15,
+                              "URL": "https://www.proteinatlas.org/ENSG00000223591"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "TOCHeading": "InterPro Protein",
+                "Description": "The protein identifier used by the InterPro database",
+                "URL": "https://www.ebi.ac.uk/interpro/",
+                "Information": [
+                  {
+                    "ReferenceNumber": 4,
+                    "URL": "https://www.ebi.ac.uk/interpro/protein/reviewed/A0A0U1RR11",
+                    "Value": {
+                      "StringWithMarkup": [
+                        {
+                          "String": "A0A0U1RR11"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "TOCHeading": "Sequence",
+        "Description": "Sequence of this protein in the FASTA format.",
+        "URL": "https://www.ncbi.nlm.nih.gov/genbank/fastaformat/",
+        "Information": [
+          {
+            "ReferenceNumber": 6,
+            "Value": {
+              "StringWithMarkup": [
+                {
+                  "String": ">sp|A0A0U1RR11|CENL1_HUMAN Centromere protein V-like protein 1 (Run BLAST)",
+                  "Markup": [
+                    {
+                      "Start": 64,
+                      "Length": 9,
+                      "URL": "https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE=Proteins&PROGRAM=blastp&PAGE_TYPE=BlastSearch&DBSEARCH=true&QUERY=A0A0U1RR11"
+                    }
+                  ]
+                },
+                {
+                  "String": "MGRVRNRATAQRRRRKRPGDPPAACAAIAVTGASRAQCPRVQVGVGSHAAAKRWLGRWRRKRRWRRVRKAGPRDLLPSAPTPDPPGPAPSPKDLDLGAQRERWETFRKLRGLSCEGAAKVLLDTFEYPGLVHHTGGCHCGAVRFAVWAPADLRVVDCSCRLCRKKQHRHFLVPASRFTLLQGAESIVTYRSNTHPALHSFCSRCGVQSFHAAVSDPRVYGVAPHCLDEGTVRSVVIEEVGGGDPGEEAAEEHKAIHKTSSQSAPACPREQEQ"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "TOCHeading": "3D Structures",
+        "Description": "Experimental three-dimensional (3D) structures of a protein, determined through X-ray crystallography, NMR spectroscopy, etc.",
+        "Section": [
+          {
+            "TOCHeading": "AlphaFold Structures",
+            "Description": "Protein 3D structures, predicted by AlphaFold, an artificial intelligence (AI) system developed by DeepMind at Google. The image is generated by the iCn3D structure viewer developed at NCBI.",
+            "URL": "https://alphafold.ebi.ac.uk/",
+            "Information": [
+              {
+                "ReferenceNumber": 16,
+                "Reference": [
+                  "Highly accurate protein structure prediction with AlphaFold. Nature. 2021 Aug;596(7873):583-589. DOI:10.1038/s41586-021-03819-2. PMID:34265844; PMCID:PMC8371605"
+                ],
+                "Value": {
+                  "ExternalTableName": "alphafold"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "TOCHeading": "Domains",
+        "Description": "A protein domain is a region of a protein that can adopt a particular 3-D structure and usually performs a function.  Many proteins contain multiple domains, each of which is responsible for a particular function or interaction, contributing to the overall role of a protein.",
+        "Section": [
+          {
+            "TOCHeading": "CDD Domains",
+            "Description": "Protein domain annotation from the NCBI Conserved Domain Database (CDD)",
+            "URL": "https://www.ncbi.nlm.nih.gov/cdd/",
+            "DisplayControls": {
+              "ListType": "Bulleted"
+            },
+            "Information": [
+              {
+                "ReferenceNumber": 5,
+                "Value": {
+                  "StringWithMarkup": [
+                    {
+                      "String": "Uncharacterized conserved protein [Function unknown]",
+                      "Markup": [
+                        {
+                          "Start": 0,
+                          "Length": 52,
+                          "URL": "https://www.ncbi.nlm.nih.gov/Structure/cdd/cddsrv.cgi?uid=443005"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "TOCHeading": "InterPro Domains",
+            "Description": "Protein domain annotation from the InterPro database",
+            "URL": "https://www.ebi.ac.uk/interpro/",
+            "DisplayControls": {
+              "ListType": "Bulleted"
+            },
+            "Information": [
+              {
+                "ReferenceNumber": 4,
+                "Value": {
+                  "StringWithMarkup": [
+                    {
+                      "String": "CENP-V/GFA domain",
+                      "Markup": [
+                        {
+                          "Start": 0,
+                          "Length": 17,
+                          "URL": "https://www.ebi.ac.uk/interpro/entry/InterPro/IPR006913/"
+                        }
+                      ]
+                    },
+                    {
+                      "String": "Mss4-like superfamily",
+                      "Markup": [
+                        {
+                          "Start": 0,
+                          "Length": 21,
+                          "URL": "https://www.ebi.ac.uk/interpro/entry/InterPro/IPR011057/"
+                        }
+                      ]
+                    },
+                    {
+                      "String": "Centromere protein V-like",
+                      "Markup": [
+                        {
+                          "Start": 0,
+                          "Length": 25,
+                          "URL": "https://www.ebi.ac.uk/interpro/entry/InterPro/IPR052355/"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "TOCHeading": "Interactions and Pathways",
+        "Description": "Interactions and pathways that involve this protein",
+        "Section": [
+          {
+            "TOCHeading": "Interactions",
+            "Description": "Molecular interactions in which this protein is involved",
+            "Information": [
+              {
+                "ReferenceNumber": 11,
+                "Value": {
+                  "ExternalTableName": "collection=consolidatedtargetinteraction&view=concise_protein"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "TOCHeading": "Target Development Level",
+        "Description": "The Target Development Level (TDL) is computed based on the degree to which the targets are studied, as evidenced by publications, tool compounds, and other features. TDL is one of four potential values: Tclin, Tchem, Tbio or Tdark. Tclin are protein drug targets via which approved drugs act; Tchem are proteins that are not Tclin, but are known to bind small molecules with high potency; Tbio includes proteins that have Gene Ontology 'leaf' (lowest level) term annotations based on experimental evidence, or meet two of the following three conditions: A fractional publication count above 5, three or more Gene RIF annotations, or 50 or more commercial antibodies; Tdark includes human proteins that were manually curated at the primary sequence level in UniProt, but do not meet any of the Tclin, Tchem or Tbio criteria.",
+        "URL": "https://pharos.nih.gov/",
+        "Information": [
+          {
+            "ReferenceNumber": 9,
+            "URL": "https://pharos.nih.gov/targets/A0A0U1RR11#development",
+            "Value": {
+              "StringWithMarkup": [
+                {
+                  "String": "Tdark"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "TOCHeading": "Literature",
+        "Description": "Scientific articles associated with this protein.  Some protein-literature associations in this section are provided by bioassay data contributors, while others are from curated resources, including DrugBank, and IUPHAR/BPS Guide to PHARMACOLOGY, and UniProt.",
+        "Section": [
+          {
+            "TOCHeading": "Consolidated References",
+            "Description": "The consolidated references include literature data from all sources including depositors of PubChem BioAssays, UniProt, Comparative Toxicogenomics Database (CTD), etc.",
+            "URL": "https://pubchem.ncbi.nlm.nih.gov/docs/literature",
+            "Information": [
+              {
+                "ReferenceNumber": 2,
+                "Value": {
+                  "ExternalTableName": "literature"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "Reference": [
+      {
+        "ReferenceNumber": 1,
+        "SourceName": "NCBI Protein",
+        "SourceID": "A0A0U1RR11",
+        "Description": "NCBI Protein is a collection of sequences from several sources, including translations from annotated coding regions in GenBank, RefSeq and TPA, as well as records from SwissProt, PIR, PRF, and PDB. Protein sequences are the fundamental determinants of biological structure and function",
+        "URL": "https://www.ncbi.nlm.nih.gov/protein/A0A0U1RR11",
+        "LicenseNote": "NCBI Website and Data Usage Policies and Disclaimers",
+        "LicenseURL": "https://www.ncbi.nlm.nih.gov/home/about/policies/"
+      },
+      {
+        "ReferenceNumber": 2,
+        "SourceName": "PubChem",
+        "SourceID": "PubChem",
+        "Description": "Data deposited in or computed by PubChem",
+        "URL": "https://pubchem.ncbi.nlm.nih.gov"
+      },
+      {
+        "ReferenceNumber": 3,
+        "SourceName": "Human Protein Atlas (HPA)",
+        "SourceID": "Protein::ENSG00000223591",
+        "Description": "The Human Protein Atlas (HPA) is a Swedish-based program initiated in 2003 with the aim to map all the human proteins in cells, tissues, and organs using an integration of various omics technologies, including antibody-based imaging, mass spectrometry-based proteomics, transcriptomics, and systems biology.",
+        "URL": "https://www.proteinatlas.org/ENSG00000223591",
+        "LicenseNote": "The Human Protein Atlas is licensed under the Creative Commons Attribution-ShareAlike 3.0 International License for all copyrightable parts of our database.",
+        "LicenseURL": "https://www.proteinatlas.org/about/licence",
+        "ANID": 35411789
+      },
+      {
+        "ReferenceNumber": 4,
+        "SourceName": "InterPro",
+        "SourceID": "Protein::A0A0U1RR11",
+        "Description": "InterPro is a resource that provides functional analysis of protein sequences by classifying them into families and predicting the presence of domains and important sites.",
+        "URL": "https://www.ebi.ac.uk/interpro/protein/reviewed/A0A0U1RR11",
+        "LicenseNote": "All of the InterPro, Pfam, PRINTS and SFLD downloadable data provided on the InterPro website is freely available under CC0 1.0 Universal (CC0 1.0) Public Domain Dedication.",
+        "LicenseURL": "https://www.ebi.ac.uk/interpro/about/license/",
+        "ANID": 35471817
+      },
+      {
+        "ReferenceNumber": 5,
+        "SourceName": "NCBI Conserved Domains (CDD)",
+        "SourceID": "A0A0U1RR11",
+        "Description": "The NCBI Conserved Domain Database is a resource for the annotation of functional units in proteins. Its collection of domain models includes a set curated by NCBI, which utilizes 3D structure to provide insights into sequence/structure/function relationships.",
+        "URL": "https://www.ncbi.nlm.nih.gov/Structure/cdd/wrpsb.cgi?SEQUENCE=A0A0U1RR11",
+        "LicenseNote": "NCBI Website and Data Usage Policies and Disclaimers",
+        "LicenseURL": "https://www.ncbi.nlm.nih.gov/home/about/policies/",
+        "ANID": 15355298
+      },
+      {
+        "ReferenceNumber": 6,
+        "SourceName": "NCBI Protein",
+        "SourceID": "A0A0U1RR11",
+        "Description": "NCBI Protein is a collection of sequences from several sources, including translations from annotated coding regions in GenBank, RefSeq and TPA, as well as records from SwissProt, PIR, PRF, and PDB. Protein sequences are the fundamental determinants of biological structure and function",
+        "URL": "https://www.ncbi.nlm.nih.gov/protein/A0A0U1RR11",
+        "LicenseNote": "NCBI Website and Data Usage Policies and Disclaimers",
+        "LicenseURL": "https://www.ncbi.nlm.nih.gov/home/about/policies/",
+        "ANID": 5873695
+      },
+      {
+        "ReferenceNumber": 7,
+        "SourceName": "Open Targets",
+        "SourceID": "Protein::ENSG00000223591",
+        "Name": "centromere protein V like 1",
+        "Description": "The Open Targets Platform is a comprehensive tool that supports systematic identification and prioritisation of potential therapeutic drug targets.",
+        "URL": "https://platform.opentargets.org/target/ENSG00000223591",
+        "LicenseNote": "Datasets generated by the Open Targets Platform are freely available for download.",
+        "LicenseURL": "https://platform-docs.opentargets.org/licence",
+        "ANID": 24376330
+      },
+      {
+        "ReferenceNumber": 9,
+        "SourceName": "Pharos",
+        "SourceID": "Protein::A0A0U1RR11",
+        "Name": "Centromere protein V-like protein 1",
+        "Description": "Pharos gives access to a comprehensive, integrated knowledge-base for the Druggable Genome (DG) to illuminate the uncharacterized and/or poorly annotated portion of the DG, focusing on three of the most commonly drug-targeted protein families: G-protein-coupled receptors (GPCRs), Ion channels (ICs) and Kinases. It is the user interface to the Knowledge Management Center (KMC) for the Illuminating the Druggable Genome (IDG) program.",
+        "URL": "https://pharos.nih.gov/targets/A0A0U1RR11",
+        "LicenseNote": "Data accessed from Pharos and TCRD is publicly available from the primary sources listed above. Please respect their individual licenses regarding proper use and redistribution.",
+        "LicenseURL": "https://pharos.nih.gov/about",
+        "ANID": 24745172
+      },
+      {
+        "ReferenceNumber": 10,
+        "SourceName": "Protein Ontology",
+        "SourceID": "PR:A0A0U1RR11::Protein",
+        "Description": "Protein Ontology (PRO) provides an ontological representation of protein-related entities by explicitly defining them and showing the relationships between them",
+        "URL": "https://proconsortium.org/app/entry/PR:A0A0U1RR11",
+        "LicenseNote": "PRO is distributed under the Creative Commons CC-BY 4.0 license (https://creativecommons.org/licenses/by/4.0/).",
+        "ANID": 8552545
+      },
+      {
+        "ReferenceNumber": 11,
+        "SourceName": "STRING: functional protein association networks",
+        "SourceID": "Protein::9606.ENSP00000489273",
+        "Description": "STRING is a database of known and predicted protein-protein interactions. The interactions include direct (physical) and indirect (functional) associations; they stem from computational prediction, from knowledge transfer between organisms, and from interactions aggregated from other (primary) databases.",
+        "URL": "https://string-db.org/network/9606.ENSP00000489273",
+        "LicenseNote": "Creative Commons BY 4.0",
+        "LicenseURL": "https://string-db.org/cgi/access?footer_active_subpage=licensing",
+        "ANID": 45576791
+      },
+      {
+        "ReferenceNumber": 13,
+        "SourceName": "UniProt",
+        "SourceID": "A0A0U1RR11::Protein",
+        "Description": "The mission of UniProt is to provide the scientific community with a comprehensive, high-quality and freely accessible resource of protein sequence and functional information.",
+        "URL": "https://www.uniprot.org/uniprot/A0A0U1RR11",
+        "LicenseNote": "We have chosen to apply the Creative Commons Attribution (CC BY 4.0, http://creativecommons.org/licenses/by/4.0/) License to all copyrightable parts of our databases.",
+        "LicenseURL": "https://www.uniprot.org/help/license",
+        "ANID": 6530160
+      },
+      {
+        "ReferenceNumber": 16,
+        "SourceName": "AlphaFold DB",
+        "SourceID": "A0A0U1RR11",
+        "Description": "The AlphaFold Protein Structure Database provides open access to protein structure predictions for the human proteome and 20 other key organisms to accelerate scientific research.",
+        "LicenseNote": "All of the data provided is freely available for both academic and commercial use under Creative Commons Attribution 4.0 (CC-BY 4.0) licence terms.",
+        "LicenseURL": "https://alphafold.ebi.ac.uk/faq"
+      }
+    ]
+  }
+}
