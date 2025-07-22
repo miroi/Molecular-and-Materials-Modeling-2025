@@ -50,13 +50,14 @@ Reminder: When performing a series of calculations, ASE automatically overwrites
 Note: ASE automatically saves the complete relaxation history in the trajectory file (relaxation.traj). You can visualize the step-by-step structural evolution using ASE's GUI by loading this trajectory file. To view it, simply run: ase gui relaxation.traj 
 ---------------------------------------------------------------------------------------------
 TASK 4: Electronic properties: A (ASE)
-In this task we will so a SCF calculation then extract the following (1) 3D charge density plot using post-processing tool pp.x (2) Total DOS using post-processing tool dos.x (3) Projected DOS and Löwdin partial charge analysis using post-processing tool projwfc.x. 
+In this task we will do a SCF calculation then extract the following (1) 3D charge density plot using post-processing tool pp.x (2) Total DOS using post-processing tool dos.x (3) Projected DOS and Löwdin partial charge analysis using post-processing tool projwfc.x. 
 Similar to QE input files, each of the post processing tools have their own input formats (see the accompined notes). We will simplify the workflow using ASE. First copy the relaxed atomic structure obtained in the previous step to the ASE script electronic_a_si.py, and replace the QE executable path with your local pw.x location.   
 
 Step 4.1: 
 python3 electronic_a_si.py > electronic_a_si.out
 
-Inspect electronic_a_si.out to verify all steps have completed successfully. Open the generated charge_density.cube file in VESTA to visualize the 3D electron density. For the total density of states (TDOS), plot the first two columns (E (eV) and dos(E)) from total_dos.dat using any plotting tool (e.g., Grace, matplotlib), then shift the x-axis by subtracting the Fermi energy (found in the QE output, grep Fermi *.pwo) to align the Fermi energy to 0 eV (in Grace: Data > Transformation > Evaluate Expression: x=x-<Fermi Energy>). Repeat this process for the projected DOS (PDOS) by plotting the first two columns from the first Si atom's s and p orbital files, again offsetting by Fermi energy. Finally, examine lowdin.out and check the computed Löwdin partial charges for each Si atom. 
+Inspect electronic_a_si.out to verify all steps have completed successfully. Also inspect the individual pp, dos and projwfc input and and output files. 
+Open the generated charge_density.cube file in VESTA to visualize the 3D electron density. For the total density of states (TDOS), plot the first two columns (E (eV) and dos(E)) from total_dos.dat using any plotting tool (e.g., Grace, matplotlib), then shift the x-axis by subtracting the Fermi energy (found in the QE output, grep Fermi *.pwo) to align the Fermi energy to 0 eV (in Grace: Data > Transformation > Evaluate Expression: x=x-<Fermi Energy>). Repeat this process for the projected DOS (PDOS) by plotting the first two columns from the first Si atom's s and p orbital files, again offsetting by Fermi energy. Finally, examine lowdin.out and check the computed Löwdin partial charges for each Si atom. 
 Compare your computed DOS with silicon's experimental band gap- does your simulation show a clear gap between the valence and conduction bands? Why? Why not?
 ---------------------------------------------------------------------------------------------
 TASK 5: Electronic properties: B (ASE)
