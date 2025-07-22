@@ -28,10 +28,10 @@ Adjust ranges (e.g., np.arange(20, 80, 10)), and higher tolerance (e.g. 0.05) fo
 Step 2.1: Run the ASE job
 python3 convergence_test_si.py > convergence_test_si.out
 
-TASK 2.2: Further Considerations:
-Run a final QE SCF calculation with your converged ecutwfc and kpoints (similar to TASK 1), along with tstress = .true. and tprnfor = .true. in the input file (under &CONTROL) to compute stress and atomic forces and inspect the output.
-
 Note: When performing a series of calculations, ASE automatically overwrites the Quantum ESPRESSO output (.pwo) and input (.pwi) files after each step. How many different SCF calculations did ASE run to converge cutoff energy / K-points grid in this task?
+
+TASK 2.2: Run a final QE SCF calculation with your converged ecutwfc and kpoints (similar to TASK 1), along with tstress = .true. and tprnfor = .true. in the input file (under &CONTROL) to compute stress and atomic forces and inspect the output.
+/path/to/qebin/pw.x < Si_force_stress.in > Si_force_stress.out
 ---------------------------------------------------------------------------------------------
 TASK 3: Cell relaxation (ASE+QE)
 
@@ -43,8 +43,21 @@ Step 3.1: Direct QE
 Step 3.2: ASE
 ASE: python3 cell_relaxation_si.py > cell_relaxation_si.out (Replace the QE executable path with your local pw.x location in the script)
 
-When using QE directly, the calculation type must be set to 'vc-relax', requiring both the &IONS and &CELL NAMELISTs in the input file. QE's relaxation convergence is controlled by thresholds like etot_conv_thr and forc_conv_thr in the &CONTROL NAMELIST, which default to specific values if not specified (in this example we did not, so check the pw.x manual what those values are. ASE, on the other hand, employs QE as a calculator to perform a series of SCF calculations, using the calculated energies and forces to optimize the structure through its own BFGS implementation. While both methods utilize the BFGS algorithm, slight differences may appear in the final structures due to variations in their implementations (such as minimizing max force vs norm) and different threshold values. After completing both relaxations, carefully compare the resulting forces, pressure, energy, lattice parameters, and atomic coordinates in both runs. For a properly relaxed structure, the stress should remain within ±50 kbar and forces should be negligible, how are your results?
+When using QE directly, the calculation type must be set to 'vc-relax', requiring both the &IONS and &CELL NAMELISTs in the input file. QE's relaxation convergence is controlled by thresholds like etot_conv_thr and forc_conv_thr in the &CONTROL NAMELIST, which default to specific values if not specified (in this example we did not, so check the pw.x manual what those values are and if they are same or different for both jobs). In direct QE relxations, the final co-ordinates are after "Begin final coordinates" line in the output. 
+ASE, on the other hand, employs QE as a calculator to perform a series of SCF calculations, using the calculated energies and forces to optimize the structure through its own BFGS implementation. While both methods utilize the BFGS algorithm, slight differences may appear in the final structures due to variations in their implementations (such as minimizing max force vs norm) and different threshold values. After completing both relaxations, carefully compare the resulting forces, pressure, energy, lattice parameters, and atomic coordinates in both jobs. For a well-relaxed structure, the stress should remain within ±50 kbar and forces should be negligible, how are your results?
 
-Note: ASE automatically saves the complete relaxation history in the trajectory file (relaxation.traj). You can visualize the step-by-step structural evolution using ASE's GUI by loading this trajectory file. This allows you to track how the atomic positions and cell parameters change throughout the optimization process. To view it, simply run: ase gui relaxation.traj 
+Reminder: When performing a series of calculations, ASE automatically overwrites the Quantum ESPRESSO output (.pwo) and input (.pwi) files after each step.
+Note: ASE automatically saves the complete relaxation history in the trajectory file (relaxation.traj). You can visualize the step-by-step structural evolution using ASE's GUI by loading this trajectory file. To view it, simply run: ase gui relaxation.traj 
 ---------------------------------------------------------------------------------------------
 TASK 4: Electronic properties: A (ASE)
+In this task we will so a SCF calculation then extract the following (1) 3D charge density plot using post-processing tool pp.x (2) Total DOS using post-processing tool dos.x () Projected DOS and Löwdin partial charge analysis using post-processing projwfc.x. Similar to QE input files, each of the post processing tools its own input format (see the accompined notes). We will simplify the workflow using ASE.
+
+Step 4.1: 
+python3 electronic_a_si.py > electronic_a_si.out (Replace the QE executable path with your local pw.x location in the script)
+
+First, inspect electronic_a_si.out to verify all calculations completed successfully. Open the generated charge_density.cube file in VESTA to visualize the 3D electron density. For the total density of states (TDOS), plot the first two columns (E (eV) and dos(E)) from total_dos.dat using any plotting tool (e.g., Grace, matplotlib), then shift the x-axis by subtracting the Fermi energy (found in the QE output, grep Fermi *.pwo) to align the Fermi energy to 0 eV (in Grace: Data > Transformation > Evaluate Expression: x=x-<Fermi Energy>). Repeat this process for the projected DOS (PDOS) by plotting the first two columns from the Si atom's s and p orbital files, again offsetting by Fermi energy. Finally, examine lowdin.out to analyze the Löwdin partial charges for each Si atom. 
+Compare your computed DOS with silicon's experimental band gap- does your simulation show a clear gap between the valence and conduction bands? 
+---------------------------------------------------------------------------------------------
+TASK 5: Electronic properties: B (ASE)
+
+ 

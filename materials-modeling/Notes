@@ -85,7 +85,11 @@ There are three mandatory INPUT_CARDS
 We will also need:
 	CELL_PARAMETERS
 
-Details about input parameters can be found here: https://www.quantum-espresso.org/Doc/INPUT_PW.html
+Details about input parameters can be found here: 
+https://www.quantum-espresso.org/Doc/INPUT_PW.html
+https://www.quantum-espresso.org/Doc/INPUT_PP.html
+https://www.quantum-espresso.org/Doc/INPUT_DOS.html
+https://www.quantum-espresso.org/Doc/INPUT_PROJWFC.html
 ---------------------------------------------------------------------------------------------
 The Atomic Simulation Environment (ASE) is a powerful Python toolkit designed for atomistic simulations, offering capabilities for setup, execution, analysis, and visualization. Its key advantages include:
 
