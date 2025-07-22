@@ -50,7 +50,8 @@ Reminder: When performing a series of calculations, ASE automatically overwrites
 Note: ASE automatically saves the complete relaxation history in the trajectory file (relaxation.traj). You can visualize the step-by-step structural evolution using ASE's GUI by loading this trajectory file. To view it, simply run: ase gui relaxation.traj 
 ---------------------------------------------------------------------------------------------
 TASK 4: Electronic properties: A (ASE)
-In this task we will so a SCF calculation then extract the following (1) 3D charge density plot using post-processing tool pp.x (2) Total DOS using post-processing tool dos.x () Projected DOS and Löwdin partial charge analysis using post-processing projwfc.x. Similar to QE input files, each of the post processing tools its own input format (see the accompined notes). We will simplify the workflow using ASE.
+In this task we will so a SCF calculation then extract the following (1) 3D charge density plot using post-processing tool pp.x (2) Total DOS using post-processing tool dos.x (3) Projected DOS and Löwdin partial charge analysis using post-processing projwfc.x. 
+Similar to QE input files, each of the post processing tools its own input format (see the accompined notes). We will simplify the workflow using ASE.
 
 Step 4.1: 
 python3 electronic_a_si.py > electronic_a_si.out (Replace the QE executable path with your local pw.x location in the script)
