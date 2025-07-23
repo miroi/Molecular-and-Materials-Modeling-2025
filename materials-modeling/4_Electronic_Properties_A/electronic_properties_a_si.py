@@ -141,7 +141,7 @@ with open('pp.in', 'w') as f:
 run_qe_tool(pp_command, 'pp.in', 'pp.x')
 
 # 6.2. Run projwfc.x on SCF results 
-print("\n2. Running projwfc.x on SCF results...", flush=True)
+print("\n2. Running projwfc.x on SCF...", flush=True)
 with open('projwfc.in', 'w') as f:
     f.write(f"""&PROJWFC
     prefix = '{base_input_data['control']['prefix']}',
@@ -158,7 +158,7 @@ with open('projwfc.in', 'w') as f:
 run_qe_tool(projwfc_command, 'projwfc.in', 'projwfc.x')
 
 # 6.3. Löwdin population analysis 
-print("\n3. Extracting Löwdin charges from projwfc.out (SCF)...", flush=True)
+print("\n3. Extracting Löwdin charges from SCF (projwfc.out)...", flush=True)
 lowdin_file = 'lowdin.out'
 spilling = None
 
@@ -269,7 +269,7 @@ with open('projwfc.in', 'w') as f:
 run_qe_tool(projwfc_command, 'projwfc.in', 'projwfc.x')
 
 # 9.3. Organize and process PDOS files
-print("\n6. Organizing and processing PDOS files from NSCF...", flush=True)
+print("\n6. Organizing PDOS files from NSCF...", flush=True)
 os.makedirs('pdos_results', exist_ok=True)
 for fname in os.listdir('.'):
     if fname.startswith('pdos.') or fname.startswith('projections'):
