@@ -99,8 +99,13 @@ The Atomic Simulation Environment (ASE) is a powerful Python toolkit designed fo
 
 The framework provides researchers with a unified interface for diverse simulation tasks while maintaining flexibility in method combinations.
 ---------------------------------------------------------------------------------------------
-Optional softwares:
+Optional:
+
 Grace (https://sourceforge.net/projects/qtgrace/)
 VESTA (https://jp-minerals.org/vesta/en/download.html)
+
 pip install seekpath
 
+postscript:
+sudo apt install gv
+gs -sDEVICE=jpeg -sOutputFile=b.jpg < *.ps
