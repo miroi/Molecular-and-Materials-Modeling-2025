@@ -46,7 +46,7 @@ ASE: python3 cell_relaxation_si.py > cell_relaxation_si.out (Replace the QE exec
 When using QE directly, the calculation type must be set to 'vc-relax', requiring both the &IONS and &CELL NAMELISTs in the input file. QE's relaxation convergence is controlled by thresholds like etot_conv_thr and forc_conv_thr in the &CONTROL NAMELIST, which default to specific values if not specified (in this example we did not, so check the pw.x manual what those values are and if they are same or different for both jobs). In direct QE relxations, the final co-ordinates are after "Begin final coordinates" line in the output. 
 ASE, on the other hand, employs QE as a calculator to perform a series of SCF calculations, using the calculated energies and forces to optimize the structure through its own BFGS implementation. While both methods utilize the BFGS algorithm, slight differences may appear in the final structures due to variations in their implementations (such as minimizing max force vs norm) and different threshold values. After completing both relaxations, carefully compare the resulting forces, pressure, energy, lattice parameters, and atomic coordinates in both jobs. For a well-relaxed structure, the stress should remain within ±50 kbar and forces should be negligible, how are your results?
 
-Reminder: When performing a series of calculations, ASE automatically overwrites the Quantum ESPRESSO output (.pwo) and input (.pwi) files after each step.
+Note: When performing a series of calculations, ASE automatically overwrites the Quantum ESPRESSO output (.pwo) and input (.pwi) files after each step.
 Note: ASE automatically saves the complete relaxation history in the trajectory file (relaxation.traj). You can visualize the step-by-step structural evolution using ASE's GUI by loading this trajectory file. To view it, simply run: ase gui relaxation.traj 
 ---------------------------------------------------------------------------------------------
 TASK 4: Electronic properties: A (ASE)
@@ -63,24 +63,17 @@ Compare your computed DOS with silicon's experimental band gap- does your match?
 ---------------------------------------------------------------------------------------------
 TASK 5: Electronic properties: B (ASE)
 
-n this task, we'll  automate band structure calculation using ASE. We will start with the relaxed structure from final_relaxed_structure.vasp (Task 3, ASE)and use seekpath (either online, (https://seekpath.materialscloud.io/ or installed) to generate a high-symmetry k-point path through the Brillouin zone, symmetrizing the structure. Visualize the path and note the high-symmetry labels and scaled coordinates, the copy the symmetrized cell (under Quantum ESPRESSO pw.x input) into the ASE script electronic_properties_b_si.py. Finally copy the seekpath generated list of k-point path into a file, and convert it to ASE format using:
+In this task, we'll  automate band structure calculation using ASE. We will start with the final_relaxed_structure.vasp (from Task 3, ASE)and use seekpath (either online, (https://seekpath.materialscloud.io/ or locally installed) to symmetrize the structure and generate a high-symmetry k-point path through the Brillouin zone. First visualize the path and note the high-symmetry points, then copy the symmetrized cell (under Quantum ESPRESSO pw.x input) into the ASE script electronic_properties_b_si.py. Finally copy the seekpath generated list of k-point path into a file, and convert it to ASE format using:
 awk '{printf("    [%s, %s, %s, %s],\n", $1, $2, $3, $4)}' kp > kp_parsed  
-The workflow consists of an SCF calculation, followed by an NSCF (bands) calculation (set via calculation = 'bands' in &CONTROL, matching outdir/prefix to read the SCF charge density); then post-processing with bands.x and plotband.x. While ASE automates the execution sequence, each post-processing tool requires specific inputs similar to DOS calculations. plotband.x is optional (since bands.dat.gnu can be plotted directly (e.g., with Grace)), but it automatically marks the high-symmetry points and Fermi level in the final image. In the provided example, the plot is along the path
-
-Γ	0.0000000000	0.0000000000	0.0000000000
-K	0.3750000000	0.3750000000	0.7500000000
-L	0.5000000000	0.5000000000	0.5000000000
-U	0.6250000000	0.2500000000	0.6250000000
-W	0.5000000000	0.2500000000	0.7500000000
-W2	0.7500000000	0.2500000000	0.5000000000
-X	0.5000000000	0.0000000000	0.5000000000
-
+and copy it into the script. The workflow consists of an SCF calculation, followed by an NSCF (bands) calculation (set via calculation = 'bands' in &CONTROL, matching outdir/prefix to read the SCF charge density); then post-processing with bands.x and plotband.x. plotband.x is optional (since bands.dat.gnu can be plotted directly (e.g., with Grace)), but it automatically marks the high-symmetry points and Fermi level in the final image. While ASE automates the execution sequence, each post-processing tool requires specific inputs similar to DOS calculations. In the provided example, the plot is along the path Γ-K-L-U-W-W2-X. 
 
 Step 5.1: 
 python3 electronic_properties_b_si.py > electronic_properties_b_si.out
+(update the Quantum ESPRESSO executable path to your local pw.x location.)
 
 Inspect electronic_b_si.out to verify all steps have completed successfully., then analyze the individual bands and review the plotband input/output files. Finally, compare your computed band structure with silicon’s experimental results.
 
 Note: NSCF (bands) calculation does not print Fermi level, so Fermi level has to be taken from the preceding SCF step. In the job script, ASE automatically handles it.
+Note: Install ghostscript (check the accompanied notes), if you want the script to convert the plotband.x generated postscript file to jpg, other wise comment out the relevant line. 
 ---------------------------------------------------------------------------------------------
  
