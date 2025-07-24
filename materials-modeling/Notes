@@ -90,6 +90,7 @@ https://www.quantum-espresso.org/Doc/INPUT_PW.html
 https://www.quantum-espresso.org/Doc/INPUT_PP.html
 https://www.quantum-espresso.org/Doc/INPUT_DOS.html
 https://www.quantum-espresso.org/Doc/INPUT_PROJWFC.html
+https://www.quantum-espresso.org/Doc/INPUT_BANDS.html
 ---------------------------------------------------------------------------------------------
 The Atomic Simulation Environment (ASE) is a powerful Python toolkit designed for atomistic simulations, offering capabilities for setup, execution, analysis, and visualization. Its key advantages include:
 
