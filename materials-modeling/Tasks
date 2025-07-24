@@ -65,7 +65,16 @@ TASK 5: Electronic properties: B (ASE)
 
 n this task, we'll  automate band structure calculation using ASE. We will start with the relaxed structure from final_relaxed_structure.vasp (Task 3, ASE)and use seekpath (either online, (https://seekpath.materialscloud.io/ or installed) to generate a high-symmetry k-point path through the Brillouin zone, symmetrizing the structure. Visualize the path and note the high-symmetry labels and scaled coordinates, the copy the symmetrized cell (under Quantum ESPRESSO pw.x input) into the ASE script electronic_properties_b_si.py. Finally copy the seekpath generated list of k-point path into a file, and convert it to ASE format using:
 awk '{printf("    [%s, %s, %s, %s],\n", $1, $2, $3, $4)}' kp > kp_parsed  
-The workflow consists of an SCF calculation, followed by an NSCF (bands) calculation (set via calculation = 'bands' in &CONTROL, matching outdir/prefix to read the SCF charge density); then post-processing with bands.x and plotband.x. While ASE automates the execution sequence, each post-processing tool requires specific inputs similar to DOS calculations. plotband.x is optional (since bands.dat.gnu can be plotted directly (e.g., with Grace)), but it automatically marks the high-symmetry points and Fermi level in the final image.
+The workflow consists of an SCF calculation, followed by an NSCF (bands) calculation (set via calculation = 'bands' in &CONTROL, matching outdir/prefix to read the SCF charge density); then post-processing with bands.x and plotband.x. While ASE automates the execution sequence, each post-processing tool requires specific inputs similar to DOS calculations. plotband.x is optional (since bands.dat.gnu can be plotted directly (e.g., with Grace)), but it automatically marks the high-symmetry points and Fermi level in the final image. In the provided example, the plot is along the path
+
+Γ	0.0000000000	0.0000000000	0.0000000000
+K	0.3750000000	0.3750000000	0.7500000000
+L	0.5000000000	0.5000000000	0.5000000000
+U	0.6250000000	0.2500000000	0.6250000000
+W	0.5000000000	0.2500000000	0.7500000000
+W2	0.7500000000	0.2500000000	0.5000000000
+X	0.5000000000	0.0000000000	0.5000000000
+
 
 Step 5.1: 
 python3 electronic_properties_b_si.py > electronic_properties_b_si.out
