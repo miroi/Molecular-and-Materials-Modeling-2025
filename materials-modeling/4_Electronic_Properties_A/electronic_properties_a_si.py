@@ -276,6 +276,45 @@ for fname in os.listdir('.'):
         shutil.move(fname, os.path.join('pdos_results', fname))
 print("  PDOS files moved to pdos_results directory", flush=True)
 
+# 9.4 PDOS sanity check
+print("\n7. Verifying TDOS vs summed PDOS...", flush=True)
+try:
+    # Read data files
+    tdos_data = np.loadtxt('total_dos.dat')
+    sum_pdos_data = np.loadtxt('pdos_results/pdos.pdos_tot')
+    
+    energy_tdos = tdos_data[:, 0]
+    tdos = tdos_data[:, 1]
+    energy_pdos = sum_pdos_data[:, 0]
+    sum_pdos_raw = sum_pdos_data[:, 1]
+    
+    # Manual interpolation if grids mismatch)
+    if len(energy_tdos) != len(energy_pdos) or not np.allclose(energy_tdos, energy_pdos, atol=1e-6):
+        print("  Interpolating PDOS to TDOS grid...", flush=True)
+        sum_pdos = np.zeros_like(energy_tdos)
+        
+        for i, e in enumerate(energy_tdos):
+            idx = np.abs(energy_pdos - e).argmin()
+            sum_pdos[i] = sum_pdos_raw[idx]
+    else:
+        sum_pdos = sum_pdos_raw
+    
+    significant = tdos > 0.1 * np.max(tdos)
+    rel_diff = np.abs((sum_pdos[significant] - tdos[significant]) / 
+               np.maximum(tdos[significant], 1e-6))
+    
+    max_rel_diff = np.max(rel_diff) if np.any(significant) else 0
+    print(f"  Max relative difference: {max_rel_diff*100:.2f}%", flush=True)
+    
+    if max_rel_diff > 0.05:  # 1% threshold
+        print("  Warning: Mismatch >5% - check projections!", flush=True)
+    else:
+        print("  Excellent match (<5% difference)", flush=True)
+
+except Exception as e:
+    print(f"  Verification failed: {str(e)}", flush=True)
+
+
 print("\n=== Electronic Structure Analysis Complete ===", flush=True)
 print("Generated files:", flush=True)
 print("- Charge density (from SCF): charge_density.cube", flush=True)

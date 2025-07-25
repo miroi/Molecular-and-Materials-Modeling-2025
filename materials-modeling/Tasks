@@ -60,6 +60,8 @@ python3 electronic_properties_a_si.py > electronic_properties_a_si.out
 Inspect electronic_a_si.out to verify all steps have completed successfully. Also inspect the individual pp, dos and projwfc input and output files. 
 Open the generated charge_density.cube file in VESTA to visualize the 3D electron density. For the total density of states (TDOS), plot the first two columns (E (eV) and dos(E)) from total_dos.dat using any plotting tool (e.g., Grace, matplotlib), then shift the x-axis by subtracting the Fermi energy (found in the QE output, grep Fermi *.pwo) to align the Fermi energy to 0 eV (in Grace: Data > Transformation > Evaluate Expression: x=x-<Fermi Energy>). Repeat this process for the projected DOS (PDOS) by plotting the first two columns from the first Si atom's s and p orbital files, again offsetting by Fermi energy. Finally, examine lowdin.out and check the computed Löwdin partial charges for each Si atom. 
 Compare your computed DOS with silicon's experimental band gap- does your match? Why? Why not?
+
+Note: To verify the quality the projections, two key checks are essential: (1) ensure the spilling parameter is <0.05 (indicating accurate atomic orbital projections), and (2) confirm that the summed PDOS (from .pdos_tot) closely matches the total DOS. While the script automatically reports both metrics, it's strongly recommended to manually plot and compare the .pdos_tot and total_dos.dat files and visually validate their agreement.
 ---------------------------------------------------------------------------------------------
 TASK 5: Electronic properties: B (ASE)
 
