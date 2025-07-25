@@ -12,7 +12,8 @@ Running SCF calculation...
 
 3. Extracting Löwdin charges from SCF (projwfc.out)...
   Löwdin charges saved to lowdin.out
-  Spilling parameter: 0.008900 (values <0.05 are good)
+  Spilling parameter value: 0.008900
+  Excellent (<0.05)
 
 Cleaning up SCF files and preparing for NSCF calculation...
   Moved all SCF-related files to scf_files directory
@@ -31,10 +32,13 @@ Running NSCF calculation for DOS with k-grid (30, 30, 30)...
 6. Organizing PDOS files from NSCF...
   PDOS files moved to pdos_results directory
 
-7. Verifying TDOS vs summed PDOS...
-  Interpolating PDOS to TDOS grid...
-  Max relative difference: 1.61%
-  Excellent match (<5% difference)
+7. Verifying TDOS vs summed PDOS (ONLY below Fermi level)...
+  Fermi level from NSCF calculation: 6.3215 eV
+    Integrated TDOS: 8.0001 states
+    Integrated sum of PDOS: 7.9282 states
+  Relative difference in integrated DOS: 0.90%
+  Maximum pointwise difference: 3.05%
+  Excellent agreement (<5% integral difference)
 
 === Electronic Structure Analysis Complete ===
 Generated files:

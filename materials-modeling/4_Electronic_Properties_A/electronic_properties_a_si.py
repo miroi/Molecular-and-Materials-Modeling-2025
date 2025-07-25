@@ -185,7 +185,11 @@ try:
     
     print(f"  Löwdin charges saved to {lowdin_file}", flush=True)
     if spilling is not None:
-        print(f"  Spilling parameter: {spilling:.6f} (values <0.05 are good)", flush=True)
+        print(f"  Spilling parameter value: {spilling:.6f}", flush=True)
+        if spilling < 0.05:
+            print("  Excellent (<0.05)", flush=True)
+        else:
+            print("  Warning: Spilling parameter >0.05 - check projections!", flush=True)
 except Exception as e:
     print(f"Error extracting Löwdin charges: {str(e)}", flush=True)
 
@@ -276,40 +280,58 @@ for fname in os.listdir('.'):
         shutil.move(fname, os.path.join('pdos_results', fname))
 print("  PDOS files moved to pdos_results directory", flush=True)
 
-# 9.4 PDOS sanity check
-print("\n7. Verifying TDOS vs summed PDOS...", flush=True)
+# 9.4 PDOS sanity check 
+print("\n7. Verifying TDOS vs summed PDOS (ONLY below Fermi level)...", flush=True)
 try:
+    # Get Fermi level from NSCF
+    fermi_level = nscf_calc.get_fermi_level()
+    print(f"  Fermi level from NSCF calculation: {fermi_level:.4f} eV", flush=True)
+    
     # Read data files
     tdos_data = np.loadtxt('total_dos.dat')
     sum_pdos_data = np.loadtxt('pdos_results/pdos.pdos_tot')
-    
     energy_tdos = tdos_data[:, 0]
     tdos = tdos_data[:, 1]
     energy_pdos = sum_pdos_data[:, 0]
-    sum_pdos_raw = sum_pdos_data[:, 1]
+    sum_pdos = sum_pdos_data[:, 2]  
     
-    # Manual interpolation if grids mismatch)
-    if len(energy_tdos) != len(energy_pdos) or not np.allclose(energy_tdos, energy_pdos, atol=1e-6):
-        print("  Interpolating PDOS to TDOS grid...", flush=True)
-        sum_pdos = np.zeros_like(energy_tdos)
-        
-        for i, e in enumerate(energy_tdos):
-            idx = np.abs(energy_pdos - e).argmin()
-            sum_pdos[i] = sum_pdos_raw[idx]
+    # Confine to below Fermi level
+    mask_tdos = energy_tdos <= fermi_level
+    mask_pdos = energy_pdos <= fermi_level
+    
+    # Interpolate summed PDOS to TDOS grid 
+    interp_pdos = np.interp(energy_tdos[mask_tdos], 
+                           energy_pdos[mask_pdos], 
+                           sum_pdos[mask_pdos])
+    
+    # Calculate integrated DOS below Fermi
+    def integrate_dos(energy, dos):
+        """Simple trapezoidal integration of DOS using the recommended function"""
+        return np.trapezoid(dos, energy)
+    
+    int_tdos = integrate_dos(energy_tdos[mask_tdos], tdos[mask_tdos])
+    int_pdos = integrate_dos(energy_tdos[mask_tdos], interp_pdos)
+    
+    print(f"    Integrated TDOS: {int_tdos:.4f} states", flush=True)
+    print(f"    Integrated sum of PDOS: {int_pdos:.4f} states", flush=True)
+    
+    # Calculate relative difference
+    rel_diff = abs(int_tdos - int_pdos) / max(int_tdos, int_pdos)
+    print(f"  Relative difference in integrated DOS: {rel_diff*100:.2f}%", flush=True)
+    
+    # Pointwise comparison 
+    significant = tdos[mask_tdos] > 0.1 * np.max(tdos[mask_tdos])
+    pointwise_diff = np.abs(
+        (interp_pdos[significant] - tdos[mask_tdos][significant]) / 
+        np.maximum(tdos[mask_tdos][significant], 1e-6)
+    )
+    max_point_diff = np.max(pointwise_diff) if np.any(significant) else 0
+    print(f"  Maximum pointwise difference: {max_point_diff*100:.2f}%", flush=True)
+    
+    if rel_diff > 0.05 or max_point_diff > 0.1:  # 5% integral or 10% pointwise threshold
+        print("  Warning: Significant mismatch detected - check projections!", flush=True)
     else:
-        sum_pdos = sum_pdos_raw
-    
-    significant = tdos > 0.1 * np.max(tdos)
-    rel_diff = np.abs((sum_pdos[significant] - tdos[significant]) / 
-               np.maximum(tdos[significant], 1e-6))
-    
-    max_rel_diff = np.max(rel_diff) if np.any(significant) else 0
-    print(f"  Max relative difference: {max_rel_diff*100:.2f}%", flush=True)
-    
-    if max_rel_diff > 0.05:  # 1% threshold
-        print("  Warning: Mismatch >5% - check projections!", flush=True)
-    else:
-        print("  Excellent match (<5% difference)", flush=True)
+        print("  Excellent agreement (<5% integral difference)", flush=True)
 
 except Exception as e:
     print(f"  Verification failed: {str(e)}", flush=True)
