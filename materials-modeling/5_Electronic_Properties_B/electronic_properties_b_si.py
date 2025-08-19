@@ -45,27 +45,7 @@ base_input_data = {
 }
 
 # ==============================================
-# 2. Machine-specific command setup
-# ==============================================
-# Set QE bin directory
-#qe_bin = "/home/dsen/work/bin/qe-7.4.1_serial"
-qe_bin = "/home/dsen/work/bin/qe-7.4.1"
-
-# Main QE calculation 
-#pw_command = f'{qe_bin}/bin/pw.x'
-pw_command = f'mpirun -np 4 {qe_bin}/bin/pw.x'
-
-# Serial post-processing commands for fast execution
-bands_command = f"{qe_bin}/bin/bands.x < bands.in > bands.out 2>&1"
-plotband_command = f"{qe_bin}/bin/plotband.x < plotband.in > plotband.out 2>&1"
-
-profile = EspressoProfile(
-    command=pw_command,
-    pseudo_dir='./'
-)
-
-# ==============================================
-# 3. Atomic Structure (from seekpath)
+# 2. Atomic Structure (from seekpath)
 #    https://seekpath.materialscloud.io/
 # ==============================================
 prim_atoms = Atoms(
@@ -83,7 +63,7 @@ prim_atoms = Atoms(
 )
 
 # ==============================================
-# 4. K-point path for band structure calculation (from seekpath)
+# 3. K-point path for band structure calculation (from seekpath)
 #    Labels of highly symmetric points are to be taken from seekpath
 #    Copy the highly symmetric points list under "Quantum ESPRESSO pw.x input" in file 'kp'
 #    Then use the following command to format it in ASE format
@@ -292,6 +272,41 @@ kpts_crystal = np.array([
 ])
 
 # ==============================================
+# 4. Calculator Configuration
+# ==============================================
+# Set QE bin directory
+#qe_bin = "/home/dsen/work/bin/qe-7.4.1_serial"
+qe_bin = "/home/dsen/work/bin/qe-7.4.1"
+
+# Main QE calculation 
+#pw_command = f'{qe_bin}/bin/pw.x'
+pw_command = f'mpirun -np 4 {qe_bin}/bin/pw.x'
+
+# Serial post-processing commands for fast execution
+bands_command = f"{qe_bin}/bin/bands.x < bands.in > bands.out 2>&1"
+plotband_command = f"{qe_bin}/bin/plotband.x < plotband.in > plotband.out 2>&1"
+
+profile = EspressoProfile(
+    command=pw_command,
+    pseudo_dir='./'
+)
+
+# Set k-grids (modify as needed)
+scf_kpts = (15,15,15)
+
+#QE command executation format
+def run_qe_tool(command, input_file, tool_name):
+    """Run QE tool with input file and redirect output to file"""
+    try:
+        with open(input_file, 'r') as fin:
+            subprocess.run(command, shell=True, stdin=fin, check=True)
+        print(f"  {tool_name} completed successfully", flush=True)
+        return True
+    except subprocess.CalledProcessError as e:
+        print(f"Error running {tool_name}: {e}", flush=True)
+        return False
+
+# ==============================================
 # 5. SCF Calculation 
 # ==============================================
 print("\n[Phase A] Running SCF calculation...", flush=True)
@@ -302,7 +317,7 @@ scf_calc = Espresso(
     profile=profile,
     pseudopotentials=pseudopotentials,
     input_data=scf_input_data,
-    kpts=(15,15,15)  
+    kpts=scf_kpts  
 )
 prim_atoms.calc = scf_calc
 total_energy = prim_atoms.get_potential_energy()
@@ -350,17 +365,6 @@ print("  NSCF (bands) calculation completed", flush=True)
 # ==============================================
 # 8. Extract bands
 # ==============================================
-def run_qe_tool(command, input_file, tool_name):
-    """Run QE tool with input file and redirect output to file"""
-    try:
-        with open(input_file, 'r') as fin:
-            subprocess.run(command, shell=True, stdin=fin, check=True)
-        print(f"  {tool_name} completed successfully", flush=True)
-        return True
-    except subprocess.CalledProcessError as e:
-        print(f"Error running {tool_name}: {e}", flush=True)
-        return False
-
 print("  Calculating band structure from NSCF", flush=True)
 with open('bands.in', 'w') as f:
     f.write(f"""&BANDS
@@ -386,7 +390,7 @@ bands.ps
 """)
 run_qe_tool(plotband_command, 'plotband.in', 'plotband.x')
 
-#if you have ghostscript installed, convert postscript to image directly
+#if ghostscript installed, convert postscript to image directly. Otherwise disable this.
 print("  Exporting plot as jpg image", flush=True)
 os.system("gs -sDEVICE=jpeg -sOutputFile=bands.jpg < bands.ps > gs.out")
 

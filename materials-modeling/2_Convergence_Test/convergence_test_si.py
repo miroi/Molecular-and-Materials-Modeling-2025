@@ -37,25 +37,7 @@ base_input_data = {
 }
 
 # ==============================================
-# 2. Machine-specific command setup
-# ==============================================
-# Set QE bin directory 
-#qe_bin = "/home/dsen/work/bin/qe-7.4.1_serial"
-qe_bin = "/home/dsen/work/bin/qe-7.4.1"
-
-# Job commands
-#pw_command = f'{qe_bin}/bin/pw.x'
-#ph_command = f'{qe_bin}/bin/ph.x'
-pw_command = f'mpirun -np 4 {qe_bin}/bin/pw.x'
-ph_command = f'mpirun -np 4 {qe_bin}/bin/ph.x'
-
-pw_profile = EspressoProfile(
-    command=pw_command,
-    pseudo_dir='./'
-)
-
-# ==============================================
-# 3. Atomic Structure 
+# 2. Atomic Structure 
 # ==============================================
 atoms = Atoms(
     symbols=['Si']*2,
@@ -72,8 +54,21 @@ atoms = Atoms(
 )
 
 # ==============================================
-# 4. Convergence Testing Setup
+# 3. Calculator configuration
 # ==============================================
+# Set QE bin directory 
+#qe_bin = "/home/dsen/work/bin/qe-7.4.1_serial"
+qe_bin = "/home/dsen/work/bin/qe-7.4.1"
+
+# Job commands
+#pw_command = f'{qe_bin}/bin/pw.x'
+pw_command = f'mpirun -np 4 {qe_bin}/bin/pw.x'
+
+pw_profile = EspressoProfile(
+    command=pw_command,
+    pseudo_dir='./'
+)
+
 # Test values
 ecutwfc_values = np.arange(20, 120, 5)  
 kpoints_values = [(k,k,k) for k in range(2, 25)] 
@@ -82,7 +77,7 @@ kpoints_values = [(k,k,k) for k in range(2, 25)]
 energy_tol = 0.01  
 
 # ==============================================
-# 5. Run Convergence Tests
+# 4. Run Convergence Tests
 # ==============================================
 def run_convergence_test():
     results = []

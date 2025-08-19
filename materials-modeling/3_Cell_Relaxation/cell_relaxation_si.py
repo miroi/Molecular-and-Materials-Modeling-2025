@@ -41,25 +41,7 @@ input_data = {
 }
 
 # ==============================================
-# 2. Machine-specific command setup
-# ==============================================
-# Set QE bin directory 
-#qe_bin = "/home/dsen/work/bin/qe-7.4.1_serial"
-qe_bin = "/home/dsen/work/bin/qe-7.4.1"
-
-# Job commands
-#pw_command = f'{qe_bin}/bin/pw.x'
-#ph_command = f'{qe_bin}/bin/ph.x'
-pw_command = f'mpirun -np 4 {qe_bin}/bin/pw.x'
-ph_command = f'mpirun -np 4 {qe_bin}/bin/ph.x'
-
-pw_profile = EspressoProfile(
-    command=pw_command,
-    pseudo_dir='./'
-)
-
-# ==============================================
-# 3. Atomic Structure 
+# 2. Atomic Structure 
 # ==============================================
 atoms = Atoms(
     symbols=['Si']*2,
@@ -76,18 +58,32 @@ atoms = Atoms(
 )
 
 # ==============================================
-# 4. Define Calculator Configuration
+# 3. Calculator Configuration
 # ==============================================
+# Set QE bin directory 
+#qe_bin = "/home/dsen/work/bin/qe-7.4.1_serial"
+qe_bin = "/home/dsen/work/bin/qe-7.4.1"
+
+# Job commands
+#pw_command = f'{qe_bin}/bin/pw.x'
+pw_command = f'mpirun -np 4 {qe_bin}/bin/pw.x'
+
+pw_profile = EspressoProfile(
+    command=pw_command,
+    pseudo_dir='./'
+)
+
 calc = Espresso(
     profile=pw_profile,
     pseudopotentials=pseudopotentials,
     input_data=input_data,
     kpts=(15,15,15)  # Fixed k-points
 )
+
 atoms.calc = calc
 
 # ==============================================
-# 5. Cell Relaxation
+# 4. Cell Relaxation
 # ==============================================
 print("\nStarting cell relaxation by ASE", flush=True)
 
@@ -107,7 +103,7 @@ try:
     # Get final results
     relaxed_atoms = ucf.atoms
     final_energy = relaxed_atoms.get_potential_energy()
-    forces = opt.atoms.get_forces() # From ASE relaxation steps
+    forces = opt.atoms.get_forces()
     qe_style_forces = relaxed_atoms.get_forces() 
     stress = relaxed_atoms.get_stress()
      

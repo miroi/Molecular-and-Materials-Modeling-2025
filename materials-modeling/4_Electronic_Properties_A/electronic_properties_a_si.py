@@ -45,7 +45,24 @@ base_input_data = {
 }
 
 # ==============================================
-# 2. Machine-specific command setup
+# 2. Atomic Structure
+# ==============================================
+atoms = Atoms(
+    symbols=['Si']*2,
+    positions=[ # positions in Angstrom
+        [1.3669840665567621, 4.1009521996702860, 4.1009521996702860],
+        [0.0000000000000000, 0.0000000000000000, 0.0000000000000000]
+    ],
+    cell=[ # positions in Angstrom
+        [-0.0000000000000000, 2.7339681331135242, 2.7339681331135242],
+        [2.7339681331135242, 0.0000000000000000, 2.7339681331135242],
+        [2.7339681331135242, 2.7339681331135242, 0.0000000000000000]
+    ],
+    pbc=[True, True, True]
+)
+
+# ==============================================
+# 3. Calculator Configuration
 # ==============================================
 # Set QE bin directory
 #qe_bin = "/home/dsen/work/bin/qe-7.4.1_serial"
@@ -68,50 +85,11 @@ profile = EspressoProfile(
     pseudo_dir='./'
 )
 
-# ==============================================
-# 3. Atomic Structure
-# ==============================================
-atoms = Atoms(
-    symbols=['Si']*2,
-    positions=[ # positions in Angstrom
-        [1.3669840665567621, 4.1009521996702860, 4.1009521996702860],
-        [0.0000000000000000, 0.0000000000000000, 0.0000000000000000]
-    ],
-    cell=[ # positions in Angstrom
-        [-0.0000000000000000, 2.7339681331135242, 2.7339681331135242],
-        [2.7339681331135242, 0.0000000000000000, 2.7339681331135242],
-        [2.7339681331135242, 2.7339681331135242, 0.0000000000000000]
-    ],
-    pbc=[True, True, True]
-)
+# Set k-grids (modify as needed)
+scf_kpts = (15,15,15)
+nscf_kpts = (30, 30, 30)
 
-# ==============================================
-# 4. SCF Calculation Configuration 
-# ==============================================
-scf_input_data = base_input_data.copy()
-scf_input_data['control']['calculation'] = 'scf'
-
-scf_calc = Espresso(
-    profile=profile,
-    pseudopotentials=pseudopotentials,
-    input_data=scf_input_data,
-    kpts=(15,15,15)  
-)
-atoms.calc = scf_calc
-
-# ==============================================
-# 5. Run SCF Calculation
-# ==============================================
-print("\nRunning SCF calculation...", flush=True)
-os.makedirs('tmp', exist_ok=True)
-total_energy = atoms.get_potential_energy()
-print(f"  Total energy: {total_energy:.6f} eV", flush=True)
-
-# ==============================================
-# 6. Extract charge density and Löwdin charges from SCF
-# ==============================================
-print("\n[Phase A.] Extracting charge density and Löwdin charges from SCF calculation...", flush=True)
-
+#QE command executation format
 def run_qe_tool(command, input_file, tool_name):
     """Run QE tool with input file and redirect output to file"""
     try:
@@ -123,7 +101,31 @@ def run_qe_tool(command, input_file, tool_name):
         print(f"Error running {tool_name}: {e}", flush=True)
         return False
 
-# 6.1. Charge density calculation
+# ==============================================
+# 4. SCF Calculation 
+# ==============================================
+scf_input_data = base_input_data.copy()
+scf_input_data['control']['calculation'] = 'scf'
+
+scf_calc = Espresso(
+    profile=profile,
+    pseudopotentials=pseudopotentials,
+    input_data=scf_input_data,
+    kpts=scf_kpts  
+)
+atoms.calc = scf_calc
+
+print("\nRunning SCF calculation...", flush=True)
+os.makedirs('tmp', exist_ok=True)
+total_energy = atoms.get_potential_energy()
+print(f"  Total energy: {total_energy:.6f} eV", flush=True)
+
+# ==============================================
+# 5. Extract charge density and Löwdin charges from SCF
+# ==============================================
+print("\n[Phase A.] Extracting charge density and Löwdin charges from SCF calculation...", flush=True)
+
+# 5.1. Charge density calculation
 print("\n1. Calculating charge density from SCF...", flush=True)
 with open('pp.in', 'w') as f:
     f.write(f"""&INPUTPP
@@ -140,7 +142,7 @@ with open('pp.in', 'w') as f:
 """)
 run_qe_tool(pp_command, 'pp.in', 'pp.x')
 
-# 6.2. Run projwfc.x on SCF results 
+# 5.2. Run projwfc.x on SCF results 
 print("\n2. Running projwfc.x on SCF...", flush=True)
 with open('projwfc.in', 'w') as f:
     f.write(f"""&PROJWFC
@@ -157,7 +159,7 @@ with open('projwfc.in', 'w') as f:
 """)
 run_qe_tool(projwfc_command, 'projwfc.in', 'projwfc.x')
 
-# 6.3. Löwdin population analysis 
+# 5.3. Löwdin population analysis 
 print("\n3. Extracting Löwdin charges from SCF (projwfc.out)...", flush=True)
 lowdin_file = 'lowdin.out'
 spilling = None
@@ -194,7 +196,7 @@ except Exception as e:
     print(f"Error extracting Löwdin charges: {str(e)}", flush=True)
 
 # ==============================================
-# 7. Clean up SCF files and prepare for NSCF
+# 6. Clean up SCF files and prepare for NSCF
 # ==============================================
 print("\nCleaning up SCF files and preparing for NSCF calculation...", flush=True)
 os.makedirs('scf_files', exist_ok=True)
@@ -210,16 +212,13 @@ for fname in os.listdir('.'):
 print("  Moved all SCF-related files to scf_files directory", flush=True)
 
 # ==============================================
-# 8. Run NSCF Calculation
+# 7. NSCF Calculation
 # ==============================================
 nscf_input_data = base_input_data.copy()
 nscf_input_data['control']['calculation'] = 'nscf'
 
 nscf_input_data['control'].pop('tstress', None)
 nscf_input_data['control'].pop('tprnfor', None)
-
-# Set denser k-grid for NSCF (modify this value as needed)
-nscf_kpts = (30, 30, 30)
 
 nscf_calc = Espresso(
     profile=profile,
@@ -237,11 +236,11 @@ nscf_calc.calculate(atoms=atoms,
 print("  NSCF completed, wavefunctions generated for DOS", flush=True)
 
 # ==============================================
-# 9. Calculate DOS and PDOS from NSCF
+# 8. Calculate DOS and PDOS from NSCF
 # ==============================================
 print("\n[Phase B.] Calculating DOS and PDOS from NSCF calculation...", flush=True)
 
-# 9.1. TDOS calculation
+# 8.1. TDOS calculation
 print("\n4. Calculating TDOS from NSCF...", flush=True)
 with open('dos.in', 'w') as f:
     f.write(f"""&DOS
@@ -255,7 +254,7 @@ with open('dos.in', 'w') as f:
 """)
 run_qe_tool(dos_command, 'dos.in', 'dos.x')
 
-# 9.2. PDOS calculation
+# 8.2. PDOS calculation
 print("\n5. Calculating PDOS from NSCF...", flush=True)
 with open('projwfc.in', 'w') as f:
     f.write(f"""&PROJWFC
@@ -272,7 +271,7 @@ with open('projwfc.in', 'w') as f:
 """)
 run_qe_tool(projwfc_command, 'projwfc.in', 'projwfc.x')
 
-# 9.3. Organize and process PDOS files
+# 8.3. Organize and process PDOS files
 print("\n6. Organizing PDOS files from NSCF...", flush=True)
 os.makedirs('pdos_results', exist_ok=True)
 for fname in os.listdir('.'):
@@ -280,7 +279,7 @@ for fname in os.listdir('.'):
         shutil.move(fname, os.path.join('pdos_results', fname))
 print("  PDOS files moved to pdos_results directory", flush=True)
 
-# 9.4 PDOS sanity check 
+# 8.4 PDOS sanity check 
 print("\n7. Verifying TDOS vs summed PDOS (ONLY below Fermi level)...", flush=True)
 try:
     # Get Fermi level from NSCF
