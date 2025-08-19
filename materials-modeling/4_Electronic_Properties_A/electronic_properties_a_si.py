@@ -89,7 +89,7 @@ profile = EspressoProfile(
 scf_kpts = (15,15,15)
 nscf_kpts = (30, 30, 30)
 
-#QE command executation format
+# QE tool executation format
 def run_qe_tool(command, input_file, tool_name):
     """Run QE tool with input file and redirect output to file"""
     try:

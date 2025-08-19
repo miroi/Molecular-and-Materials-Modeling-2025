@@ -61,21 +61,32 @@ Inspect electronic_a_si.out to verify all steps have completed successfully. Als
 Open the generated charge_density.cube file in VESTA to visualize the 3D electron density. For the total density of states (TDOS), plot the first two columns (E (eV) and dos(E)) from total_dos.dat using any plotting tool (e.g., Grace, matplotlib), then shift the x-axis by subtracting the Fermi energy (found in the QE output, grep Fermi *.pwo) to align the Fermi energy to 0 eV (in Grace: Data > Transformation > Evaluate Expression: x=x-<Fermi Energy>). Repeat this process for the projected DOS (PDOS) by plotting the first two columns from the first Si atom's s and p orbital files, again offsetting by Fermi energy. Finally, examine lowdin.out and check the computed Löwdin partial charges for each Si atom. 
 Compare your computed DOS with silicon's experimental band gap- does your match? Why? Why not?
 
-Note: To verify the quality of the projections, two key checks are necessary: (1) ensure the spilling parameter is <0.05, and (2) confirm that the summed PDOS (from .pdos_tot) closely matches the total DOS, at least below the Fermi level. While the script automatically reports both metrics, it's strongly recommended to manually plot and compare the .pdos_tot and total_dos.dat files and visually validate it.
+Note: To verify the quality of the projections, two key checks are necessary: (1) ensure the spilling parameter is low enough, and (2) confirm that the summed PDOS (from .pdos_tot) closely matches the total DOS, at least below the Fermi level. While the script automatically reports both metrics, it's strongly recommended to manually plot and compare the .pdos_tot and total_dos.dat files and visually validate it.
+
+Note: SCF (Self-Consistent Field) calculations iteratively solve the Kohn-Sham equations to find the ground-state electron density and total energy by converging the charge density. NSCF (Non-Self-Consistent Field) calculations use the pre-converged charge density from SCF but compute eigenvalues on a denser k-point grid without re-converging the density. For DOS (Density of States), NSCF is essential because it provides higher-resolution sampling of the Brillouin zone, capturing fine electronic structure details that the coarser SCF grid would miss, while avoiding the computational cost of fully re-converging at each k-point. This ensures accurate and smooth DOS plots without redundant SCF iterations.
 ---------------------------------------------------------------------------------------------
 TASK 5: Electronic properties: B (ASE)
 
-In this task, we'll  automate band structure calculation using ASE. We will start with the final_relaxed_structure.vasp (from Task 3, ASE)and use seekpath (either online, (https://seekpath.materialscloud.io/ or locally installed) to symmetrize the structure and generate a high-symmetry k-point path through the Brillouin zone. First visualize the path and note the high-symmetry points, then copy the symmetrized cell (under Quantum ESPRESSO pw.x input) into the ASE script electronic_properties_b_si.py. Finally, copy the seekpath generated list of k-point path into a sperate file, and convert it to ASE format using:
-awk '{printf("    [%s, %s, %s, %s],\n", $1, $2, $3, $4)}' kp > kp_parsed  
-and copy the parsed k points into the script (seekpath generated k points can be used in QE runs directly, but ASE format is slightly different). The workflow consists of a SCF calculation, followed by a NSCF (bands) calculation (set via calculation = 'bands' in &CONTROL, with matching outdir/ prefix to read the SCF charge density, similar to DOS calculation); then post-processing with bands.x and plotband.x. plotband.x is optional (since bands.x generated bands.dat.gnu can be plotted directly e.g., with Grace), but it automatically marks the high-symmetry points and Fermi level in the final image. While ASE automates the execution sequence, each post-processing tool requires specific inputs similar to DOS calculations. In the provided example, the plot is along the path Γ-K-L-U-W-W2-X. 
+In this task, we'll  automate band structure calculation using ASE. The workflow consists of a SCF calculation, followed by a NSCF (bands) calculation (set via calculation = 'bands' in &CONTROL, with matching outdir/ prefix to read the SCF charge density, similar to DOS calculation); then post-processing with bands.x and plotband.x. plotband.x is optional (since bands.x generated bands.dat.gnu can be plotted directly e.g., with Grace), but it automatically marks the high-symmetry points and Fermi level in the final image. While ASE automates the execution sequence, each post-processing tool requires specific inputs similar to DOS calculations.  
 
 Step 5.1: 
+Start with the final_relaxed_structure.vasp (from Task 3, ASE) and use seekpath (either online, (https://seekpath.materialscloud.io/ or locally installed) to symmetrize the structure and generate a high-symmetry k-point path through the Brillouin zone. 
+
+Step 5.2:
+Visualize the path and note the high-symmetry points (In this example: Γ-K-L-U-W-W2-X), then copy the symmetrized cell (under Quantum ESPRESSO pw.x input) into the ASE script electronic_properties_b_si.py. 
+
+Step 5.3:
+Copy the seekpath generated list of k-point path into a sperate file (kp), and convert it to ASE format using: 
+awk '{printf("    [%s, %s, %s, %s],\n", $1, $2, $3, $4)}' kp > kp_parsed  
+and then copy the parsed k points into the script (seekpath generated k points can be used in manual QE runs, but ASE format is slightly different). 
+
+Step 5.4:
 python3 electronic_properties_b_si.py > electronic_properties_b_si.out
 (update the Quantum ESPRESSO executable path to your local pw.x location.)
 
-Inspect electronic_b_si.out to verify all steps have completed successfully., then analyze the individual bands and review the plotband input/output files. Finally, compare your computed band structure with silicon’s experimental results.
+Inspect electronic_b_si.out to verify all steps have completed successfully., then review the bands and plotband input/output files. Finally, compare your computed band structure with silicon’s experimental results.
 
 Note: NSCF (bands) calculation does not print Fermi level, so Fermi level has to be taken from the preceding SCF step. In the job script, ASE automatically handles it.
-Note: Install ghostscript (check the accompanied notes), if you want the script to convert the plotband.x generated postscript file to jpg, other wise comment out the relevant line. 
+Note: Install ghostscript (check the accompanied notes), if you want the script to convert the plotband.x generated postscript file to jpg, other wise disable the relevant line. 
 ---------------------------------------------------------------------------------------------
  
