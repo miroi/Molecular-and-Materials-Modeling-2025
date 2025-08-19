@@ -101,11 +101,10 @@ try:
     opt.run(fmax=0.01) # Convergence criterion: max force < 0.01 eV/Å
         
     # Get final results
-    relaxed_atoms = ucf.atoms
-    final_energy = relaxed_atoms.get_potential_energy()
+    final_energy = atoms.get_potential_energy()
     forces = opt.atoms.get_forces()
-    qe_style_forces = relaxed_atoms.get_forces() 
-    stress = relaxed_atoms.get_stress()
+    qe_style_forces = atoms.get_forces() 
+    stress = atoms.get_stress()
      
     # Analysis
     force_norms = np.linalg.norm(forces, axis=1)  # Euclidean norms
@@ -121,7 +120,7 @@ try:
     print(f"  Pressure                      : {pressure:>8.6f} kbar", flush=True)
 
     # Save final structure
-    write('final_relaxed_structure.vasp', relaxed_atoms, format='vasp', direct=False)
+    write('final_relaxed_structure.vasp', atoms, format='vasp', direct=False)
     print("\nFinal relaxed structure saved to: final_relaxed_structure.vasp", flush=True)
 
 except Exception as e:
