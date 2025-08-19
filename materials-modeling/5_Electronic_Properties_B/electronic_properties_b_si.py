@@ -376,7 +376,7 @@ with open('bands.in', 'w') as f:
 run_qe_tool(bands_command, 'bands.in', 'bands.x')
 
 # ==============================================
-# 8. Plot bands
+# 9. Plot bands
 #    Range of plotting can be adjusted manually
 # ==============================================
 print("  Plotting bands", flush=True)
