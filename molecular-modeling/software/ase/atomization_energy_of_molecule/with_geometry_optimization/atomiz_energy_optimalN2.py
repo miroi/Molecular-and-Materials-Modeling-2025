@@ -14,10 +14,10 @@ molecule = Atoms('2N', [(0., 0., 0.), (0., 0., d)], calculator=EMT() )
 
 opt = BFGS(molecule)
 print('\n running geometry optimization of the N2 molecule with the initial distance d(N-N)=',d)
-opt.run(fmax=0.02)
+opt.run(fmax=0.01)
 
 # print out optimal internuclear distance
-print('d(N-N)optimiz=',molecule.get_distance(0,1))
+print('d(N-N)optimiz=',molecule.get_distance(0,1),' Ang')
 
 e_molecule = molecule.get_potential_energy()
 
