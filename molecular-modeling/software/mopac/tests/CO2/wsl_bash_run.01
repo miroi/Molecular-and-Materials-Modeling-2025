@@ -1,8 +1,10 @@
 #!/bin/bash
 
-#export PATH=/opt/mopac/bin:$PATH
-export PATH=/home/milias/work/software/mopac/mopac-23.1.2-linux/bin:$PATH
-export LD_LIBRARY_PATH=/home/milias/work/software/mopac/mopac-23.1.2-linux/lib:$LD_LIBRARY_PATH
+# change accordingly to your MOPAC installation
+export MOPAC_SRC=/home/milias/work/software/mopac/mopac-23.1.2-linux
+
+export PATH=$MOPAC_SRC/bin:$PATH
+export LD_LIBRARY_PATH=$MOPAC_SRC/lib:$LD_LIBRARY_PATH
 
 echo -e "\n Running MOPAC 23.1.2 on server \"`hostname`\"  "
 
