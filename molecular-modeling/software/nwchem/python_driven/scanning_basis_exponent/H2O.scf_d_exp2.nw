@@ -29,26 +29,3 @@ end
 
 print none
 task python
-This input performs exactly the same calculation as the previous one, but uses a slightly more sophisticated Python program, also writes the data out to a file for easy visualization with a package such as gnuplot, and protects write statements to prevent duplicate output in a parallel job. The only significant differences are in the Python program. A file called “plotdata” is opened, and then a procedure is defined which given an exponent returns the energy. Next comes the main loop that scans the exponent through the desired range and prints the results to standard output and to the file. When the loop is finished the additional output file is closed.
-
-Scanning a geometric variable¶
-
-python
-   geometry = '''
-     geometry noprint; symmetry d2h
-        C 0 0 %f; H 0  0.916 1.224
-     end
-   '''
-   x = 0.6
-   while (x < 0.721):
-     input_parse(geometry % x)
-     energy = task_energy('scf')
-     print (' x = %5.2f   energy = %10.6f' % (x, energy))
-     x = x + 0.01
-end
-
-basis; C library 6-31g*; H library 6-31g*; end
-
-print none
-
-task python
