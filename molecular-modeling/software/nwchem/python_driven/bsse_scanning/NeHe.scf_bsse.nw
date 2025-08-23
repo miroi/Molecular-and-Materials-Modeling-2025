@@ -28,7 +28,7 @@ python
   z = 3.3
   while (z < 4.301):
     e = bsse_energy(z)
-    if (ga_nodeid() == 0): print (' z = %5.2f   energy = %10.7f ' % (z, e))
+    if (ga_nodeid() == 0): print ('\n z = %5.2f   energy = %10.7f ' % (z, e))
     z = z + 0.1
 end
 
