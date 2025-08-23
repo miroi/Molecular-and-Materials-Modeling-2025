@@ -10,7 +10,7 @@ scf
 vectors output n2.movecs  
 end  
 dplot  
-  TITLE HOMO  
+  TITLE chargedensity
   vectors n2.movecs  
    LimitXYZ  
  -3.0 3.0 10    
