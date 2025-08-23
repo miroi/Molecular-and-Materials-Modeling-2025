@@ -1,3 +1,7 @@
+#
+# 2H2 + C2H4 → 2CH4
+#
+
 mp2 
   freeze atomic 
 end
