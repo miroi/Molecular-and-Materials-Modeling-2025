@@ -9,4 +9,8 @@ optimize geometry
 ~~~~~~~~~~~~~~~~~
 
 
+raman calc
+~~~~~~~~~~
+
+from Ubuntu 24.04 NWChem 7.2.2 is giving error ...
 
