@@ -65,14 +65,14 @@ echo -e "Current working directory,  THISDIR=$THISDIR"
 #echo -e "\nI am in newly created TMPDIR=$TMPDIR"
 #echo -e "For control,  pwd=\c";pwd
 
-echo -e "\n Checking : which mpirun ? \c"; which mpirun; mpirun --version
+echo -e "\n Checking MPI launcher : which mpirun ? \c"; which mpirun; mpirun --version
 
 # ... project name #
 #proj=h2o_freq_tasks
 proj=water.qe_scf
 
-echo -e "\n Launching QE project $proj with $NTHREADS MPI threads :"
-mpirun -np $NTHREADS $QE_EXECUTABLE  $THISDIR/$proj.in >  $THISDIR/$proj.outN$NTHREADS
+echo -e "\n Launching QE project $proj with $NTHREADS MPI-threads :"
+mpirun -np $NTHREADS $QE_EXECUTABLE <  $THISDIR/$proj.in >  $THISDIR/$proj.outN$NTHREADS
 
 echo -e "\n\n Working files in scratch dir $TMPDIR:"
 ls -lt $TMPDIR
