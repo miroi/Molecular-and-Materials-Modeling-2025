@@ -131,4 +131,4 @@ python3 raman_si.py > raman_si.out
 Inspect the raman_si.out file and examine the individual SCF, ph.x, and dynmat.x input and output files to verify proper execution. The dynmat.out output file will list the Raman and IR active modes. Compare these with experimentally reported values for bulk silicon.
 
 Note:
-This calculation uses norm-conserving pseudopotentials (required for Raman property calculations) and fixed occupations for semiconductor systems. 
+This calculation needs LDA norm-conserving pseudopotentials (required for Raman property calculations). 
