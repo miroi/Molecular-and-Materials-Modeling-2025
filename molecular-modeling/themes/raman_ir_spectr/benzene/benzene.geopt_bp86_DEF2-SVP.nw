@@ -1,9 +1,9 @@
-echo
-
-start molecule
+start 
 
 title "benzene"
 charge 0
+
+print low
 
 geometry units angstroms print xyz autosym
 H      1.073416   -0.950670   -2.011668
@@ -29,6 +29,9 @@ dft
   mult 1
 end
 
-
 task dft optimize
-#task dft property
+
+driver
+    xyz benzene_bp86_def2svp_optgeom.xyz
+end
+
