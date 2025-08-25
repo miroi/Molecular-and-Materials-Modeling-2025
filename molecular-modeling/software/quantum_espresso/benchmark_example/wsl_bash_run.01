@@ -52,9 +52,10 @@ echo -e "\n QE pseudopot. files, PSEUDO_DIR=$PSEUDO_DIR"
 
 
 randstr=`openssl rand -hex  6` 
-export TMP_DIR=/tmp/$USER/qe_run.$randstr
+#export TMP_DIR=/tmp/$USER/qe_run.$randstr
+export TMP_DIR=qe_run_tmpdir.$randstr
 echo -e "\n Scratch directory, TMP_DIR=$TMP_DIR";
-echo -e "Size of the scratch dir, df -h /tmp :"; df -h /tmp
+#echo -e "Size of the scratch dir, df -h /tmp :"; df -h /tmp
 
 export THISDIR=$PWD
 echo -e "Current working directory,  THISDIR=$THISDIR"
@@ -74,14 +75,14 @@ proj=water.qe_scf
 echo -e "\n Launching QE project $proj with $NTHREADS MPI-threads :"
 mpirun -np $NTHREADS $QE_EXECUTABLE <  $THISDIR/$proj.in >  $THISDIR/$proj.outN$NTHREADS
 
-echo -e "\n\n Working files in scratch dir $TMPDIR:"
+echo -e "\n\n Working files in scratch dir $TMP_DIR:"
 ls -lt $TMPDIR
 du -h -s $TMPDIR
 cd .. ; echo -e "just for control -  pwd=\c";pwd; ls -lt
-echo -e "\nDeleting scratch directory $TMPDIR: "; /bin/rm -r $TMPDIR
+#echo -e "\nDeleting scratch directory $TMPDIR: "; /bin/rm -r $TMPDIR
 
-echo -e "\n returning to $THISDIR"
-cd $THISDIR
+#echo -e "\n returning to $THISDIR"
+#cd $THISDIR
 
 echo -e "\n\n QE job ended \c"; date
 
