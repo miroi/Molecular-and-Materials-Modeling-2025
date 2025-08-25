@@ -49,7 +49,7 @@ ASE, on the other hand, employs QE as a calculator to perform a series of SCF ca
 Note: When performing a series of calculations, ASE automatically overwrites the Quantum ESPRESSO output (.pwo) and input (.pwi) files after each step.
 Note: ASE automatically saves the complete relaxation history in the trajectory file (relaxation.traj). You can visualize the step-by-step structural evolution using ASE's GUI by loading this trajectory file. To view it, simply run: ase gui relaxation.traj 
 ---------------------------------------------------------------------------------------------
-TASK 4: Electronic properties: A (ASE)
+TASK 4: Electronic properties: A (Charge and DOS, ASE)
 In this task, we'll calculate a few key electronic properties — (1) 3D charge density (using post-processing tool pp.x), (2) Löwdin partial charges (using projwfc.x), (3) total DOS (using dos.x), and (4) projected DOS (using projwfc.x) — through a streamlined ASE workflow combining SCF and NSCF calculations. The SCF calculation generates the charge density and Löwdin charges, while a subsequent NSCF calculation (with calculation='nscf' in the CONTROL namelist and matching outdir/prefix to read the SCF charge density) produces the DOS data using a denser k-grid. Each post-processing tool requires its specific input format (detailed in accompanying notes), but ASE automates the execution sequence.
    
 First, copy your relaxed atomic structure into the provided ASE script (electronic_a_si.py) and update the Quantum ESPRESSO executable path to your local pw.x location.
@@ -65,7 +65,7 @@ Note: To verify the quality of the projections, two key checks are necessary: (1
 
 Note: SCF (Self-Consistent Field) calculations iteratively solve the Kohn-Sham equations to find the ground-state electron density and total energy by converging the charge density. NSCF (Non-Self-Consistent Field) calculations use the pre-converged charge density from SCF but compute eigenvalues on a denser k-point grid without re-converging the density. For DOS (Density of States), NSCF is essential because it provides higher-resolution sampling of the Brillouin zone, capturing fine electronic structure details that the coarser SCF grid would miss, while avoiding the computational cost of fully re-converging at each k-point. This ensures accurate and smooth DOS plots without redundant SCF iterations.
 ---------------------------------------------------------------------------------------------
-TASK 5: Electronic properties: B (ASE)
+TASK 5: Electronic properties: B (Bands, ASE)
 
 In this task, we'll  automate band structure calculation using ASE. The workflow consists of a SCF calculation, followed by a NSCF (bands) calculation (set via calculation = 'bands' in &CONTROL, with matching outdir/ prefix to read the SCF charge density, similar to DOS calculation); then post-processing with bands.x and plotband.x. plotband.x is optional (since bands.x generated bands.dat.gnu can be plotted directly e.g., with Grace), but it automatically marks the high-symmetry points and Fermi level in the final image. While ASE automates the execution sequence, each post-processing tool requires specific inputs similar to DOS calculations.  
 
@@ -89,9 +89,9 @@ Inspect electronic_b_si.out to verify all steps have completed successfully., th
 Note: NSCF (bands) calculation does not print Fermi level, so Fermi level has to be taken from the preceding SCF step. In the job script, ASE automatically handles it.
 Note: Install ghostscript (check the accompanied notes), if you want the script to convert the plotband.x generated postscript file to jpg, other wise disable the relevant line. 
 ---------------------------------------------------------------------------------------------
-TASK 6: Electronic properties: C (ASE)
+TASK 6: Surfaces and 2D materials (ASE)
 
-This task focuses on analyzing the electronic properties of 2D materials, using graphene as an example. Begin by inspecting the graphite structure, select two atoms with identical z-coordinates, and then manually increase the c lattice parameter to a large arbitrary value (e.g., 15 Å) while adjusting the z-coordinates of the two atoms to half that value (e.g., 7.5 Å) to create a well-separated, single-layer graphene structure. After visualizing this new structure, copy the TASK 2 convergence test script and edit it: (1) update it with the graphene structure and carbon pseudopotential (2) 2D material specific changes: 'assume_isolated': '2D' (3) change the k-points grid from cubic to a 2D grid divisible by three (e.g., 3k, 3k, 1) to ensure proper sampling of the Dirac point at (1/3, 1/3, 0). For a 2D material, electronic dispersion is flat in the z-direction, so only one k-point is needed to sample it accurately. 
+This task focuses on analyzing the electronic properties of surfaces and 2D materials, using graphene as an example. Begin by inspecting the graphite structure, select two atoms with identical z-coordinates, and then manually increase the c lattice parameter to a large arbitrary value (e.g., 15 Å) while adjusting the z-coordinates of the selected two atoms to half that value (e.g., 7.5 Å) to create a well-separated, single-layer graphene structure. After visualizing this new structure, copy the TASK 2 convergence test script and edit it: (1) update it with the graphene structure and carbon pseudopotential (2) 2D material specific changes: 'assume_isolated': '2D' (3) change the k-points grid from cubic to a 2D grid divisible by three (e.g., 3k, 3k, 1) to ensure proper sampling of the Dirac point at (1/3, 1/3, 0). For a 2D material, electronic dispersion is flat in the z-direction, so only one k-point is needed to sample it accurately. 
 
 Step 5.1: 
 Run the convergence test
@@ -106,3 +106,5 @@ Step 5.3
 Copy the TASK 4: Electronic properties: A script, and update it with the relaxed graphene structure and all other relevant parameters. Then run the calculation:
 python3 electronic_properties_graphene.py > electronic_properties_graphene.out
 Inspect all the obtained results similar to the previous analysis, and then examine the calculated projected DOS for a carbon atom's p orbitals. This contains five columns where the first two were already covered in TASK 4; columns 3-5 describes the orbital projections onto pz, px, and py oribtals (in that specific order. for the exact orbital orderings, consult the PROJWFC manual). Plot the contributions from pz, px, and py. The expected nature for graphene is that near the Fermi level, the electronic states are formed primarily by the out-of-plane pz orbitals, which create the characteristic Dirac cones. Determine if your results show this same behavior.
+---------------------------------------------------------------------------------------------
+TASK 6: Work function (ASE)
