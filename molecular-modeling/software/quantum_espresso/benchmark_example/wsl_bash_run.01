@@ -47,14 +47,14 @@ echo -e "\n  QE_EXECUTABLE=$QE_EXECUTABLE ; linked libraries: "
 ldd $QE_EXECUTABLE
 
 # pseudo directory of the quantum-espresso package installation
-export PSEUDO_DIR=/usr/share/espresso/pseudo
-echo -e "\n QE pseudopot. files, PSEUDO_DIR=$PSEUDO_DIR"
+export ESPRESSO_PSEUDO=/usr/share/espresso/pseudo
+echo -e "\n QE pseudopot. files, ESPRESSO_PSEUDO=$ESPRESSO_PSEUDO"
 
 
 randstr=`openssl rand -hex  6` 
 #export TMP_DIR=/tmp/$USER/qe_run.$randstr
-export TMP_DIR=qe_run_tmpdir.$randstr
-echo -e "\n Scratch directory, TMP_DIR=$TMP_DIR";
+export ESPRESSO_TMPDIR=$PWD/qe_run_tmpdir.$randstr
+echo -e "\n Scratch directory, ESPRESSO_TMPDIR=$TMP_DIR";
 #echo -e "Size of the scratch dir, df -h /tmp :"; df -h /tmp
 
 export THISDIR=$PWD
