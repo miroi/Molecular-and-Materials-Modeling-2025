@@ -4,8 +4,8 @@
    prefix='water_vdw',
    tstress = .true.
    tprnfor = .true.
-   pseudo_dir = './',
-   outdir='./',
+!  pseudo_dir = './',
+!  outdir='./',
    verbosity = 'high'
 /
 
