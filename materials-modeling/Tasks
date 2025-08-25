@@ -93,20 +93,29 @@ TASK 6: Surfaces and 2D materials (ASE)
 
 This task focuses on analyzing the electronic properties of surfaces and 2D materials, using graphene as an example. Begin by inspecting the graphite structure, select two atoms with identical z-coordinates, and then manually increase the c lattice parameter to a large arbitrary value (e.g., 15 Å) while adjusting the z-coordinates of the selected two atoms to half that value (e.g., 7.5 Å) to create a well-separated, single-layer graphene structure. After visualizing this new structure, copy the TASK 2 convergence test script and edit it: (1) update it with the graphene structure and carbon pseudopotential (2) 2D material specific changes: 'assume_isolated': '2D' (3) change the k-points grid from cubic to a 2D grid divisible by three (e.g., 3k, 3k, 1) to ensure proper sampling of the Dirac point at (1/3, 1/3, 0). For a 2D material, electronic dispersion is flat in the z-direction, so only one k-point is needed to sample it accurately. 
 
-Step 5.1: 
+Step 6.1: 
 Run the convergence test
 python3 convergence_test_graphene.py > convergence_test_graphene.out
 
-Step 5.2
+Step 6.2
 Copy the TASK 3: Cell relaxation script to the working directory and update it for graphene by moving from a full, unconstrained relaxation to a constrained one. This means using a mask in the UnitCellFilter—a boolean list [xx, yy, zz, yz, xz, xy]—to only relax the in-plane lattice vectors (xx, yy) while keeping the out-of-plane vector (zz) and all cell angles (yz, xz, xy) fixed. This is the equivalent of setting up a constrained relaxation with QE's in-built cell_dofree tag (xy or 2Dxy).
 Then run the relaxation:
 python3 cell_relaxation_graphene.py > cell_relaxation_graphene.out
 
-Step 5.3 
+Step 6.3 
 Copy the TASK 4: Electronic properties: A script, and update it with the relaxed graphene structure and all other relevant parameters. Then run the calculation:
 python3 electronic_properties_graphene.py > electronic_properties_graphene.out
-Inspect all the obtained results similar to the previous analysis, and then examine the calculated projected DOS for a carbon atom's p orbitals. This contains five columns where the first two were already covered in TASK 4; columns 3-5 describes the orbital projections onto pz, px, and py oribtals (in that specific order. for the exact orbital orderings, consult the PROJWFC manual). Plot the contributions from pz, px, and py. The expected nature for graphene is that near the Fermi level, the electronic states are formed primarily by the out-of-plane pz orbitals, which create the characteristic Dirac cones. Determine if your results show this same behavior.
+Inspect all the obtained results similar to the previous analysis, and then examine the calculated projected DOS for a carbon atom's p orbitals. This file contains five columns where the first two were already covered in TASK 4; columns 3-5 describes the orbital projections onto pz, px, and py oribtals (in that specific order. For the exact orbital orderings for different cases (e.g. spin-orbit, spin polarized etc.), consult the PROJWFC manual. Plot the contributions from pz, px, and py. The expected nature for graphene is that near the Fermi level, the electronic states are formed primarily by the out-of-plane pz orbitals, which create the characteristic Dirac cones. Determine if your results show this same behavior. Now plot the same for Si p orbital, what differences do you see? Why?
 ---------------------------------------------------------------------------------------------
-TASK 6: Work function (ASE)
+TASK 7: Work function (ASE)
 
-Work function is the minimum energy needed to remove an electron from a solid to a point in the vacuum immediately outside it.The work function is not a characteristic of a bulk material, but rather a property of the surface of the material. In the current 
+The work function is defined as the minimum energy required to extract an electron from a solid to a point immediately outside its surface. It is not a bulk material property but rather a surface-specific characteristic that we will calculate for our graphene slab example. the work flow consists of first performing an SCF calculation, then using pp.x to extract the electrostatic potential (plot number 11), followed by planar and macroscopic averaging along the vacuum direction with average.x, from which the finnally the work function can be estimated. As usual, we will use ASE to automate the execution sequence.
+
+Step 7.1:
+python3 potential.py > potential.out
+(update the Quantum ESPRESSO executable path to your local pw.x location.)
+
+Inspect the potential.out file, and the individual SCF, pp.x, and average.x input and output files to ensure proper execution. Then plot the potential profile from potential_results/avg.dat alongside the Fermi level obtained from the SCF calculation. The vacuum level is identified as the flat region of the electrostatic potential outside the slab surface, then compute the work function as Work Function = Vacuum Level - Fermi Level. Finally compare your obtained values with standard reported values of graphene.
+
+Note: 
+The 'assume_isolated': '2D' setting introduces artificial image charges that distort the electrostatic potential at the cell boundaries (notice the unphysical peaks at the start and end of your plot), though it is necessary to maintain accuracy of forces and energies, especially for asymmetric slabs requiring dipole correction. Now remove this flag, rerun the example, and inspect the resulting potential profile to observe a more physically meaningful potential profile.
