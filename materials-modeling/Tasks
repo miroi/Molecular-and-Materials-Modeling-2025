@@ -108,3 +108,5 @@ python3 electronic_properties_graphene.py > electronic_properties_graphene.out
 Inspect all the obtained results similar to the previous analysis, and then examine the calculated projected DOS for a carbon atom's p orbitals. This contains five columns where the first two were already covered in TASK 4; columns 3-5 describes the orbital projections onto pz, px, and py oribtals (in that specific order. for the exact orbital orderings, consult the PROJWFC manual). Plot the contributions from pz, px, and py. The expected nature for graphene is that near the Fermi level, the electronic states are formed primarily by the out-of-plane pz orbitals, which create the characteristic Dirac cones. Determine if your results show this same behavior.
 ---------------------------------------------------------------------------------------------
 TASK 6: Work function (ASE)
+
+Work function is the minimum energy needed to remove an electron from a solid to a point in the vacuum immediately outside it.The work function is not a characteristic of a bulk material, but rather a property of the surface of the material. In the current 
