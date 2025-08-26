@@ -1,0 +1,28 @@
+echo
+
+start molecule
+
+title "CH4 | Equil.Geom+ freq | B3LYP/6-31G(d,p)"
+charge 0
+
+print low
+
+geometry units angstroms print xyz autosym
+C     -1.915401    0.916999    0.000000
+H     -0.823202    0.916997    0.000001
+H     -2.279466    1.624639   -0.748066
+H     -2.279468    1.211023    0.986866
+H     -2.279469   -0.084664   -0.238801
+end
+
+basis
+  * library 6-31G**
+end
+
+dft
+  xc b3lyp
+  mult 1
+end
+
+task dft optimize
+task dft freq
