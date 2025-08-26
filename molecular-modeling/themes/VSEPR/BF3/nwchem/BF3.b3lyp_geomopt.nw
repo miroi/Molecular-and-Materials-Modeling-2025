@@ -5,6 +5,8 @@ start molecule
 title "BF3 | Equilibrium Geometry | B3LYP/6-31G(d)"
 charge 0
 
+print low
+
 geometry units angstroms print xyz autosym
 B     -3.405764    0.080870   -0.561701
 F     -4.182413    0.858108   -0.613469
