@@ -85,11 +85,16 @@ profile = EspressoProfile(
     pseudo_dir='./'
 )
 
-# Set k-grids (modify as needed)
+# K-point grids 
 scf_kpts = (15,15,15)
 nscf_kpts = (30, 30, 30)
 
-# QE tool executation format
+# DOS energy parameters
+EMIN = -20.0  # Minimum energy (eV)
+EMAX = 20.0   # Maximum energy (eV)
+DELTA_E = 0.01  # Energy step (eV)
+
+# QE tool 
 def run_qe_tool(command, input_file, tool_name):
     """Run QE tool with input file and redirect output to file"""
     try:
@@ -130,7 +135,7 @@ print("\n1. Calculating charge density from SCF...", flush=True)
 with open('pp.in', 'w') as f:
     f.write(f"""&INPUTPP
     prefix = '{base_input_data['control']['prefix']}',
-    outdir = './tmp',
+    outdir = '{base_input_data['control']['outdir']}',
     filplot = 'charge_density',
     plot_num = 0
 /
@@ -147,12 +152,12 @@ print("\n2. Running projwfc.x on SCF...", flush=True)
 with open('projwfc.in', 'w') as f:
     f.write(f"""&PROJWFC
     prefix = '{base_input_data['control']['prefix']}',
-    outdir = './tmp',
+    outdir = '{base_input_data['control']['outdir']}',
     ngauss = 0,
-    degauss = 0.02,
-    DeltaE = 0.01,
-    Emin = -20,
-    Emax = 20,
+    degauss = {base_input_data['system']['degauss']},
+    DeltaE = {DELTA_E},
+    Emin = {EMIN},
+    Emax = {EMAX},
     filpdos = 'scf_pdos',
     filproj = 'scf_projections'
 /
@@ -245,10 +250,12 @@ print("\n4. Calculating TDOS from NSCF...", flush=True)
 with open('dos.in', 'w') as f:
     f.write(f"""&DOS
     prefix = '{base_input_data['control']['prefix']}',
-    outdir = './tmp',
-    Emin = -20, Emax = 20, DeltaE = 0.01,
+    outdir = '{base_input_data['control']['outdir']}',
+    DeltaE = {DELTA_E},
+    Emin = {EMIN},
+    Emax = {EMAX},
     ngauss = 0,
-    degauss = 0.02,
+    degauss = {base_input_data['system']['degauss']},
     fildos = 'total_dos.dat'
 /
 """)
@@ -259,12 +266,12 @@ print("\n5. Calculating PDOS from NSCF...", flush=True)
 with open('projwfc.in', 'w') as f:
     f.write(f"""&PROJWFC
     prefix = '{base_input_data['control']['prefix']}',
-    outdir = './tmp',
+    outdir = '{base_input_data['control']['outdir']}',
     ngauss = 0,
-    degauss = 0.02,
-    DeltaE = 0.01,
-    Emin = -20,
-    Emax = 20,
+    degauss = {base_input_data['system']['degauss']},
+    DeltaE = {DELTA_E},
+    Emin = {EMIN},
+    Emax = {EMAX},
     filpdos = 'pdos',
     filproj = 'projections'
 /
