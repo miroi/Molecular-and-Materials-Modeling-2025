@@ -5,6 +5,8 @@ start molecule
 title "CO2 | Equilibrium Geometry | B3LYP/6-31G(d,p)"
 charge 0
 
+print low
+
 geometry units angstroms print xyz autosym
 C     -4.243288   -3.698893    2.201210
 O     -3.470945   -3.016444    1.593952
