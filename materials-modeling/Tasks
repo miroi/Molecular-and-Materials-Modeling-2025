@@ -105,6 +105,7 @@ python3 cell_relaxation_graphene.py > cell_relaxation_graphene.out
 Step 6.3 
 Copy the TASK 4: Electronic properties: A script, and update it with the relaxed graphene structure and all other relevant parameters. Then run the calculation:
 python3 electronic_properties_graphene.py > electronic_properties_graphene.out
+
 Inspect all the obtained results similar to the previous analysis, and then examine the calculated projected DOS for a carbon atom's p orbitals. This file contains five columns where the first two were already covered in TASK 4; columns 3-5 describes the orbital projections onto pz, px, and py oribtals (in that specific order. For the exact orbital orderings for different cases (e.g. spin-orbit, spin polarized etc.), consult the PROJWFC manual. Plot the contributions from pz, px, and py. The expected nature for graphene is that near the Fermi level, the electronic states are formed primarily by the out-of-plane pz orbitals, which create the characteristic Dirac cones. Determine if your results show this same behavior. Now plot the same for Si p orbital, what differences do you see? Why?
 ---------------------------------------------------------------------------------------------
 TASK 7: Work function (ASE)
