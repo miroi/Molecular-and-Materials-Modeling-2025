@@ -34,10 +34,10 @@ Running NSCF calculation for DOS with k-grid (66, 66, 1)...
 
 7. Verifying TDOS vs summed PDOS (ONLY below Fermi level)...
   Fermi level from NSCF calculation: -4.2408 eV
-    Integrated TDOS: 6.8052 states
-    Integrated sum of PDOS: 6.7388 states
-  Relative difference in integrated DOS: 0.98%
-  Maximum pointwise difference: 2.03%
+    Integrated TDOS: 6.8057 states
+    Integrated sum of PDOS: 6.7393 states
+  Relative difference in integrated DOS: 0.97%
+  Maximum pointwise difference: 2.19%
   Excellent agreement (<5% integral difference)
 
 === Electronic Structure Analysis Complete ===
