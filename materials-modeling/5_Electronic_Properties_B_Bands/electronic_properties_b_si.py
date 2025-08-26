@@ -294,6 +294,9 @@ profile = EspressoProfile(
 # Set k-grids (modify as needed)
 scf_kpts = (15,15,15)
 
+# Bands energy parameters
+energy_range = -6, 16  
+
 # QE tool executation format
 def run_qe_tool(command, input_file, tool_name):
     """Run QE tool with input file and redirect output to file"""
@@ -369,7 +372,7 @@ print("  Calculating band structure from NSCF", flush=True)
 with open('bands.in', 'w') as f:
     f.write(f"""&BANDS
     prefix = '{base_input_data['control']['prefix']}',
-    outdir = './tmp',
+    outdir = '{base_input_data['control']['outdir']}',
     filband = 'bands.dat',
 /
 """)
@@ -382,11 +385,11 @@ run_qe_tool(bands_command, 'bands.in', 'bands.x')
 print("  Plotting bands", flush=True)
 with open('plotband.in', 'w') as f:
     f.write(f"""bands.dat
--6, 16
+{energy_range[0]} {energy_range[1]}
 bands.gnu
 bands.ps
 {fermi_energy}
-4, 0
+2, {fermi_energy} 
 """)
 run_qe_tool(plotband_command, 'plotband.in', 'plotband.x')
 
