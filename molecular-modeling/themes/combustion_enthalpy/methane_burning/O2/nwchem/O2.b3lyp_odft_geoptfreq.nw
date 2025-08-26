@@ -1,0 +1,17 @@
+title "O2 dft"
+print low
+geometry  
+  O 0 0 0
+  O 0 0 1.2075
+end
+basis
+  * library 6-31G**
+end
+dft
+  xc b3lyp
+  odft
+  mult 3
+end
+task dft optimize
+task dft freq
+

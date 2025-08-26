@@ -1,0 +1,26 @@
+echo
+
+start molecule
+
+title "H2O | Equilibrium Geometry | B3LYP/6-31G(d,p)"
+charge 0
+
+print low
+
+geometry units angstroms print xyz autosym
+O     -4.167599   -3.900462    1.139668
+H     -3.178272   -3.863940    1.162094
+H     -4.456964   -3.093427    1.635213
+end
+
+basis
+  * library 6-31G**
+end
+
+dft
+  xc b3lyp
+  mult 1
+end
+
+task dft optimize
+task dft freq
