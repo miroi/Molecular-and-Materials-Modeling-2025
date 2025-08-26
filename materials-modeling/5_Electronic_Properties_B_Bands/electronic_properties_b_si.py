@@ -295,7 +295,8 @@ profile = EspressoProfile(
 scf_kpts = (15,15,15)
 
 # Bands energy parameters
-energy_range = -6, 16  
+energy_range = -6, 16
+tick = 2  
 
 # QE tool executation format
 def run_qe_tool(command, input_file, tool_name):
@@ -380,7 +381,6 @@ run_qe_tool(bands_command, 'bands.in', 'bands.x')
 
 # ==============================================
 # 9. Plot bands
-#    Range of plotting can be adjusted manually
 # ==============================================
 print("  Plotting bands", flush=True)
 with open('plotband.in', 'w') as f:
@@ -389,14 +389,13 @@ with open('plotband.in', 'w') as f:
 bands.gnu
 bands.ps
 {fermi_energy}
-2, {fermi_energy} 
+{tick}, {fermi_energy} 
 """)
 run_qe_tool(plotband_command, 'plotband.in', 'plotband.x')
 
 #if ghostscript installed, convert postscript to image directly. Otherwise disable this.
 print("  Exporting plot as jpg image", flush=True)
-os.system("gs -sDEVICE=jpeg -sOutputFile=bands.jpg < bands.ps > gs.out")
-
+os.system("gs -sDEVICE=jpeg -dJPEGQ=95 -r600 -sOutputFile=bands.jpg < bands.ps > gs.out")
 
 print("\n=== Band Structure Calculation Complete ===", flush=True)
 print("Generated files:", flush=True)
