@@ -81,6 +81,10 @@ profile = EspressoProfile(
 # Set k-grids
 scf_kpts = (27,27,1)
 
+# Potential plot settings
+nz_points = 200  
+smoothing_length = 3.8149 # in Bohr
+
 # QE tool execution format
 def run_qe_tool(command, input_file, tool_name):
     """Run QE tool with input file and redirect output to file"""
@@ -111,8 +115,8 @@ print("\nRunning SCF calculation...", flush=True)
 os.makedirs('tmp', exist_ok=True)
 total_energy = atoms.get_potential_energy()
 print(f"  Total energy: {total_energy:.6f} eV", flush=True)
-fermi_level = atoms.calc.get_fermi_level()
-print(f"  Fermi level: {fermi_level:.6f} eV", flush=True)
+fermi_ev = atoms.calc.get_fermi_level()
+print(f"  Fermi level: {fermi_ev:.6f} eV", flush=True)
 
 # ==============================================
 # 5. Extract electrostatic potential with pp.x
@@ -124,7 +128,7 @@ print("\n1. Calculating electrostatic potential from SCF...", flush=True)
 with open('pp.in', 'w') as f:
     f.write(f"""&INPUTPP
     prefix = '{base_input_data['control']['prefix']}',
-    outdir = './tmp',
+    outdir = '{base_input_data['control']['outdir']}',
     filplot = 'electrostatic_potential',
     plot_num = 11
 /
@@ -139,10 +143,6 @@ run_qe_tool(pp_command, 'pp.in', 'pp.x')
 # 6. Planar averaging with average.x
 # ==============================================
 print("\n2. Calculating planar average of electrostatic potential...", flush=True)
-
-# Manual settings - use values that work for your system
-nz_points = 200  # Typical value for a 15Å cell
-smoothing_length = 3.8149 # in Bohr
 
 with open('average.in', 'w') as f:
     f.write(f"""1
@@ -171,7 +171,7 @@ for fname in os.listdir('.'):
 print("  Moved all potential-related files to potential_results directory", flush=True)
 
 # ==============================================
-# 8. Plot the averaged potential (enhanced version)
+# 8. Plot the averaged potential 
 # ==============================================
 print("\n3. Plotting the averaged potential...", flush=True)
 
@@ -182,9 +182,6 @@ try:
     x_angstrom = data[:, 0] * 0.529177
     planar_avg_ev = data[:, 1] * 13.6058
     macroscopic_avg_ev = data[:, 2] * 13.6058
-    
-    # Get Fermi level (assuming you've stored it in fermi_level variable)
-    fermi_ev = fermi_level  # Fermi level should already be in eV
     
     with open('plot_potential.gp', 'w') as f:
         f.write(f"""set terminal pngcairo enhanced size 1200,900 font "Arial,14"
