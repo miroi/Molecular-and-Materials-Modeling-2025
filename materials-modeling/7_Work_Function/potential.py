@@ -134,7 +134,7 @@ with open('pp.in', 'w') as f:
 /
 &PLOT
     iflag = 3,
-    output_format = 6  # Use format 6 for Gaussian cube format
+    output_format = 6
 /
 """)
 run_qe_tool(pp_command, 'pp.in', 'pp.x')
@@ -152,7 +152,6 @@ electrostatic_potential
 3
 {smoothing_length}
 """)
-
 run_qe_tool(average_command, 'average.in', 'average.x')
 
 # ==============================================
