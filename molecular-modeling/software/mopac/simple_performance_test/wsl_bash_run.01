@@ -1,12 +1,11 @@
 #!/bin/bash
 
-#export PATH=/home/milias/work/software/mopac/mopac-23.1.2-linux/bin:$PATH
-#export LD_LIBRARY_PATH=/home/milias/work/software/mopac/mopac-23.1.2-linux/lib:$LD_LIBRARY_PATH
 
-export MOPACDIR=/home/miroi/work/software/mopac
+#export MOPACDIR=/home/miroi/work/software/mopac
+export MOPACDIR=/home/milias/work/software/mopac
+
 export PATH=$MOPACDIR/mopac-23.1.2-linux/bin:$PATH
 export LD_LIBRARY_PATH=$MOPACDIR/mopac-23.1.2-linux/lib:$LD_LIBRARY_PATH
-
 
 
 echo -e "\n Running MOPAC 23.1.2 on server \"`hostname`\"  "
