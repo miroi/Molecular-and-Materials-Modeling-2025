@@ -37,6 +37,7 @@ polarizability (isotropic)
 exp: 0.800 Å3 (https://cccbdb.nist.gov/exp2x.asp?casno=7664393&charge=0 )
 PM7: 0.81538 ANG.**3
 B3LYP/6-31G* :  2.8542698 a0**3 = 0.423 ANG.**3 (THE SAME AS IN https://cccbdb.nist.gov/polcomp2x.asp )
+B3LYP/d-aug-cc-pvdz : 5.9076153 a0**3 = .8757389844567 = 0.876  ANG.**3
 
 Apply the cubed factor: So, 1 \(a_{0}^{3}\) is approximately 0.148239 \(Ang^{3}\).
 

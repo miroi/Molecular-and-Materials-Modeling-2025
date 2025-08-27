@@ -13,7 +13,7 @@ H     -8.290988    1.365470   -0.494508
 end
 
 basis
-  * library daug-cc-pVDZ
+  * library d-aug-cc-pvdz
 end
 
 dft
