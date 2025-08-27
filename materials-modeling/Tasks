@@ -104,7 +104,7 @@ Copy the TASK 5: Electronic properties: B script into your working directory. In
 Run the calculation
 python3 electronic_properties_b_al.py > electronic_properties_b_al.out
 
-Visualize the DOS and bandstructure plots and comapre with Si.
+Visualize the DOS and bandstructure plots and compare with Si.
 ---------------------------------------------------------------------------------------------
 TASK 7: Surfaces and 2D materials (ASE)
 
