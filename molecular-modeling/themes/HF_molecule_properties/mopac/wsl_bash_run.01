@@ -18,7 +18,9 @@ echo
 #input=dna_pm7
 #input=BeCl2_PM7
 #input=BF3_PM7
+
 input=HF_PM7_freq_polariz.mop
+#input=HF_PM6_freq_polariz.mop
 
 mopac $input
 #command time -f "%e" mopac $input
