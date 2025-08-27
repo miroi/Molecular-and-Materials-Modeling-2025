@@ -19,7 +19,7 @@ dft
   mult 1
 end
 
-properties
+property
   response
 end
 
