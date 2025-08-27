@@ -3,7 +3,8 @@ echo
 start molecule
 
 title "HF+ | Equilibrium Geometry | B3LYP/daug-cc-pVDZ"
-charge 0
+
+charge +1
 
 print low
 
@@ -20,6 +21,10 @@ dft
   xc b3lyp
   mult 2
   odft
+end
+
+driver
+  maxiter 50
 end
 
 task dft optimize
