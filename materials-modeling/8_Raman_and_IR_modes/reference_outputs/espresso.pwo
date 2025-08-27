@@ -1,5 +1,5 @@
 
-     Program PWSCF v.7.4.1 starts on 25Aug2025 at 12:41:35 
+     Program PWSCF v.7.4.1 starts on 27Aug2025 at  9:20:24 
 
      This program is part of the open-source Quantum ESPRESSO suite
      for quantum simulation of materials; please cite
@@ -11,7 +11,7 @@
      http://www.quantum-espresso.org/quote
 
      Serial version
-     15226 MiB available memory on the printing compute node when the environment starts
+     14952 MiB available memory on the printing compute node when the environment starts
 
      Reading input from espresso.pwi
 Warning: card &CELL ignored
@@ -101,7 +101,7 @@ Warning: card / ignored
 
      Smooth grid:     6183 G-vectors     FFT dimensions: (  32,  32,  32)
 
-     Estimated max dynamical RAM per process >      12.06 MB
+     Estimated max dynamical RAM per process >       7.71 MB
 
      Initial potential from superposition of free atoms
 
@@ -134,7 +134,7 @@ Warning: card / ignored
      Davidson diagonalization with overlap
      ethr =  6.25E-05,  avg # of iterations =  2.0
 
-     total cpu time spent up to now is        0.1 secs
+     total cpu time spent up to now is        0.2 secs
 
      total energy              =     -15.66428048 Ry
      estimated scf accuracy    <       0.00008195 Ry
@@ -190,49 +190,68 @@ Warning: card / ignored
 
      convergence has been achieved in   6 iterations
 
+     Forces acting on atoms (cartesian axes, Ry/au):
+
+     atom    1 type  1   force =    -0.00000000    0.00000000    0.00000000
+     atom    2 type  1   force =    -0.00000000   -0.00000000    0.00000000
+
+     Total force =     0.000000     Total SCF correction =     0.000000
+
+
+     Computing stress (Cartesian axis) and pressure
+
+          total   stress  (Ry/bohr**3)                   (kbar)     P=       35.49
+   0.00024127   0.00000000   0.00000000           35.49        0.00        0.00
+   0.00000000   0.00024127   0.00000000            0.00       35.49        0.00
+   0.00000000   0.00000000   0.00024127            0.00        0.00       35.49
+
+
      Writing all to output data dir ./tmp/si_scf.save/ :
      XML data file, charge density, pseudopotentials, collected wavefunctions
 
-     init_run     :      0.03s CPU      0.05s WALL (       1 calls)
+     init_run     :      0.04s CPU      0.05s WALL (       1 calls)
      electrons    :      0.16s CPU      0.16s WALL (       1 calls)
+     forces       :      0.00s CPU      0.00s WALL (       1 calls)
+     stress       :      0.01s CPU      0.02s WALL (       1 calls)
 
      Called by init_run:
      wfcinit      :      0.01s CPU      0.01s WALL (       1 calls)
      potinit      :      0.01s CPU      0.01s WALL (       1 calls)
-     hinit0       :      0.01s CPU      0.02s WALL (       1 calls)
+     hinit0       :      0.01s CPU      0.01s WALL (       1 calls)
 
      Called by electrons:
-     c_bands      :      0.10s CPU      0.10s WALL (       6 calls)
+     c_bands      :      0.09s CPU      0.09s WALL (       6 calls)
      sum_band     :      0.03s CPU      0.03s WALL (       6 calls)
      v_of_rho     :      0.02s CPU      0.02s WALL (       7 calls)
      mix_rho      :      0.01s CPU      0.01s WALL (       6 calls)
 
      Called by c_bands:
-     init_us_2    :      0.00s CPU      0.00s WALL (      39 calls)
-     cegterg      :      0.10s CPU      0.10s WALL (      18 calls)
+     init_us_2    :      0.00s CPU      0.00s WALL (      45 calls)
+     cegterg      :      0.09s CPU      0.09s WALL (      18 calls)
 
      Called by *egterg:
      cdiaghg      :      0.00s CPU      0.00s WALL (      68 calls)
-     h_psi        :      0.10s CPU      0.10s WALL (      71 calls)
+     h_psi        :      0.09s CPU      0.10s WALL (      71 calls)
      g_psi        :      0.00s CPU      0.00s WALL (      50 calls)
 
      Called by h_psi:
      h_psi:calbec :      0.00s CPU      0.00s WALL (      71 calls)
-     vloc_psi     :      0.10s CPU      0.10s WALL (      71 calls)
+     vloc_psi     :      0.09s CPU      0.09s WALL (      71 calls)
      add_vuspsi   :      0.00s CPU      0.00s WALL (      71 calls)
 
      General routines
-     calbec       :      0.00s CPU      0.00s WALL (      71 calls)
-     fft          :      0.02s CPU      0.02s WALL (      32 calls)
+     calbec       :      0.00s CPU      0.00s WALL (     122 calls)
+     fft          :      0.03s CPU      0.02s WALL (      37 calls)
      ffts         :      0.00s CPU      0.00s WALL (      13 calls)
      fftw         :      0.09s CPU      0.09s WALL (     580 calls)
      interpolate  :      0.01s CPU      0.01s WALL (       7 calls)
+     davcio       :      0.00s CPU      0.00s WALL (     104 calls)
 
 
-     PWSCF        :      0.21s CPU      0.24s WALL
+     PWSCF        :      0.24s CPU      0.27s WALL
 
 
-   This run was terminated on:  12:41:35  25Aug2025            
+   This run was terminated on:   9:20:24  27Aug2025            
 
 =------------------------------------------------------------------------------=
    JOB DONE.
