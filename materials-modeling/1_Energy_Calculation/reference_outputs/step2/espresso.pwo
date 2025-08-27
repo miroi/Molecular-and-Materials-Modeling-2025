@@ -1,5 +1,5 @@
 
-     Program PWSCF v.7.4.1 starts on 27Aug2025 at  9:35:44 
+     Program PWSCF v.7.4.1 starts on 27Aug2025 at  9:44: 1 
 
      This program is part of the open-source Quantum ESPRESSO suite
      for quantum simulation of materials; please cite
@@ -13,7 +13,7 @@
      Parallel version (MPI), running on     4 processors
 
      MPI processes distributed on     1 nodes
-     15204 MiB available memory on the printing compute node when the environment starts
+     15051 MiB available memory on the printing compute node when the environment starts
 
      Reading input from espresso.pwi
 Warning: card &CELL ignored
@@ -218,19 +218,19 @@ Warning: card / ignored
      electrons    :      0.09s CPU      0.09s WALL (       1 calls)
 
      Called by init_run:
-     wfcinit      :      0.00s CPU      0.00s WALL (       1 calls)
-     potinit      :      0.01s CPU      0.01s WALL (       1 calls)
+     wfcinit      :      0.00s CPU      0.01s WALL (       1 calls)
+     potinit      :      0.00s CPU      0.01s WALL (       1 calls)
      hinit0       :      0.01s CPU      0.01s WALL (       1 calls)
 
      Called by electrons:
      c_bands      :      0.06s CPU      0.06s WALL (       7 calls)
      sum_band     :      0.01s CPU      0.01s WALL (       7 calls)
-     v_of_rho     :      0.02s CPU      0.02s WALL (       8 calls)
+     v_of_rho     :      0.01s CPU      0.02s WALL (       8 calls)
      mix_rho      :      0.00s CPU      0.00s WALL (       7 calls)
 
      Called by c_bands:
      init_us_2    :      0.00s CPU      0.00s WALL (      45 calls)
-     cegterg      :      0.05s CPU      0.06s WALL (      21 calls)
+     cegterg      :      0.06s CPU      0.06s WALL (      21 calls)
 
      Called by *egterg:
      cdiaghg      :      0.00s CPU      0.00s WALL (      82 calls)
@@ -239,21 +239,21 @@ Warning: card / ignored
 
      Called by h_psi:
      h_psi:calbec :      0.00s CPU      0.00s WALL (      85 calls)
-     vloc_psi     :      0.04s CPU      0.05s WALL (      85 calls)
+     vloc_psi     :      0.05s CPU      0.05s WALL (      85 calls)
      add_vuspsi   :      0.00s CPU      0.00s WALL (      85 calls)
 
      General routines
      calbec       :      0.00s CPU      0.00s WALL (      85 calls)
      fft          :      0.01s CPU      0.01s WALL (      80 calls)
      ffts         :      0.00s CPU      0.00s WALL (       7 calls)
-     fftw         :      0.04s CPU      0.05s WALL (    1146 calls)
+     fftw         :      0.05s CPU      0.05s WALL (    1146 calls)
 
      Parallel routines
 
      PWSCF        :      0.13s CPU      0.16s WALL
 
 
-   This run was terminated on:   9:35:44  27Aug2025            
+   This run was terminated on:   9:44: 1  27Aug2025            
 
 =------------------------------------------------------------------------------=
    JOB DONE.

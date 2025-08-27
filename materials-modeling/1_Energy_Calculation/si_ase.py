@@ -2,13 +2,6 @@
 from ase import Atoms
 from ase.calculators.espresso import Espresso, EspressoProfile
 import os
-import sys
-import subprocess
-import numpy as np
-import matplotlib.pyplot as plt
-import shutil
-sys.stdout.flush() 
-
 
 # ==============================================
 # 1. Quantum Espresso input parameters
