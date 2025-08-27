@@ -12,6 +12,8 @@ vib. freq.
 ~~~~~~~~~~
 exp: 4138 cm-1 (Google AI search_
 PM7: 3995.84 cm-1
+B3LYP/6-31G* : 3976.278 cm-1
+
 
 Hf(298.15K)
 ~~~~~~~~~~
@@ -28,12 +30,15 @@ dipole moment
 ~~~~~~~~~~~~~
 exp :  1.827 D (https://cccbdb.nist.gov/exp2x.asp?casno=7664393&charge=0 )
 PM7:   1.454 D 
+B3LYP/6-31G* : 1.859 D
 
-
-polarizability
-~~~~~~~~~~~~~~
+polarizability (isotropic)
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 exp: 0.800 Å3 (https://cccbdb.nist.gov/exp2x.asp?casno=7664393&charge=0 )
 PM7: 0.81538 ANG.**3
+B3LYP/6-31G* :  2.8542698 a0**3 = 0.423 ANG.**3 (THE SAME AS IN https://cccbdb.nist.gov/polcomp2x.asp )
+
+Apply the cubed factor: So, 1 \(a_{0}^{3}\) is approximately 0.148239 \(Ang^{3}\).
 
 MO of HF
 ~~~~~~~~~
