@@ -1,5 +1,5 @@
 
-     Program DYNMAT v.7.4.1 starts on 25Aug2025 at 12:41:49 
+     Program DYNMAT v.7.4.1 starts on 27Aug2025 at  9:20:36 
 
      This program is part of the open-source Quantum ESPRESSO suite
      for quantum simulation of materials; please cite
@@ -11,7 +11,7 @@
      http://www.quantum-espresso.org/quote
 
      Serial version
-     15196 MiB available memory on the printing compute node when the environment starts
+     14920 MiB available memory on the printing compute node when the environment starts
 
 
      Reading Dynamical Matrix from file si.dyn
@@ -43,7 +43,7 @@
      DYNMAT       :      0.00s CPU      0.00s WALL
 
 
-   This run was terminated on:  12:41:49  25Aug2025            
+   This run was terminated on:   9:20:36  27Aug2025            
 
 =------------------------------------------------------------------------------=
    JOB DONE.
