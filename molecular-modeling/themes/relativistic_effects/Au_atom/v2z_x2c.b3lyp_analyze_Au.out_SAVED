@@ -236,7 +236,7 @@ Execution time and host
 -----------------------
 
  
-     Date and time (Linux)  : Wed Aug 27 15:28:47 2025
+     Date and time (Linux)  : Wed Aug 27 15:37:16 2025
      Host name              : DESKTOP-7OTLCGO                         
 
  * Opening checkpoint file 
@@ -251,6 +251,15 @@ Contents of the input file
   ...                                                                                               
 .WAVE FUNCTION                                                                                      
 .ANALYZE                                                                                            
+**MOLECULE                                                                                          
+*CHARGE                                                                                             
+.CHARGE                                                                                             
+0                                                                                                   
+*SYMMETRY                                                                                           
+.LINEAR                                                                                             
+*BASIS                                                                                              
+.DEFAULT                                                                                            
+dyall.v2z                                                                                           
 **INTEGRALS                                                                                         
 *READIN                                                                                             
 .UNCONTRACTED                                                                                       
@@ -283,14 +292,9 @@ all
 Contents of the molecule file
 -----------------------------
 
-DIRAC                                                                                               
-Au                                                                                                  
- Dyall v2z                                                                                          
-C 1                A                                                                                
-     79.  1                                                                                         
-Au    0.000000  0.000000  0.0                                                                       
-LARGE BASIS dyall.v2z                                                                               
-FINISH                                                                                              
+1                                                                                                   
+                                                                                                    
+Au   0.0    0.0    0.0                                                                              
 
 
     *************************************************************************
@@ -352,18 +356,6 @@ FINISH
 
 
 
-  Title Cards
-  -----------
-
-  Au                                                                      
-   Dyall v2z                                                              
-
-  Coordinates are entered in Angstroms and converted to atomic units.
-          - Conversion factor : 1 bohr = 0.52917721 A
-
-  Nuclear Gaussian exponent for atom of charge  79.000 :    1.4223025240D+08   (using mass  197.0)
-
-
                      SYMADD: Detection of molecular symmetry
                      ---------------------------------------
 
@@ -372,8 +364,6 @@ FINISH
  Symmetry point group found: D(oo,h)        
 
  The following symmetry elements were found: X  Y  Z  
-
- The molecule is linear.
 
 
   Symmetry Operations
@@ -781,18 +771,6 @@ Au     0.0000000000   0.0000000000   0.0000000000
 
 
 
-  Title Cards
-  -----------
-
-  Au                                                                      
-   Dyall v2z                                                              
-
-  Coordinates are entered in Angstroms and converted to atomic units.
-          - Conversion factor : 1 bohr = 0.52917721 A
-
-  Nuclear Gaussian exponent for atom of charge  79.000 :    1.4223025240D+08   (using mass  197.0)
-
-
                      SYMADD: Detection of molecular symmetry
                      ---------------------------------------
 
@@ -801,8 +779,6 @@ Au     0.0000000000   0.0000000000   0.0000000000
  Symmetry point group found: D(oo,h)        
 
  The following symmetry elements were found: X  Y  Z  
-
- The molecule is linear.
 
 
   Symmetry Operations
@@ -2261,17 +2237,10 @@ Au     0.0000000000   0.0000000000   0.0000000000
                    ***          Calculation continues in two-component mode.         ***
                    *********************************************************************
 
- >>> CPU  time used in mk_h2c is   0.87 seconds
- >>> WALL time used in mk_h2c is   0.87 seconds
-
-  Coordinates are entered in Angstroms and converted to atomic units.
-          - Conversion factor : 1 bohr = 0.52917721 A
-
-  Nuclear Gaussian exponent for atom of charge  79.000 :    1.4223025240D+08   (using mass  197.0)
+ >>> CPU  time used in mk_h2c is   0.89 seconds
+ >>> WALL time used in mk_h2c is   0.89 seconds
 
  The following symmetry elements were found: X  Y  Z  
-
- The molecule is linear.
 
 
                       Nuclear contribution to dipole moments
@@ -2324,8 +2293,8 @@ Au     0.0000000000   0.0000000000   0.0000000000
 No. of electronic orbitals (NESH):    84     120     204
 No. of positronic orbitals (NPSH):     0       0       0
 Total no. of orbitals      (NORB):    84     120     204
- >>> CPU  time used in PAMSET is   0.98 seconds
- >>> WALL time used in PAMSET is   0.98 seconds
+ >>> CPU  time used in PAMSET is   1.01 seconds
+ >>> WALL time used in PAMSET is   1.03 seconds
 
 
   *****************************************************************************
@@ -2339,7 +2308,7 @@ Total no. of orbitals      (NORB):    84     120     204
  Reference: S. Lehtola, L. Visscher, E. Engel,  J. Chem. Phys. 152 (2020) 144105. (small GRASP fit)
 
 
-########## START ITERATION NO.   1 ##########   Wed Aug 27 15:28:48 2025
+########## START ITERATION NO.   1 ##########   Wed Aug 27 15:37:17 2025
 
 
   INFO from FNDOCC: following the Aufbau principle led to a symmetry_broken solution - the program corrected it for you.
@@ -2367,16 +2336,16 @@ E_HOMO...E_LUMO, symmetry 1:                                 17  -0.28482   18  
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.02090  104  -0.03082
 
 => Calculating sum of orbital energies
-It.    1    -11741.27809429      0.00D+00  0.00D+00  0.00D+00               0.02970500s   Atom. scrpot   Wed Aug 27
+It.    1    -11741.27809429      0.00D+00  0.00D+00  0.00D+00               0.02839400s   Atom. scrpot   Wed Aug 27
 
-########## START ITERATION NO.   2 ##########   Wed Aug 27 15:28:48 2025
+########## START ITERATION NO.   2 ##########   Wed Aug 27 15:37:17 2025
 
 
 * GETGAB: label "GABAO1XX" not found; calling GABGEN.
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   10.15%   12.98%    2.25%   20.90%   0.44808388s
- >>> CPU  time used in SO Fock is   0.52 seconds
- >>> WALL time used in SO Fock is   0.52 seconds
+SOfock:LL  1.00D-12   10.15%   12.98%    2.25%   20.90%   0.42758906s
+ >>> CPU  time used in SO Fock is   0.50 seconds
+ >>> WALL time used in SO Fock is   0.50 seconds
 
 
  ********************************************************************************
@@ -2411,7 +2380,7 @@ Au      1   0.807E-08   0.201E+02   0.117E+00     167    5168
    DFT exchange-correlation energy:               =      -296.8455649163327053
    number of electrons from numerical integration =        79.0000000000128324
 
-   time spent in DFT integration                  =   0.05 seconds
+   time spent in DFT integration                  =   0.04 seconds
    number of processors                           =         1
 
 
@@ -2433,17 +2402,17 @@ Au      1   0.807E-08   0.201E+02   0.117E+00     167    5168
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.38433   21  -0.27041   22   0.15287
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.31918  104  -0.04392
->>> Total wall time:  0.64032429s, and total CPU time :  0.64029500s
+>>> Total wall time:  0.62080461s, and total CPU time :  0.61204100s
 
-########## END ITERATION NO.   2 ##########   Wed Aug 27 15:28:49 2025
+########## END ITERATION NO.   2 ##########   Wed Aug 27 15:37:18 2025
 
-It.    2    -19033.63149781      7.29D+03 -1.22D+02  2.59D+01               0.64032429s   LL             Wed Aug 27
+It.    2    -19033.63149781      7.29D+03 -1.22D+02  2.59D+01               0.62080461s   LL             Wed Aug 27
 
-########## START ITERATION NO.   3 ##########   Wed Aug 27 15:28:49 2025
+########## START ITERATION NO.   3 ##########   Wed Aug 27 15:37:18 2025
 
     3 *** Differential density matrix. DCOVLP     = 0.9904
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   11.37%   15.68%    2.07%   20.25%   0.41682816s
+SOfock:LL  1.00D-12   11.37%   15.68%    2.07%   20.25%   0.42070103s
  >>> CPU  time used in SO Fock is   0.42 seconds
  >>> WALL time used in SO Fock is   0.42 seconds
 
@@ -2480,19 +2449,19 @@ SOfock:LL  1.00D-12   11.37%   15.68%    2.07%   20.25%   0.41682816s
 E_HOMO...E_LUMO, symmetry 1:                                 15  -3.78725   16  -0.14858   17  -0.14858   18  -0.14784   19  -0.10286
                                  20  -0.10286   21  -0.10286   22   0.22781
 E_HOMO...E_LUMO, symmetry 2:                                103  -1.86534  104   0.00250
->>> Total wall time:  0.48912734s, and total CPU time :  0.48912700s
+>>> Total wall time:  0.50885303s, and total CPU time :  0.49061800s
 
-########## END ITERATION NO.   3 ##########   Wed Aug 27 15:28:49 2025
+########## END ITERATION NO.   3 ##########   Wed Aug 27 15:37:18 2025
 
-It.    3    -19033.61437762     -1.71D-02  1.46D+00  2.09D+00   DIIS   2    0.48912734s   LL             Wed Aug 27
+It.    3    -19033.61437762     -1.71D-02  1.46D+00  2.09D+00   DIIS   2    0.50885303s   LL             Wed Aug 27
 
-########## START ITERATION NO.   4 ##########   Wed Aug 27 15:28:49 2025
+########## START ITERATION NO.   4 ##########   Wed Aug 27 15:37:18 2025
 
     4 *** Differential density matrix. DCOVLP     = 0.9707
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   11.37%   15.08%    2.10%   20.35%   0.41938710s
- >>> CPU  time used in SO Fock is   0.42 seconds
- >>> WALL time used in SO Fock is   0.42 seconds
+SOfock:LL  1.00D-12   11.37%   15.08%    2.10%   20.35%   0.41161084s
+ >>> CPU  time used in SO Fock is   0.41 seconds
+ >>> WALL time used in SO Fock is   0.41 seconds
 
  DFT integration
 
@@ -2522,19 +2491,19 @@ SOfock:LL  1.00D-12   11.37%   15.08%    2.10%   20.35%   0.41938710s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.31559   21  -0.23073   22   0.16966
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.20097  104  -0.03110
->>> Total wall time:  0.49103173s, and total CPU time :  0.49103200s
+>>> Total wall time:  0.48220151s, and total CPU time :  0.48220000s
 
-########## END ITERATION NO.   4 ##########   Wed Aug 27 15:28:50 2025
+########## END ITERATION NO.   4 ##########   Wed Aug 27 15:37:19 2025
 
-It.    4    -19033.10031986     -5.14D-01 -2.73D+00  3.57D+00   DIIS   3    0.49103173s   LL             Wed Aug 27
+It.    4    -19033.10031986     -5.14D-01 -2.73D+00  3.57D+00   DIIS   3    0.48220151s   LL             Wed Aug 27
 
-########## START ITERATION NO.   5 ##########   Wed Aug 27 15:28:50 2025
+########## START ITERATION NO.   5 ##########   Wed Aug 27 15:37:19 2025
 
     5 *** Differential density matrix. DCOVLP     = 1.0037
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   11.37%   15.67%    2.07%   20.27%   0.41189289s
- >>> CPU  time used in SO Fock is   0.41 seconds
- >>> WALL time used in SO Fock is   0.41 seconds
+SOfock:LL  1.00D-12   11.37%   15.67%    2.07%   20.27%   0.42286205s
+ >>> CPU  time used in SO Fock is   0.42 seconds
+ >>> WALL time used in SO Fock is   0.42 seconds
 
  DFT integration
 
@@ -2547,19 +2516,19 @@ SOfock:LL  1.00D-12   11.37%   15.67%    2.07%   20.27%   0.41189289s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26979   21  -0.20746   22   0.18232
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13651  104  -0.02155
->>> Total wall time:  0.48335683s, and total CPU time :  0.48314100s
+>>> Total wall time:  0.49494691s, and total CPU time :  0.49494600s
 
-########## END ITERATION NO.   5 ##########   Wed Aug 27 15:28:50 2025
+########## END ITERATION NO.   5 ##########   Wed Aug 27 15:37:19 2025
 
-It.    5    -19033.76133087      6.61D-01  1.97D+00  2.98D-01   DIIS   4    0.48335683s   LL             Wed Aug 27
+It.    5    -19033.76133087      6.61D-01  1.97D+00  2.98D-01   DIIS   4    0.49494691s   LL             Wed Aug 27
 
-########## START ITERATION NO.   6 ##########   Wed Aug 27 15:28:50 2025
+########## START ITERATION NO.   6 ##########   Wed Aug 27 15:37:19 2025
 
     6 *** Differential density matrix. DCOVLP     = 0.9959
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   11.59%   18.64%    1.94%   19.64%   0.40107298s
- >>> CPU  time used in SO Fock is   0.40 seconds
- >>> WALL time used in SO Fock is   0.40 seconds
+SOfock:LL  1.00D-12   11.59%   18.64%    1.94%   19.64%   0.42101693s
+ >>> CPU  time used in SO Fock is   0.42 seconds
+ >>> WALL time used in SO Fock is   0.42 seconds
 
  DFT integration
 
@@ -2572,17 +2541,17 @@ SOfock:LL  1.00D-12   11.59%   18.64%    1.94%   19.64%   0.40107298s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26325   21  -0.19897   22   0.18554
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.12852  104  -0.01895
->>> Total wall time:  0.47169323s, and total CPU time :  0.47169300s
+>>> Total wall time:  0.49474401s, and total CPU time :  0.49472000s
 
-########## END ITERATION NO.   6 ##########   Wed Aug 27 15:28:51 2025
+########## END ITERATION NO.   6 ##########   Wed Aug 27 15:37:20 2025
 
-It.    6    -19033.77282089      1.15D-02 -1.55D-01  2.19D-02   DIIS   5    0.47169323s   LL             Wed Aug 27
+It.    6    -19033.77282089      1.15D-02 -1.55D-01  2.19D-02   DIIS   5    0.49474401s   LL             Wed Aug 27
 
-########## START ITERATION NO.   7 ##########   Wed Aug 27 15:28:51 2025
+########## START ITERATION NO.   7 ##########   Wed Aug 27 15:37:20 2025
 
     7 *** Differential density matrix. DCOVLP     = 0.9997
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   11.59%   22.84%    1.80%   18.79%   0.41063714s
+SOfock:LL  1.00D-12   11.59%   22.84%    1.80%   18.79%   0.41423726s
  >>> CPU  time used in SO Fock is   0.41 seconds
  >>> WALL time used in SO Fock is   0.41 seconds
 
@@ -2597,17 +2566,17 @@ SOfock:LL  1.00D-12   11.59%   22.84%    1.80%   18.79%   0.41063714s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26537   21  -0.19977   22   0.18485
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13104  104  -0.01953
->>> Total wall time:  0.48640073s, and total CPU time :  0.48637000s
+>>> Total wall time:  0.48366641s, and total CPU time :  0.48366600s
 
-########## END ITERATION NO.   7 ##########   Wed Aug 27 15:28:51 2025
+########## END ITERATION NO.   7 ##########   Wed Aug 27 15:37:20 2025
 
-It.    7    -19033.77289625      7.54D-05 -1.37D-02  6.64D-03   DIIS   6    0.48640073s   LL             Wed Aug 27
+It.    7    -19033.77289625      7.54D-05 -1.37D-02  6.64D-03   DIIS   6    0.48366641s   LL             Wed Aug 27
 
-########## START ITERATION NO.   8 ##########   Wed Aug 27 15:28:51 2025
+########## START ITERATION NO.   8 ##########   Wed Aug 27 15:37:20 2025
 
     8 *** Differential density matrix. DCOVLP     = 1.0001
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   11.68%   25.97%    1.71%   18.09%   0.41743803s
+SOfock:LL  1.00D-12   11.68%   25.97%    1.71%   18.09%   0.41845226s
  >>> CPU  time used in SO Fock is   0.42 seconds
  >>> WALL time used in SO Fock is   0.42 seconds
 
@@ -2622,19 +2591,19 @@ SOfock:LL  1.00D-12   11.68%   25.97%    1.71%   18.09%   0.41743803s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26542   21  -0.19978   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13108  104  -0.01956
->>> Total wall time:  0.48904902s, and total CPU time :  0.48903900s
+>>> Total wall time:  0.49174631s, and total CPU time :  0.49067100s
 
-########## END ITERATION NO.   8 ##########   Wed Aug 27 15:28:52 2025
+########## END ITERATION NO.   8 ##########   Wed Aug 27 15:37:21 2025
 
-It.    8    -19033.77290397      7.73D-06  2.73D-03  3.72D-04   DIIS   7    0.48904902s   LL             Wed Aug 27
+It.    8    -19033.77290397      7.73D-06  2.73D-03  3.72D-04   DIIS   7    0.49174631s   LL             Wed Aug 27
 
-########## START ITERATION NO.   9 ##########   Wed Aug 27 15:28:52 2025
+########## START ITERATION NO.   9 ##########   Wed Aug 27 15:37:21 2025
 
     9 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   12.12%   34.06%    1.52%   16.16%   0.41706610s
- >>> CPU  time used in SO Fock is   0.42 seconds
- >>> WALL time used in SO Fock is   0.42 seconds
+SOfock:LL  1.00D-12   12.12%   34.06%    1.52%   16.16%   0.39352512s
+ >>> CPU  time used in SO Fock is   0.39 seconds
+ >>> WALL time used in SO Fock is   0.39 seconds
 
  DFT integration
 
@@ -2647,19 +2616,19 @@ SOfock:LL  1.00D-12   12.12%   34.06%    1.52%   16.16%   0.41706610s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19978   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.49196652s, and total CPU time :  0.49193700s
+>>> Total wall time:  0.46462381s, and total CPU time :  0.46461200s
 
-########## END ITERATION NO.   9 ##########   Wed Aug 27 15:28:52 2025
+########## END ITERATION NO.   9 ##########   Wed Aug 27 15:37:21 2025
 
-It.    9    -19033.77290398      3.48D-09  2.43D-05  2.08D-05   DIIS   8    0.49196652s   LL             Wed Aug 27
+It.    9    -19033.77290398      3.48D-09  2.43D-05  2.08D-05   DIIS   8    0.46462381s   LL             Wed Aug 27
 
-########## START ITERATION NO.  10 ##########   Wed Aug 27 15:28:52 2025
+########## START ITERATION NO.  10 ##########   Wed Aug 27 15:37:21 2025
 
    10 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   12.98%   39.93%    1.39%   14.78%   0.37511396s
- >>> CPU  time used in SO Fock is   0.38 seconds
- >>> WALL time used in SO Fock is   0.38 seconds
+SOfock:LL  1.00D-12   12.98%   39.93%    1.39%   14.78%   0.37361860s
+ >>> CPU  time used in SO Fock is   0.37 seconds
+ >>> WALL time used in SO Fock is   0.37 seconds
 
  DFT integration
 
@@ -2672,19 +2641,19 @@ SOfock:LL  1.00D-12   12.98%   39.93%    1.39%   14.78%   0.37511396s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.44767283s, and total CPU time :  0.44766000s
+>>> Total wall time:  0.44536651s, and total CPU time :  0.44532100s
 
-########## END ITERATION NO.  10 ##########   Wed Aug 27 15:28:53 2025
+########## END ITERATION NO.  10 ##########   Wed Aug 27 15:37:22 2025
 
-It.   10    -19033.77290398      1.09D-11 -4.90D-06  1.57D-06   DIIS   9    0.44767283s   LL             Wed Aug 27
+It.   10    -19033.77290398      1.09D-11 -4.90D-06  1.57D-06   DIIS   9    0.44536651s   LL             Wed Aug 27
 
-########## START ITERATION NO.  11 ##########   Wed Aug 27 15:28:53 2025
+########## START ITERATION NO.  11 ##########   Wed Aug 27 15:37:22 2025
 
    11 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   16.13%   45.61%    1.28%   13.11%   0.36965609s
- >>> CPU  time used in SO Fock is   0.37 seconds
- >>> WALL time used in SO Fock is   0.37 seconds
+SOfock:LL  1.00D-12   16.13%   45.61%    1.28%   13.11%   0.36207104s
+ >>> CPU  time used in SO Fock is   0.36 seconds
+ >>> WALL time used in SO Fock is   0.36 seconds
 
  DFT integration
 
@@ -2697,19 +2666,19 @@ SOfock:LL  1.00D-12   16.13%   45.61%    1.28%   13.11%   0.36965609s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.44162364s, and total CPU time :  0.44162300s
+>>> Total wall time:  0.43394151s, and total CPU time :  0.43390100s
 
-########## END ITERATION NO.  11 ##########   Wed Aug 27 15:28:53 2025
+########## END ITERATION NO.  11 ##########   Wed Aug 27 15:37:22 2025
 
-It.   11    -19033.77290398      1.46D-11  2.08D-07  1.54D-07   DIIS   9    0.44162364s   LL             Wed Aug 27
+It.   11    -19033.77290398      1.46D-11  2.08D-07  1.54D-07   DIIS   9    0.43394151s   LL             Wed Aug 27
 
-########## START ITERATION NO.  12 ##########   Wed Aug 27 15:28:53 2025
+########## START ITERATION NO.  12 ##########   Wed Aug 27 15:37:22 2025
 
    12 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   19.94%   54.69%    1.23%   10.90%   0.33248997s
- >>> CPU  time used in SO Fock is   0.33 seconds
- >>> WALL time used in SO Fock is   0.33 seconds
+SOfock:LL  1.00D-12   19.94%   54.69%    1.23%   10.90%   0.33768415s
+ >>> CPU  time used in SO Fock is   0.34 seconds
+ >>> WALL time used in SO Fock is   0.34 seconds
 
  DFT integration
 
@@ -2722,17 +2691,17 @@ SOfock:LL  1.00D-12   19.94%   54.69%    1.23%   10.90%   0.33248997s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.40570155s, and total CPU time :  0.40565900s
+>>> Total wall time:  0.40906451s, and total CPU time :  0.40902400s
 
-########## END ITERATION NO.  12 ##########   Wed Aug 27 15:28:54 2025
+########## END ITERATION NO.  12 ##########   Wed Aug 27 15:37:22 2025
 
-It.   12    -19033.77290398     -2.91D-11 -8.43D-08  3.20D-09   DIIS   7    0.40570155s   LL             Wed Aug 27
+It.   12    -19033.77290398     -2.91D-11 -8.43D-08  3.20D-09   DIIS   7    0.40906451s   LL             Wed Aug 27
 
-########## START ITERATION NO.  13 ##########   Wed Aug 27 15:28:54 2025
+########## START ITERATION NO.  13 ##########   Wed Aug 27 15:37:22 2025
 
    13 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   33.72%   57.75%    1.76%   10.08%   0.27128506s
+SOfock:LL  1.00D-12   33.72%   57.75%    1.76%   10.08%   0.27029800s
  >>> CPU  time used in SO Fock is   0.27 seconds
  >>> WALL time used in SO Fock is   0.27 seconds
 
@@ -2747,19 +2716,19 @@ SOfock:LL  1.00D-12   33.72%   57.75%    1.76%   10.08%   0.27128506s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.34370831s, and total CPU time :  0.34370700s
+>>> Total wall time:  0.34198251s, and total CPU time :  0.34198100s
 
-########## END ITERATION NO.  13 ##########   Wed Aug 27 15:28:54 2025
+########## END ITERATION NO.  13 ##########   Wed Aug 27 15:37:23 2025
 
-It.   13    -19033.77290398     -3.27D-11 -9.28D-09  2.57D-09   DAMP 25%    0.34370831s   LL             Wed Aug 27
+It.   13    -19033.77290398     -3.27D-11 -9.28D-09  2.57D-09   DAMP 25%    0.34198251s   LL             Wed Aug 27
 
-########## START ITERATION NO.  14 ##########   Wed Aug 27 15:28:54 2025
+########## START ITERATION NO.  14 ##########   Wed Aug 27 15:37:23 2025
 
    14 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   39.13%   56.51%    2.57%   11.04%   0.26087856s
- >>> CPU  time used in SO Fock is   0.26 seconds
- >>> WALL time used in SO Fock is   0.26 seconds
+SOfock:LL  1.00D-12   39.13%   56.51%    2.57%   11.04%   0.25379038s
+ >>> CPU  time used in SO Fock is   0.25 seconds
+ >>> WALL time used in SO Fock is   0.25 seconds
 
  DFT integration
 
@@ -2772,17 +2741,17 @@ SOfock:LL  1.00D-12   39.13%   56.51%    2.57%   11.04%   0.26087856s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.33098051s, and total CPU time :  0.33098100s
+>>> Total wall time:  0.32283600s, and total CPU time :  0.32283500s
 
-########## END ITERATION NO.  14 ##########   Wed Aug 27 15:28:54 2025
+########## END ITERATION NO.  14 ##########   Wed Aug 27 15:37:23 2025
 
-It.   14    -19033.77290398     -5.46D-11  1.32D-08  2.50D-09   DAMP 25%    0.33098051s   LL             Wed Aug 27
+It.   14    -19033.77290398     -5.46D-11  1.32D-08  2.50D-09   DAMP 25%    0.32283600s   LL             Wed Aug 27
 
-########## START ITERATION NO.  15 ##########   Wed Aug 27 15:28:54 2025
+########## START ITERATION NO.  15 ##########   Wed Aug 27 15:37:23 2025
 
    15 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   35.58%   57.94%    1.99%   10.33%   0.26539373s
+SOfock:LL  1.00D-12   35.58%   57.94%    1.99%   10.33%   0.26946115s
  >>> CPU  time used in SO Fock is   0.27 seconds
  >>> WALL time used in SO Fock is   0.27 seconds
 
@@ -2797,19 +2766,19 @@ SOfock:LL  1.00D-12   35.58%   57.94%    1.99%   10.33%   0.26539373s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.33591091s, and total CPU time :  0.33577600s
+>>> Total wall time:  0.33945611s, and total CPU time :  0.33945500s
 
-########## END ITERATION NO.  15 ##########   Wed Aug 27 15:28:55 2025
+########## END ITERATION NO.  15 ##########   Wed Aug 27 15:37:23 2025
 
-It.   15    -19033.77290398      2.40D-10 -1.42D-08  2.89D-09   DAMP 25%    0.33591091s   LL             Wed Aug 27
+It.   15    -19033.77290398      2.40D-10 -1.42D-08  2.89D-09   DAMP 25%    0.33945611s   LL             Wed Aug 27
 
-########## START ITERATION NO.  16 ##########   Wed Aug 27 15:28:55 2025
+########## START ITERATION NO.  16 ##########   Wed Aug 27 15:37:23 2025
 
    16 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   36.28%   57.74%    2.13%   10.46%   0.26837111s
- >>> CPU  time used in SO Fock is   0.27 seconds
- >>> WALL time used in SO Fock is   0.27 seconds
+SOfock:LL  1.00D-12   36.28%   57.74%    2.13%   10.46%   0.26249218s
+ >>> CPU  time used in SO Fock is   0.26 seconds
+ >>> WALL time used in SO Fock is   0.26 seconds
 
  DFT integration
 
@@ -2822,19 +2791,19 @@ SOfock:LL  1.00D-12   36.28%   57.74%    2.13%   10.46%   0.26837111s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.34265351s, and total CPU time :  0.34265200s
+>>> Total wall time:  0.33604880s, and total CPU time :  0.33604300s
 
-########## END ITERATION NO.  16 ##########   Wed Aug 27 15:28:55 2025
+########## END ITERATION NO.  16 ##########   Wed Aug 27 15:37:24 2025
 
-It.   16    -19033.77290398     -1.20D-10 -1.54D-08  2.81D-09   DAMP 25%    0.34265351s   LL             Wed Aug 27
+It.   16    -19033.77290398     -1.20D-10 -1.54D-08  2.81D-09   DAMP 25%    0.33604880s   LL             Wed Aug 27
 
-########## START ITERATION NO.  17 ##########   Wed Aug 27 15:28:55 2025
+########## START ITERATION NO.  17 ##########   Wed Aug 27 15:37:24 2025
 
    17 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   36.05%   58.27%    2.19%   10.34%   0.26900339s
- >>> CPU  time used in SO Fock is   0.27 seconds
- >>> WALL time used in SO Fock is   0.27 seconds
+SOfock:LL  1.00D-12   36.05%   58.27%    2.19%   10.34%   0.25886965s
+ >>> CPU  time used in SO Fock is   0.26 seconds
+ >>> WALL time used in SO Fock is   0.26 seconds
 
  DFT integration
 
@@ -2847,17 +2816,17 @@ SOfock:LL  1.00D-12   36.05%   58.27%    2.19%   10.34%   0.26900339s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.34151631s, and total CPU time :  0.34151000s
+>>> Total wall time:  0.33063520s, and total CPU time :  0.33061700s
 
-########## END ITERATION NO.  17 ##########   Wed Aug 27 15:28:55 2025
+########## END ITERATION NO.  17 ##########   Wed Aug 27 15:37:24 2025
 
-It.   17    -19033.77290398      4.73D-11 -3.09D-08  2.44D-09   DAMP 25%    0.34151631s   LL             Wed Aug 27
+It.   17    -19033.77290398      4.73D-11 -3.09D-08  2.44D-09   DAMP 25%    0.33063520s   LL             Wed Aug 27
 
-########## START ITERATION NO.  18 ##########   Wed Aug 27 15:28:55 2025
+########## START ITERATION NO.  18 ##########   Wed Aug 27 15:37:24 2025
 
    18 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   37.48%   56.83%    2.16%   10.40%   0.26258087s
+SOfock:LL  1.00D-12   37.48%   56.83%    2.16%   10.40%   0.25760365s
  >>> CPU  time used in SO Fock is   0.26 seconds
  >>> WALL time used in SO Fock is   0.26 seconds
 
@@ -2872,19 +2841,19 @@ SOfock:LL  1.00D-12   37.48%   56.83%    2.16%   10.40%   0.26258087s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.33590471s, and total CPU time :  0.33589800s
+>>> Total wall time:  0.32675680s, and total CPU time :  0.32675600s
 
-########## END ITERATION NO.  18 ##########   Wed Aug 27 15:28:56 2025
+########## END ITERATION NO.  18 ##########   Wed Aug 27 15:37:24 2025
 
-It.   18    -19033.77290398     -2.18D-10  1.35D-08  2.58D-09   DAMP 25%    0.33590471s   LL             Wed Aug 27
+It.   18    -19033.77290398     -2.18D-10  1.35D-08  2.58D-09   DAMP 25%    0.32675680s   LL             Wed Aug 27
 
-########## START ITERATION NO.  19 ##########   Wed Aug 27 15:28:56 2025
+########## START ITERATION NO.  19 ##########   Wed Aug 27 15:37:24 2025
 
    19 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   36.67%   57.37%    2.21%   10.45%   0.25714970s
- >>> CPU  time used in SO Fock is   0.26 seconds
- >>> WALL time used in SO Fock is   0.26 seconds
+SOfock:LL  1.00D-12   36.67%   57.37%    2.21%   10.45%   0.26754284s
+ >>> CPU  time used in SO Fock is   0.27 seconds
+ >>> WALL time used in SO Fock is   0.27 seconds
 
  DFT integration
 
@@ -2897,17 +2866,17 @@ SOfock:LL  1.00D-12   36.67%   57.37%    2.21%   10.45%   0.25714970s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.33041851s, and total CPU time :  0.33041900s
+>>> Total wall time:  0.33894640s, and total CPU time :  0.33894600s
 
-########## END ITERATION NO.  19 ##########   Wed Aug 27 15:28:56 2025
+########## END ITERATION NO.  19 ##########   Wed Aug 27 15:37:25 2025
 
-It.   19    -19033.77290398      6.18D-11  3.78D-09  2.91D-09   DAMP 25%    0.33041851s   LL             Wed Aug 27
+It.   19    -19033.77290398      6.18D-11  3.78D-09  2.91D-09   DAMP 25%    0.33894640s   LL             Wed Aug 27
 
-########## START ITERATION NO.  20 ##########   Wed Aug 27 15:28:56 2025
+########## START ITERATION NO.  20 ##########   Wed Aug 27 15:37:25 2025
 
    20 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   37.20%   57.24%    2.15%   10.66%   0.25876427s
+SOfock:LL  1.00D-12   37.20%   57.24%    2.15%   10.66%   0.26166248s
  >>> CPU  time used in SO Fock is   0.26 seconds
  >>> WALL time used in SO Fock is   0.26 seconds
 
@@ -2922,19 +2891,19 @@ SOfock:LL  1.00D-12   37.20%   57.24%    2.15%   10.66%   0.25876427s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.33510301s, and total CPU time :  0.33509200s
+>>> Total wall time:  0.33162800s, and total CPU time :  0.33162700s
 
-########## END ITERATION NO.  20 ##########   Wed Aug 27 15:28:56 2025
+########## END ITERATION NO.  20 ##########   Wed Aug 27 15:37:25 2025
 
-It.   20    -19033.77290398     -2.66D-10  1.59D-08  2.73D-09   DAMP 25%    0.33510301s   LL             Wed Aug 27
+It.   20    -19033.77290398     -2.66D-10  1.59D-08  2.73D-09   DAMP 25%    0.33162800s   LL             Wed Aug 27
 
-########## START ITERATION NO.  21 ##########   Wed Aug 27 15:28:56 2025
+########## START ITERATION NO.  21 ##########   Wed Aug 27 15:37:25 2025
 
    21 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   37.94%   56.84%    2.35%   10.54%   0.25776196s
- >>> CPU  time used in SO Fock is   0.26 seconds
- >>> WALL time used in SO Fock is   0.26 seconds
+SOfock:LL  1.00D-12   37.94%   56.84%    2.35%   10.54%   0.25242615s
+ >>> CPU  time used in SO Fock is   0.25 seconds
+ >>> WALL time used in SO Fock is   0.25 seconds
 
  DFT integration
 
@@ -2942,22 +2911,22 @@ SOfock:LL  1.00D-12   37.94%   56.84%    2.35%   10.54%   0.25776196s
    DFT exchange-correlation energy:               =      -297.3571569532069816
    number of electrons from numerical integration =        79.0000000000123919
 
-   time spent in DFT integration                  =   0.05 seconds
+   time spent in DFT integration                  =   0.04 seconds
    number of processors                           =         1
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.33210711s, and total CPU time :  0.33210700s
+>>> Total wall time:  0.32679090s, and total CPU time :  0.32675900s
 
-########## END ITERATION NO.  21 ##########   Wed Aug 27 15:28:57 2025
+########## END ITERATION NO.  21 ##########   Wed Aug 27 15:37:25 2025
 
-It.   21    -19033.77290398      6.55D-11  3.60D-08  2.50D-09   DAMP 25%    0.33210711s   LL             Wed Aug 27
+It.   21    -19033.77290398      6.55D-11  3.60D-08  2.50D-09   DAMP 25%    0.32679090s   LL             Wed Aug 27
 
-########## START ITERATION NO.  22 ##########   Wed Aug 27 15:28:57 2025
+########## START ITERATION NO.  22 ##########   Wed Aug 27 15:37:25 2025
 
    22 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   37.69%   57.29%    2.37%   10.81%   0.25939941s
+SOfock:LL  1.00D-12   37.69%   57.29%    2.37%   10.81%   0.25847626s
  >>> CPU  time used in SO Fock is   0.26 seconds
  >>> WALL time used in SO Fock is   0.26 seconds
 
@@ -2972,19 +2941,19 @@ SOfock:LL  1.00D-12   37.69%   57.29%    2.37%   10.81%   0.25939941s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.33052500s, and total CPU time :  0.33052400s
+>>> Total wall time:  0.33037090s, and total CPU time :  0.33035700s
 
-########## END ITERATION NO.  22 ##########   Wed Aug 27 15:28:57 2025
+########## END ITERATION NO.  22 ##########   Wed Aug 27 15:37:26 2025
 
-It.   22    -19033.77290398     -5.09D-11 -1.31D-08  2.79D-09   DAMP 25%    0.33052500s   LL             Wed Aug 27
+It.   22    -19033.77290398     -5.09D-11 -1.31D-08  2.79D-09   DAMP 25%    0.33037090s   LL             Wed Aug 27
 
-########## START ITERATION NO.  23 ##########   Wed Aug 27 15:28:57 2025
+########## START ITERATION NO.  23 ##########   Wed Aug 27 15:37:26 2025
 
    23 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   36.87%   57.41%    2.23%   10.51%   0.27213573s
- >>> CPU  time used in SO Fock is   0.27 seconds
- >>> WALL time used in SO Fock is   0.27 seconds
+SOfock:LL  1.00D-12   36.87%   57.41%    2.23%   10.51%   0.25703621s
+ >>> CPU  time used in SO Fock is   0.26 seconds
+ >>> WALL time used in SO Fock is   0.26 seconds
 
  DFT integration
 
@@ -2997,19 +2966,19 @@ SOfock:LL  1.00D-12   36.87%   57.41%    2.23%   10.51%   0.27213573s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.34569930s, and total CPU time :  0.34569000s
+>>> Total wall time:  0.32953380s, and total CPU time :  0.32952500s
 
-########## END ITERATION NO.  23 ##########   Wed Aug 27 15:28:57 2025
+########## END ITERATION NO.  23 ##########   Wed Aug 27 15:37:26 2025
 
-It.   23    -19033.77290398      2.18D-10  8.49D-09  2.92D-09   DAMP 25%    0.34569930s   LL             Wed Aug 27
+It.   23    -19033.77290398      2.18D-10  8.49D-09  2.92D-09   DAMP 25%    0.32953380s   LL             Wed Aug 27
 
-########## START ITERATION NO.  24 ##########   Wed Aug 27 15:28:57 2025
+########## START ITERATION NO.  24 ##########   Wed Aug 27 15:37:26 2025
 
    24 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   37.35%   57.37%    2.31%   10.55%   0.26738071s
- >>> CPU  time used in SO Fock is   0.27 seconds
- >>> WALL time used in SO Fock is   0.27 seconds
+SOfock:LL  1.00D-12   37.35%   57.37%    2.31%   10.55%   0.25967789s
+ >>> CPU  time used in SO Fock is   0.26 seconds
+ >>> WALL time used in SO Fock is   0.26 seconds
 
  DFT integration
 
@@ -3022,17 +2991,17 @@ SOfock:LL  1.00D-12   37.35%   57.37%    2.31%   10.55%   0.26738071s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.34338730s, and total CPU time :  0.34338600s
+>>> Total wall time:  0.33240609s, and total CPU time :  0.33240600s
 
-########## END ITERATION NO.  24 ##########   Wed Aug 27 15:28:58 2025
+########## END ITERATION NO.  24 ##########   Wed Aug 27 15:37:26 2025
 
-It.   24    -19033.77290398     -1.27D-10 -4.34D-08  3.94D-09   DAMP 25%    0.34338730s   LL             Wed Aug 27
+It.   24    -19033.77290398     -1.27D-10 -4.34D-08  3.94D-09   DAMP 25%    0.33240609s   LL             Wed Aug 27
 
-########## START ITERATION NO.  25 ##########   Wed Aug 27 15:28:58 2025
+########## START ITERATION NO.  25 ##########   Wed Aug 27 15:37:26 2025
 
    25 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   37.11%   57.30%    2.49%   10.45%   0.27176189s
+SOfock:LL  1.00D-12   37.11%   57.30%    2.49%   10.45%   0.26675034s
  >>> CPU  time used in SO Fock is   0.27 seconds
  >>> WALL time used in SO Fock is   0.27 seconds
 
@@ -3047,19 +3016,19 @@ SOfock:LL  1.00D-12   37.11%   57.30%    2.49%   10.45%   0.27176189s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.34731260s, and total CPU time :  0.34731300s
+>>> Total wall time:  0.34300318s, and total CPU time :  0.34300200s
 
-########## END ITERATION NO.  25 ##########   Wed Aug 27 15:28:58 2025
+########## END ITERATION NO.  25 ##########   Wed Aug 27 15:37:27 2025
 
-It.   25    -19033.77290398      3.64D-11  9.01D-09  2.83D-09   DAMP 25%    0.34731260s   LL             Wed Aug 27
+It.   25    -19033.77290398      3.64D-11  9.01D-09  2.83D-09   DAMP 25%    0.34300318s   LL             Wed Aug 27
 
-########## START ITERATION NO.  26 ##########   Wed Aug 27 15:28:58 2025
+########## START ITERATION NO.  26 ##########   Wed Aug 27 15:37:27 2025
 
    26 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   35.31%   58.07%    1.88%   10.33%   0.27891064s
- >>> CPU  time used in SO Fock is   0.28 seconds
- >>> WALL time used in SO Fock is   0.28 seconds
+SOfock:LL  1.00D-12   35.31%   58.07%    1.88%   10.33%   0.26370335s
+ >>> CPU  time used in SO Fock is   0.26 seconds
+ >>> WALL time used in SO Fock is   0.26 seconds
 
  DFT integration
 
@@ -3067,22 +3036,22 @@ SOfock:LL  1.00D-12   35.31%   58.07%    1.88%   10.33%   0.27891064s
    DFT exchange-correlation energy:               =      -297.3571569526329199
    number of electrons from numerical integration =        79.0000000000128182
 
-   time spent in DFT integration                  =   0.05 seconds
+   time spent in DFT integration                  =   0.04 seconds
    number of processors                           =         1
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.35407679s, and total CPU time :  0.35406700s
+>>> Total wall time:  0.33529048s, and total CPU time :  0.33459800s
 
-########## END ITERATION NO.  26 ##########   Wed Aug 27 15:28:58 2025
+########## END ITERATION NO.  26 ##########   Wed Aug 27 15:37:27 2025
 
-It.   26    -19033.77290398     -1.75D-10 -6.72D-09  3.09D-09   DAMP 25%    0.35407679s   LL             Wed Aug 27
+It.   26    -19033.77290398     -1.75D-10 -6.72D-09  3.09D-09   DAMP 25%    0.33529048s   LL             Wed Aug 27
 
-########## START ITERATION NO.  27 ##########   Wed Aug 27 15:28:58 2025
+########## START ITERATION NO.  27 ##########   Wed Aug 27 15:37:27 2025
 
    27 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   35.89%   57.70%    2.13%   10.38%   0.27053642s
+SOfock:LL  1.00D-12   35.89%   57.70%    2.13%   10.38%   0.26635742s
  >>> CPU  time used in SO Fock is   0.27 seconds
  >>> WALL time used in SO Fock is   0.27 seconds
 
@@ -3097,19 +3066,19 @@ SOfock:LL  1.00D-12   35.89%   57.70%    2.13%   10.38%   0.27053642s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.34015150s, and total CPU time :  0.34013400s
+>>> Total wall time:  0.33862358s, and total CPU time :  0.33862200s
 
-########## END ITERATION NO.  27 ##########   Wed Aug 27 15:28:59 2025
+########## END ITERATION NO.  27 ##########   Wed Aug 27 15:37:27 2025
 
-It.   27    -19033.77290398      3.64D-11 -2.48D-08  3.38D-09   DAMP 25%    0.34015150s   LL             Wed Aug 27
+It.   27    -19033.77290398      3.64D-11 -2.48D-08  3.38D-09   DAMP 25%    0.33862358s   LL             Wed Aug 27
 
-########## START ITERATION NO.  28 ##########   Wed Aug 27 15:28:59 2025
+########## START ITERATION NO.  28 ##########   Wed Aug 27 15:37:27 2025
 
    28 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   36.17%   57.74%    2.31%   10.43%   0.26411629s
- >>> CPU  time used in SO Fock is   0.26 seconds
- >>> WALL time used in SO Fock is   0.26 seconds
+SOfock:LL  1.00D-12   36.17%   57.74%    2.31%   10.43%   0.26834011s
+ >>> CPU  time used in SO Fock is   0.27 seconds
+ >>> WALL time used in SO Fock is   0.27 seconds
 
  DFT integration
 
@@ -3117,24 +3086,24 @@ SOfock:LL  1.00D-12   36.17%   57.74%    2.31%   10.43%   0.26411629s
    DFT exchange-correlation energy:               =      -297.3571569526122289
    number of electrons from numerical integration =        79.0000000000125340
 
-   time spent in DFT integration                  =   0.05 seconds
+   time spent in DFT integration                  =   0.04 seconds
    number of processors                           =         1
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.33943850s, and total CPU time :  0.33936400s
+>>> Total wall time:  0.34377848s, and total CPU time :  0.34376900s
 
-########## END ITERATION NO.  28 ##########   Wed Aug 27 15:28:59 2025
+########## END ITERATION NO.  28 ##########   Wed Aug 27 15:37:28 2025
 
-It.   28    -19033.77290398     -2.18D-11  1.26D-08  2.64D-09   DAMP 25%    0.33943850s   LL             Wed Aug 27
+It.   28    -19033.77290398     -2.18D-11  1.26D-08  2.64D-09   DAMP 25%    0.34377848s   LL             Wed Aug 27
 
-########## START ITERATION NO.  29 ##########   Wed Aug 27 15:28:59 2025
+########## START ITERATION NO.  29 ##########   Wed Aug 27 15:37:28 2025
 
    29 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   36.18%   57.92%    2.17%   10.29%   0.26250648s
- >>> CPU  time used in SO Fock is   0.26 seconds
- >>> WALL time used in SO Fock is   0.26 seconds
+SOfock:LL  1.00D-12   36.18%   57.92%    2.17%   10.29%   0.26641178s
+ >>> CPU  time used in SO Fock is   0.27 seconds
+ >>> WALL time used in SO Fock is   0.27 seconds
 
  DFT integration
 
@@ -3147,19 +3116,19 @@ SOfock:LL  1.00D-12   36.18%   57.92%    2.17%   10.29%   0.26250648s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.33435220s, and total CPU time :  0.33433800s
+>>> Total wall time:  0.34036068s, and total CPU time :  0.34036000s
 
-########## END ITERATION NO.  29 ##########   Wed Aug 27 15:28:59 2025
+########## END ITERATION NO.  29 ##########   Wed Aug 27 15:37:28 2025
 
-It.   29    -19033.77290398      2.91D-11  1.89D-08  2.64D-09   DAMP 25%    0.33435220s   LL             Wed Aug 27
+It.   29    -19033.77290398      2.91D-11  1.89D-08  2.64D-09   DAMP 25%    0.34036068s   LL             Wed Aug 27
 
-########## START ITERATION NO.  30 ##########   Wed Aug 27 15:28:59 2025
+########## START ITERATION NO.  30 ##########   Wed Aug 27 15:37:28 2025
 
    30 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   37.01%   57.78%    2.18%   10.49%   0.26317406s
- >>> CPU  time used in SO Fock is   0.26 seconds
- >>> WALL time used in SO Fock is   0.26 seconds
+SOfock:LL  1.00D-12   37.01%   57.78%    2.18%   10.49%   0.26710129s
+ >>> CPU  time used in SO Fock is   0.27 seconds
+ >>> WALL time used in SO Fock is   0.27 seconds
 
  DFT integration
 
@@ -3172,19 +3141,19 @@ SOfock:LL  1.00D-12   37.01%   57.78%    2.18%   10.49%   0.26317406s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.33762219s, and total CPU time :  0.33761600s
+>>> Total wall time:  0.33845148s, and total CPU time :  0.33841200s
 
-########## END ITERATION NO.  30 ##########   Wed Aug 27 15:29:00 2025
+########## END ITERATION NO.  30 ##########   Wed Aug 27 15:37:29 2025
 
-It.   30    -19033.77290398     -2.00D-10 -1.91D-08  2.66D-09   DAMP 25%    0.33762219s   LL             Wed Aug 27
+It.   30    -19033.77290398     -2.00D-10 -1.91D-08  2.66D-09   DAMP 25%    0.33845148s   LL             Wed Aug 27
 
-########## START ITERATION NO.  31 ##########   Wed Aug 27 15:29:00 2025
+########## START ITERATION NO.  31 ##########   Wed Aug 27 15:37:29 2025
 
    31 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   37.10%   57.55%    2.38%   10.45%   0.25789642s
- >>> CPU  time used in SO Fock is   0.26 seconds
- >>> WALL time used in SO Fock is   0.26 seconds
+SOfock:LL  1.00D-12   37.10%   57.55%    2.38%   10.45%   0.26744747s
+ >>> CPU  time used in SO Fock is   0.27 seconds
+ >>> WALL time used in SO Fock is   0.27 seconds
 
  DFT integration
 
@@ -3192,24 +3161,24 @@ SOfock:LL  1.00D-12   37.10%   57.55%    2.38%   10.45%   0.25789642s
    DFT exchange-correlation energy:               =      -297.3571569532484205
    number of electrons from numerical integration =        79.0000000000128608
 
-   time spent in DFT integration                  =   0.04 seconds
+   time spent in DFT integration                  =   0.05 seconds
    number of processors                           =         1
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.33070150s, and total CPU time :  0.33069100s
+>>> Total wall time:  0.34136258s, and total CPU time :  0.34136200s
 
-########## END ITERATION NO.  31 ##########   Wed Aug 27 15:29:00 2025
+########## END ITERATION NO.  31 ##########   Wed Aug 27 15:37:29 2025
 
-It.   31    -19033.77290398     -3.64D-12 -2.38D-08  2.71D-09   DAMP 25%    0.33070150s   LL             Wed Aug 27
+It.   31    -19033.77290398     -3.64D-12 -2.38D-08  2.71D-09   DAMP 25%    0.34136258s   LL             Wed Aug 27
 
-########## START ITERATION NO.  32 ##########   Wed Aug 27 15:29:00 2025
+########## START ITERATION NO.  32 ##########   Wed Aug 27 15:37:29 2025
 
    32 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   37.06%   57.39%    2.28%   10.69%   0.26431942s
- >>> CPU  time used in SO Fock is   0.26 seconds
- >>> WALL time used in SO Fock is   0.26 seconds
+SOfock:LL  1.00D-12   37.06%   57.39%    2.28%   10.69%   0.26551151s
+ >>> CPU  time used in SO Fock is   0.27 seconds
+ >>> WALL time used in SO Fock is   0.27 seconds
 
  DFT integration
 
@@ -3222,19 +3191,19 @@ SOfock:LL  1.00D-12   37.06%   57.39%    2.28%   10.69%   0.26431942s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.33680079s, and total CPU time :  0.33678500s
+>>> Total wall time:  0.33671598s, and total CPU time :  0.33671500s
 
-########## END ITERATION NO.  32 ##########   Wed Aug 27 15:29:00 2025
+########## END ITERATION NO.  32 ##########   Wed Aug 27 15:37:29 2025
 
-It.   32    -19033.77290398     -9.09D-11 -1.17D-08  2.53D-09   DAMP 25%    0.33680079s   LL             Wed Aug 27
+It.   32    -19033.77290398     -9.09D-11 -1.17D-08  2.53D-09   DAMP 25%    0.33671598s   LL             Wed Aug 27
 
-########## START ITERATION NO.  33 ##########   Wed Aug 27 15:29:00 2025
+########## START ITERATION NO.  33 ##########   Wed Aug 27 15:37:29 2025
 
    33 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   36.85%   57.57%    2.26%   10.60%   0.27523136s
- >>> CPU  time used in SO Fock is   0.28 seconds
- >>> WALL time used in SO Fock is   0.28 seconds
+SOfock:LL  1.00D-12   36.85%   57.57%    2.26%   10.60%   0.26763630s
+ >>> CPU  time used in SO Fock is   0.27 seconds
+ >>> WALL time used in SO Fock is   0.27 seconds
 
  DFT integration
 
@@ -3242,24 +3211,24 @@ SOfock:LL  1.00D-12   36.85%   57.57%    2.26%   10.60%   0.27523136s
    DFT exchange-correlation energy:               =      -297.3571569532734316
    number of electrons from numerical integration =        79.0000000000122355
 
-   time spent in DFT integration                  =   0.04 seconds
+   time spent in DFT integration                  =   0.05 seconds
    number of processors                           =         1
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.34878049s, and total CPU time :  0.34878000s
+>>> Total wall time:  0.34214958s, and total CPU time :  0.34213300s
 
-########## END ITERATION NO.  33 ##########   Wed Aug 27 15:29:01 2025
+########## END ITERATION NO.  33 ##########   Wed Aug 27 15:37:30 2025
 
-It.   33    -19033.77290398      2.91D-11  6.89D-09  3.04D-09   DAMP 25%    0.34878049s   LL             Wed Aug 27
+It.   33    -19033.77290398      2.91D-11  6.89D-09  3.04D-09   DAMP 25%    0.34214958s   LL             Wed Aug 27
 
-########## START ITERATION NO.  34 ##########   Wed Aug 27 15:29:01 2025
+########## START ITERATION NO.  34 ##########   Wed Aug 27 15:37:30 2025
 
    34 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   36.68%   57.37%    2.24%   10.53%   0.26402378s
- >>> CPU  time used in SO Fock is   0.26 seconds
- >>> WALL time used in SO Fock is   0.26 seconds
+SOfock:LL  1.00D-12   36.68%   57.37%    2.24%   10.53%   0.27080727s
+ >>> CPU  time used in SO Fock is   0.27 seconds
+ >>> WALL time used in SO Fock is   0.27 seconds
 
  DFT integration
 
@@ -3272,17 +3241,17 @@ SOfock:LL  1.00D-12   36.68%   57.37%    2.24%   10.53%   0.26402378s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.33717699s, and total CPU time :  0.33717700s
+>>> Total wall time:  0.34145748s, and total CPU time :  0.34145800s
 
-########## END ITERATION NO.  34 ##########   Wed Aug 27 15:29:01 2025
+########## END ITERATION NO.  34 ##########   Wed Aug 27 15:37:30 2025
 
-It.   34    -19033.77290398     -1.09D-11 -1.73D-08  2.56D-09   DAMP 25%    0.33717699s   LL             Wed Aug 27
+It.   34    -19033.77290398     -1.09D-11 -1.73D-08  2.56D-09   DAMP 25%    0.34145748s   LL             Wed Aug 27
 
-########## START ITERATION NO.  35 ##########   Wed Aug 27 15:29:01 2025
+########## START ITERATION NO.  35 ##########   Wed Aug 27 15:37:30 2025
 
    35 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   36.82%   57.58%    2.17%   10.43%   0.25779152s
+SOfock:LL  1.00D-12   36.82%   57.58%    2.17%   10.43%   0.25957966s
  >>> CPU  time used in SO Fock is   0.26 seconds
  >>> WALL time used in SO Fock is   0.26 seconds
 
@@ -3297,19 +3266,19 @@ SOfock:LL  1.00D-12   36.82%   57.58%    2.17%   10.43%   0.25779152s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.33465309s, and total CPU time :  0.33464500s
+>>> Total wall time:  0.33200658s, and total CPU time :  0.33199300s
 
-########## END ITERATION NO.  35 ##########   Wed Aug 27 15:29:01 2025
+########## END ITERATION NO.  35 ##########   Wed Aug 27 15:37:30 2025
 
-It.   35    -19033.77290398      7.28D-11  1.70D-08  2.55D-09   DAMP 25%    0.33465309s   LL             Wed Aug 27
+It.   35    -19033.77290398      7.28D-11  1.70D-08  2.55D-09   DAMP 25%    0.33200658s   LL             Wed Aug 27
 
-########## START ITERATION NO.  36 ##########   Wed Aug 27 15:29:01 2025
+########## START ITERATION NO.  36 ##########   Wed Aug 27 15:37:30 2025
 
    36 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   36.82%   57.49%    2.34%   10.50%   0.28565216s
- >>> CPU  time used in SO Fock is   0.29 seconds
- >>> WALL time used in SO Fock is   0.29 seconds
+SOfock:LL  1.00D-12   36.82%   57.49%    2.34%   10.50%   0.26136589s
+ >>> CPU  time used in SO Fock is   0.26 seconds
+ >>> WALL time used in SO Fock is   0.26 seconds
 
  DFT integration
 
@@ -3322,19 +3291,19 @@ SOfock:LL  1.00D-12   36.82%   57.49%    2.34%   10.50%   0.28565216s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.35979146s, and total CPU time :  0.35979000s
+>>> Total wall time:  0.33294958s, and total CPU time :  0.33292000s
 
-########## END ITERATION NO.  36 ##########   Wed Aug 27 15:29:02 2025
+########## END ITERATION NO.  36 ##########   Wed Aug 27 15:37:31 2025
 
-It.   36    -19033.77290398      6.91D-11 -1.30D-08  2.77D-09   DAMP 25%    0.35979146s   LL             Wed Aug 27
+It.   36    -19033.77290398      6.91D-11 -1.30D-08  2.77D-09   DAMP 25%    0.33294958s   LL             Wed Aug 27
 
-########## START ITERATION NO.  37 ##########   Wed Aug 27 15:29:02 2025
+########## START ITERATION NO.  37 ##########   Wed Aug 27 15:37:31 2025
 
    37 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   37.29%   56.84%    2.32%   10.28%   0.27113628s
- >>> CPU  time used in SO Fock is   0.27 seconds
- >>> WALL time used in SO Fock is   0.27 seconds
+SOfock:LL  1.00D-12   37.29%   56.84%    2.32%   10.28%   0.26443386s
+ >>> CPU  time used in SO Fock is   0.26 seconds
+ >>> WALL time used in SO Fock is   0.26 seconds
 
  DFT integration
 
@@ -3347,19 +3316,19 @@ SOfock:LL  1.00D-12   37.29%   56.84%    2.32%   10.28%   0.27113628s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.34197401s, and total CPU time :  0.34197300s
+>>> Total wall time:  0.33372258s, and total CPU time :  0.33372200s
 
-########## END ITERATION NO.  37 ##########   Wed Aug 27 15:29:02 2025
+########## END ITERATION NO.  37 ##########   Wed Aug 27 15:37:31 2025
 
-It.   37    -19033.77290398      3.64D-12  2.17D-08  2.68D-09   DAMP 25%    0.34197401s   LL             Wed Aug 27
+It.   37    -19033.77290398      3.64D-12  2.17D-08  2.68D-09   DAMP 25%    0.33372258s   LL             Wed Aug 27
 
-########## START ITERATION NO.  38 ##########   Wed Aug 27 15:29:02 2025
+########## START ITERATION NO.  38 ##########   Wed Aug 27 15:37:31 2025
 
    38 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   36.98%   56.84%    2.10%   10.30%   0.26317120s
- >>> CPU  time used in SO Fock is   0.26 seconds
- >>> WALL time used in SO Fock is   0.26 seconds
+SOfock:LL  1.00D-12   36.98%   56.84%    2.10%   10.30%   0.26461601s
+ >>> CPU  time used in SO Fock is   0.27 seconds
+ >>> WALL time used in SO Fock is   0.27 seconds
 
  DFT integration
 
@@ -3372,17 +3341,17 @@ SOfock:LL  1.00D-12   36.98%   56.84%    2.10%   10.30%   0.26317120s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.33698991s, and total CPU time :  0.33697800s
+>>> Total wall time:  0.33673658s, and total CPU time :  0.33673500s
 
-########## END ITERATION NO.  38 ##########   Wed Aug 27 15:29:03 2025
+########## END ITERATION NO.  38 ##########   Wed Aug 27 15:37:31 2025
 
-It.   38    -19033.77290398     -1.24D-10 -1.10D-08  2.73D-09   DAMP 25%    0.33698991s   LL             Wed Aug 27
+It.   38    -19033.77290398     -1.24D-10 -1.10D-08  2.73D-09   DAMP 25%    0.33673658s   LL             Wed Aug 27
 
-########## START ITERATION NO.  39 ##########   Wed Aug 27 15:29:03 2025
+########## START ITERATION NO.  39 ##########   Wed Aug 27 15:37:31 2025
 
    39 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   37.68%   57.37%    2.47%   10.52%   0.25883770s
+SOfock:LL  1.00D-12   37.68%   57.37%    2.47%   10.52%   0.25588131s
  >>> CPU  time used in SO Fock is   0.26 seconds
  >>> WALL time used in SO Fock is   0.26 seconds
 
@@ -3392,22 +3361,22 @@ SOfock:LL  1.00D-12   37.68%   57.37%    2.47%   10.52%   0.25883770s
    DFT exchange-correlation energy:               =      -297.3571569531971477
    number of electrons from numerical integration =        79.0000000000125056
 
-   time spent in DFT integration                  =   0.05 seconds
+   time spent in DFT integration                  =   0.04 seconds
    number of processors                           =         1
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.33548520s, and total CPU time :  0.33546500s
+>>> Total wall time:  0.32503048s, and total CPU time :  0.32499300s
 
-########## END ITERATION NO.  39 ##########   Wed Aug 27 15:29:03 2025
+########## END ITERATION NO.  39 ##########   Wed Aug 27 15:37:32 2025
 
-It.   39    -19033.77290398      4.73D-11 -2.38D-08  2.74D-09   DAMP 25%    0.33548520s   LL             Wed Aug 27
+It.   39    -19033.77290398      4.73D-11 -2.38D-08  2.74D-09   DAMP 25%    0.32503048s   LL             Wed Aug 27
 
-########## START ITERATION NO.  40 ##########   Wed Aug 27 15:29:03 2025
+########## START ITERATION NO.  40 ##########   Wed Aug 27 15:37:32 2025
 
    40 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   37.58%   57.08%    2.37%   10.43%   0.27265739s
+SOfock:LL  1.00D-12   37.58%   57.08%    2.37%   10.43%   0.26653481s
  >>> CPU  time used in SO Fock is   0.27 seconds
  >>> WALL time used in SO Fock is   0.27 seconds
 
@@ -3422,17 +3391,17 @@ SOfock:LL  1.00D-12   37.58%   57.08%    2.37%   10.43%   0.27265739s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.34542001s, and total CPU time :  0.34541900s
+>>> Total wall time:  0.33676478s, and total CPU time :  0.33676400s
 
-########## END ITERATION NO.  40 ##########   Wed Aug 27 15:29:03 2025
+########## END ITERATION NO.  40 ##########   Wed Aug 27 15:37:32 2025
 
-It.   40    -19033.77290398     -1.75D-10 -6.54D-09  2.68D-09   DAMP 25%    0.34542001s   LL             Wed Aug 27
+It.   40    -19033.77290398     -1.75D-10 -6.54D-09  2.68D-09   DAMP 25%    0.33676478s   LL             Wed Aug 27
 
-########## START ITERATION NO.  41 ##########   Wed Aug 27 15:29:03 2025
+########## START ITERATION NO.  41 ##########   Wed Aug 27 15:37:32 2025
 
    41 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   38.54%   56.31%    2.53%   10.51%   0.26204014s
+SOfock:LL  1.00D-12   38.54%   56.31%    2.53%   10.51%   0.25626087s
  >>> CPU  time used in SO Fock is   0.26 seconds
  >>> WALL time used in SO Fock is   0.26 seconds
 
@@ -3442,24 +3411,24 @@ SOfock:LL  1.00D-12   38.54%   56.31%    2.53%   10.51%   0.26204014s
    DFT exchange-correlation energy:               =      -297.3571569531711134
    number of electrons from numerical integration =        79.0000000000123634
 
-   time spent in DFT integration                  =   0.05 seconds
+   time spent in DFT integration                  =   0.04 seconds
    number of processors                           =         1
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.33690640s, and total CPU time :  0.33688900s
+>>> Total wall time:  0.33267378s, and total CPU time :  0.33210000s
 
-########## END ITERATION NO.  41 ##########   Wed Aug 27 15:29:04 2025
+########## END ITERATION NO.  41 ##########   Wed Aug 27 15:37:32 2025
 
-It.   41    -19033.77290398     -8.73D-11 -1.79D-08  2.67D-09   DAMP 25%    0.33690640s   LL             Wed Aug 27
+It.   41    -19033.77290398     -8.73D-11 -1.79D-08  2.67D-09   DAMP 25%    0.33267378s   LL             Wed Aug 27
 
-########## START ITERATION NO.  42 ##########   Wed Aug 27 15:29:04 2025
+########## START ITERATION NO.  42 ##########   Wed Aug 27 15:37:32 2025
 
    42 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   37.92%   56.48%    2.10%   10.44%   0.26095009s
- >>> CPU  time used in SO Fock is   0.26 seconds
- >>> WALL time used in SO Fock is   0.26 seconds
+SOfock:LL  1.00D-12   37.92%   56.48%    2.10%   10.44%   0.27365875s
+ >>> CPU  time used in SO Fock is   0.27 seconds
+ >>> WALL time used in SO Fock is   0.27 seconds
 
  DFT integration
 
@@ -3472,19 +3441,19 @@ SOfock:LL  1.00D-12   37.92%   56.48%    2.10%   10.44%   0.26095009s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.33443740s, and total CPU time :  0.33443100s
+>>> Total wall time:  0.35111268s, and total CPU time :  0.35106700s
 
-########## END ITERATION NO.  42 ##########   Wed Aug 27 15:29:04 2025
+########## END ITERATION NO.  42 ##########   Wed Aug 27 15:37:33 2025
 
-It.   42    -19033.77290397     -2.15D-10  5.98D-09  3.18D-09   DAMP 25%    0.33443740s   LL             Wed Aug 27
+It.   42    -19033.77290397     -2.15D-10  5.98D-09  3.18D-09   DAMP 25%    0.35111268s   LL             Wed Aug 27
 
-########## START ITERATION NO.  43 ##########   Wed Aug 27 15:29:04 2025
+########## START ITERATION NO.  43 ##########   Wed Aug 27 15:37:33 2025
 
    43 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   39.14%   55.79%    2.81%   10.78%   0.25355530s
- >>> CPU  time used in SO Fock is   0.25 seconds
- >>> WALL time used in SO Fock is   0.25 seconds
+SOfock:LL  1.00D-12   39.14%   55.79%    2.81%   10.78%   0.26630783s
+ >>> CPU  time used in SO Fock is   0.27 seconds
+ >>> WALL time used in SO Fock is   0.27 seconds
 
  DFT integration
 
@@ -3497,19 +3466,19 @@ SOfock:LL  1.00D-12   39.14%   55.79%    2.81%   10.78%   0.25355530s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.33149019s, and total CPU time :  0.33111300s
+>>> Total wall time:  0.33976468s, and total CPU time :  0.33976400s
 
-########## END ITERATION NO.  43 ##########   Wed Aug 27 15:29:04 2025
+########## END ITERATION NO.  43 ##########   Wed Aug 27 15:37:33 2025
 
-It.   43    -19033.77290397      1.09D-11  1.40D-08  2.89D-09   DAMP 25%    0.33149019s   LL             Wed Aug 27
+It.   43    -19033.77290397      1.09D-11  1.40D-08  2.89D-09   DAMP 25%    0.33976468s   LL             Wed Aug 27
 
-########## START ITERATION NO.  44 ##########   Wed Aug 27 15:29:04 2025
+########## START ITERATION NO.  44 ##########   Wed Aug 27 15:37:33 2025
 
    44 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   39.96%   55.38%    2.60%   10.81%   0.25243187s
- >>> CPU  time used in SO Fock is   0.25 seconds
- >>> WALL time used in SO Fock is   0.25 seconds
+SOfock:LL  1.00D-12   39.96%   55.38%    2.60%   10.81%   0.25635529s
+ >>> CPU  time used in SO Fock is   0.26 seconds
+ >>> WALL time used in SO Fock is   0.26 seconds
 
  DFT integration
 
@@ -3522,17 +3491,17 @@ SOfock:LL  1.00D-12   39.96%   55.38%    2.60%   10.81%   0.25243187s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.32332439s, and total CPU time :  0.32331000s
+>>> Total wall time:  0.33208418s, and total CPU time :  0.33208200s
 
-########## END ITERATION NO.  44 ##########   Wed Aug 27 15:29:05 2025
+########## END ITERATION NO.  44 ##########   Wed Aug 27 15:37:33 2025
 
-It.   44    -19033.77290398      1.09D-11  1.23D-08  2.76D-09   DAMP 25%    0.32332439s   LL             Wed Aug 27
+It.   44    -19033.77290398      1.09D-11  1.23D-08  2.76D-09   DAMP 25%    0.33208418s   LL             Wed Aug 27
 
-########## START ITERATION NO.  45 ##########   Wed Aug 27 15:29:05 2025
+########## START ITERATION NO.  45 ##########   Wed Aug 27 15:37:33 2025
 
    45 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   38.86%   56.48%    2.47%   10.86%   0.25963783s
+SOfock:LL  1.00D-12   38.86%   56.48%    2.47%   10.86%   0.25947189s
  >>> CPU  time used in SO Fock is   0.26 seconds
  >>> WALL time used in SO Fock is   0.26 seconds
 
@@ -3547,17 +3516,17 @@ SOfock:LL  1.00D-12   38.86%   56.48%    2.47%   10.86%   0.25963783s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.33027279s, and total CPU time :  0.33027000s
+>>> Total wall time:  0.33097478s, and total CPU time :  0.33094100s
 
-########## END ITERATION NO.  45 ##########   Wed Aug 27 15:29:05 2025
+########## END ITERATION NO.  45 ##########   Wed Aug 27 15:37:34 2025
 
-It.   45    -19033.77290398      3.78D-10  2.39D-08  3.54D-09   DAMP 25%    0.33027279s   LL             Wed Aug 27
+It.   45    -19033.77290398      3.78D-10  2.39D-08  3.54D-09   DAMP 25%    0.33097478s   LL             Wed Aug 27
 
-########## START ITERATION NO.  46 ##########   Wed Aug 27 15:29:05 2025
+########## START ITERATION NO.  46 ##########   Wed Aug 27 15:37:34 2025
 
    46 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   38.22%   56.93%    2.56%   10.78%   0.26302528s
+SOfock:LL  1.00D-12   38.22%   56.93%    2.56%   10.78%   0.26236343s
  >>> CPU  time used in SO Fock is   0.26 seconds
  >>> WALL time used in SO Fock is   0.26 seconds
 
@@ -3572,19 +3541,19 @@ SOfock:LL  1.00D-12   38.22%   56.93%    2.56%   10.78%   0.26302528s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.33597610s, and total CPU time :  0.33597400s
+>>> Total wall time:  0.33678307s, and total CPU time :  0.33678300s
 
-########## END ITERATION NO.  46 ##########   Wed Aug 27 15:29:05 2025
+########## END ITERATION NO.  46 ##########   Wed Aug 27 15:37:34 2025
 
-It.   46    -19033.77290398     -5.46D-11 -1.62D-08  3.04D-09   DAMP 25%    0.33597610s   LL             Wed Aug 27
+It.   46    -19033.77290398     -5.46D-11 -1.62D-08  3.04D-09   DAMP 25%    0.33678307s   LL             Wed Aug 27
 
-########## START ITERATION NO.  47 ##########   Wed Aug 27 15:29:05 2025
+########## START ITERATION NO.  47 ##########   Wed Aug 27 15:37:34 2025
 
    47 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   38.47%   56.90%    2.44%   10.61%   0.25431633s
- >>> CPU  time used in SO Fock is   0.25 seconds
- >>> WALL time used in SO Fock is   0.25 seconds
+SOfock:LL  1.00D-12   38.47%   56.90%    2.44%   10.61%   0.26179886s
+ >>> CPU  time used in SO Fock is   0.26 seconds
+ >>> WALL time used in SO Fock is   0.26 seconds
 
  DFT integration
 
@@ -3597,17 +3566,17 @@ SOfock:LL  1.00D-12   38.47%   56.90%    2.44%   10.61%   0.25431633s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.32877349s, and total CPU time :  0.32876500s
+>>> Total wall time:  0.33556848s, and total CPU time :  0.33556800s
 
-########## END ITERATION NO.  47 ##########   Wed Aug 27 15:29:06 2025
+########## END ITERATION NO.  47 ##########   Wed Aug 27 15:37:34 2025
 
-It.   47    -19033.77290398      2.55D-10 -3.34D-08  3.02D-09   DAMP 25%    0.32877349s   LL             Wed Aug 27
+It.   47    -19033.77290398      2.55D-10 -3.34D-08  3.02D-09   DAMP 25%    0.33556848s   LL             Wed Aug 27
 
-########## START ITERATION NO.  48 ##########   Wed Aug 27 15:29:06 2025
+########## START ITERATION NO.  48 ##########   Wed Aug 27 15:37:34 2025
 
    48 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   39.68%   56.07%    2.83%   11.07%   0.24829102s
+SOfock:LL  1.00D-12   39.68%   56.07%    2.83%   11.07%   0.25024414s
  >>> CPU  time used in SO Fock is   0.25 seconds
  >>> WALL time used in SO Fock is   0.25 seconds
 
@@ -3622,19 +3591,19 @@ SOfock:LL  1.00D-12   39.68%   56.07%    2.83%   11.07%   0.24829102s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.32169228s, and total CPU time :  0.32169100s
+>>> Total wall time:  0.32443849s, and total CPU time :  0.32442300s
 
-########## END ITERATION NO.  48 ##########   Wed Aug 27 15:29:06 2025
+########## END ITERATION NO.  48 ##########   Wed Aug 27 15:37:35 2025
 
-It.   48    -19033.77290398      0.00D+00 -3.40D-08  2.59D-09   DAMP 25%    0.32169228s   LL             Wed Aug 27
+It.   48    -19033.77290398      0.00D+00 -3.40D-08  2.59D-09   DAMP 25%    0.32443849s   LL             Wed Aug 27
 
-########## START ITERATION NO.  49 ##########   Wed Aug 27 15:29:06 2025
+########## START ITERATION NO.  49 ##########   Wed Aug 27 15:37:35 2025
 
    49 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   39.63%   56.23%    2.76%   10.85%   0.25771713s
- >>> CPU  time used in SO Fock is   0.26 seconds
- >>> WALL time used in SO Fock is   0.26 seconds
+SOfock:LL  1.00D-12   39.63%   56.23%    2.76%   10.85%   0.27110100s
+ >>> CPU  time used in SO Fock is   0.27 seconds
+ >>> WALL time used in SO Fock is   0.27 seconds
 
  DFT integration
 
@@ -3642,22 +3611,22 @@ SOfock:LL  1.00D-12   39.63%   56.23%    2.76%   10.85%   0.25771713s
    DFT exchange-correlation energy:               =      -297.3571569530590750
    number of electrons from numerical integration =        79.0000000000123492
 
-   time spent in DFT integration                  =   0.04 seconds
+   time spent in DFT integration                  =   0.05 seconds
    number of processors                           =         1
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.33332889s, and total CPU time :  0.33332800s
+>>> Total wall time:  0.34700719s, and total CPU time :  0.34700600s
 
-########## END ITERATION NO.  49 ##########   Wed Aug 27 15:29:06 2025
+########## END ITERATION NO.  49 ##########   Wed Aug 27 15:37:35 2025
 
-It.   49    -19033.77290398      1.46D-10  6.72D-08  3.98D-09   DAMP 25%    0.33332889s   LL             Wed Aug 27
+It.   49    -19033.77290398      1.46D-10  6.72D-08  3.98D-09   DAMP 25%    0.34700719s   LL             Wed Aug 27
 
-########## START ITERATION NO.  50 ##########   Wed Aug 27 15:29:06 2025
+########## START ITERATION NO.  50 ##########   Wed Aug 27 15:37:35 2025
 
    50 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   38.82%   56.12%    2.98%   10.66%   0.25540733s
+SOfock:LL  1.00D-12   38.82%   56.12%    2.98%   10.66%   0.26117706s
  >>> CPU  time used in SO Fock is   0.26 seconds
  >>> WALL time used in SO Fock is   0.26 seconds
 
@@ -3672,17 +3641,17 @@ SOfock:LL  1.00D-12   38.82%   56.12%    2.98%   10.66%   0.25540733s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.32801789s, and total CPU time :  0.32800100s
+>>> Total wall time:  0.33283796s, and total CPU time :  0.33283600s
 
-########## END ITERATION NO.  50 ##########   Wed Aug 27 15:29:06 2025
+########## END ITERATION NO.  50 ##########   Wed Aug 27 15:37:35 2025
 
-It.   50    -19033.77290398      6.18D-11  7.01D-09  2.47D-09   DAMP 25%    0.32801789s   LL             Wed Aug 27
+It.   50    -19033.77290398      6.18D-11  7.01D-09  2.47D-09   DAMP 25%    0.33283796s   LL             Wed Aug 27
 
-########## START ITERATION NO.  51 ##########   Wed Aug 27 15:29:06 2025
+########## START ITERATION NO.  51 ##########   Wed Aug 27 15:37:35 2025
 
    51 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   39.67%   55.77%    2.39%   10.96%   0.24612045s
+SOfock:LL  1.00D-12   39.67%   55.77%    2.39%   10.96%   0.25026894s
  >>> CPU  time used in SO Fock is   0.25 seconds
  >>> WALL time used in SO Fock is   0.25 seconds
 
@@ -3697,19 +3666,19 @@ SOfock:LL  1.00D-12   39.67%   55.77%    2.39%   10.96%   0.24612045s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.31971048s, and total CPU time :  0.31971000s
+>>> Total wall time:  0.32267143s, and total CPU time :  0.32260300s
 
-########## END ITERATION NO.  51 ##########   Wed Aug 27 15:29:07 2025
+########## END ITERATION NO.  51 ##########   Wed Aug 27 15:37:36 2025
 
-It.   51    -19033.77290398     -2.62D-10 -6.21D-09  2.46D-09   DAMP 25%    0.31971048s   LL             Wed Aug 27
+It.   51    -19033.77290398     -2.62D-10 -6.21D-09  2.46D-09   DAMP 25%    0.32267143s   LL             Wed Aug 27
 
-########## START ITERATION NO.  52 ##########   Wed Aug 27 15:29:07 2025
+########## START ITERATION NO.  52 ##########   Wed Aug 27 15:37:36 2025
 
    52 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   42.92%   52.71%    3.24%   10.80%   0.24788094s
- >>> CPU  time used in SO Fock is   0.25 seconds
- >>> WALL time used in SO Fock is   0.25 seconds
+SOfock:LL  1.00D-12   42.92%   52.71%    3.24%   10.80%   0.23863792s
+ >>> CPU  time used in SO Fock is   0.24 seconds
+ >>> WALL time used in SO Fock is   0.24 seconds
 
  DFT integration
 
@@ -3722,17 +3691,17 @@ SOfock:LL  1.00D-12   42.92%   52.71%    3.24%   10.80%   0.24788094s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.32316518s, and total CPU time :  0.32316400s
+>>> Total wall time:  0.31120411s, and total CPU time :  0.31120200s
 
-########## END ITERATION NO.  52 ##########   Wed Aug 27 15:29:07 2025
+########## END ITERATION NO.  52 ##########   Wed Aug 27 15:37:36 2025
 
-It.   52    -19033.77290398      2.80D-10 -3.06D-08  3.69D-09   DAMP 25%    0.32316518s   LL             Wed Aug 27
+It.   52    -19033.77290398      2.80D-10 -3.06D-08  3.69D-09   DAMP 25%    0.31120411s   LL             Wed Aug 27
 
-########## START ITERATION NO.  53 ##########   Wed Aug 27 15:29:07 2025
+########## START ITERATION NO.  53 ##########   Wed Aug 27 15:37:36 2025
 
    53 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   41.89%   54.40%    2.95%   11.45%   0.24489784s
+SOfock:LL  1.00D-12   41.89%   54.40%    2.95%   11.45%   0.24836159s
  >>> CPU  time used in SO Fock is   0.25 seconds
  >>> WALL time used in SO Fock is   0.25 seconds
 
@@ -3747,19 +3716,19 @@ SOfock:LL  1.00D-12   41.89%   54.40%    2.95%   11.45%   0.24489784s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.32149518s, and total CPU time :  0.32148300s
+>>> Total wall time:  0.32130483s, and total CPU time :  0.32130300s
 
-########## END ITERATION NO.  53 ##########   Wed Aug 27 15:29:07 2025
+########## END ITERATION NO.  53 ##########   Wed Aug 27 15:37:36 2025
 
-It.   53    -19033.77290398     -3.64D-12 -9.95D-09  2.77D-09   DAMP 25%    0.32149518s   LL             Wed Aug 27
+It.   53    -19033.77290398     -3.64D-12 -9.95D-09  2.77D-09   DAMP 25%    0.32130483s   LL             Wed Aug 27
 
-########## START ITERATION NO.  54 ##########   Wed Aug 27 15:29:07 2025
+########## START ITERATION NO.  54 ##########   Wed Aug 27 15:37:36 2025
 
    54 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   40.04%   55.32%    2.54%   10.86%   0.25892258s
- >>> CPU  time used in SO Fock is   0.26 seconds
- >>> WALL time used in SO Fock is   0.26 seconds
+SOfock:LL  1.00D-12   40.04%   55.32%    2.54%   10.86%   0.25085449s
+ >>> CPU  time used in SO Fock is   0.25 seconds
+ >>> WALL time used in SO Fock is   0.25 seconds
 
  DFT integration
 
@@ -3772,19 +3741,19 @@ SOfock:LL  1.00D-12   40.04%   55.32%    2.54%   10.86%   0.25892258s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.33061748s, and total CPU time :  0.33059000s
+>>> Total wall time:  0.32204503s, and total CPU time :  0.32198700s
 
-########## END ITERATION NO.  54 ##########   Wed Aug 27 15:29:08 2025
+########## END ITERATION NO.  54 ##########   Wed Aug 27 15:37:37 2025
 
-It.   54    -19033.77290398     -3.27D-11  2.48D-08  3.58D-09   DAMP 25%    0.33061748s   LL             Wed Aug 27
+It.   54    -19033.77290398     -3.27D-11  2.48D-08  3.58D-09   DAMP 25%    0.32204503s   LL             Wed Aug 27
 
-########## START ITERATION NO.  55 ##########   Wed Aug 27 15:29:08 2025
+########## START ITERATION NO.  55 ##########   Wed Aug 27 15:37:37 2025
 
    55 *** Differential density matrix. DCOVLP     = 1.0000
 SCR        scr.thr.    Step1    Step2  Coulomb  Exchange    CPU-time
-SOfock:LL  1.00D-12   36.84%   56.66%    1.98%   10.29%   0.28421974s
- >>> CPU  time used in SO Fock is   0.28 seconds
- >>> WALL time used in SO Fock is   0.28 seconds
+SOfock:LL  1.00D-12   36.84%   56.66%    1.98%   10.29%   0.25631523s
+ >>> CPU  time used in SO Fock is   0.26 seconds
+ >>> WALL time used in SO Fock is   0.26 seconds
 
  DFT integration
 
@@ -3797,11 +3766,11 @@ SOfock:LL  1.00D-12   36.84%   56.66%    1.98%   10.29%   0.28421974s
 
 E_HOMO...E_LUMO, symmetry 1:                                 20  -0.26543   21  -0.19979   22   0.18482
 E_HOMO...E_LUMO, symmetry 2:                                103  -2.13109  104  -0.01957
->>> Total wall time:  0.35904110s, and total CPU time :  0.35903900s
+>>> Total wall time:  0.32760728s, and total CPU time :  0.32760500s
 
-########## END ITERATION NO.  55 ##########   Wed Aug 27 15:29:08 2025
+########## END ITERATION NO.  55 ##########   Wed Aug 27 15:37:37 2025
 
-It.   55    -19033.77290398      1.46D-11  1.28D-08  2.48D-09   DAMP 25%    0.35904110s   LL             Wed Aug 27
+It.   55    -19033.77290398      1.46D-11  1.28D-08  2.48D-09   DAMP 25%    0.32760728s   LL             Wed Aug 27
 
  ** Exit SCF because maximum number of iterations reached.
 
@@ -3819,66 +3788,66 @@ It.   55    -19033.77290398      1.46D-11  1.28D-08  2.48D-09   DAMP 25%    0.35
 --------------------------------------------------------------------------------------------------------------------------------
            Energy               ERGVAL    FCKVAL    EVCVAL      Conv.acc    CPU          Integrals   Time stamp
 --------------------------------------------------------------------------------------------------------------------------------
-It.    1    -11741.27809429      0.00D+00  0.00D+00  0.00D+00               0.02970500s   Atom. scrpot   Wed Aug 27
-It.    2    -19033.63149781      7.29D+03 -1.22D+02  2.59D+01               0.64032429s   LL             Wed Aug 27
-It.    3    -19033.61437762     -1.71D-02  1.46D+00  2.09D+00   DIIS   2    0.48912734s   LL             Wed Aug 27
-It.    4    -19033.10031986     -5.14D-01 -2.73D+00  3.57D+00   DIIS   3    0.49103173s   LL             Wed Aug 27
-It.    5    -19033.76133087      6.61D-01  1.97D+00  2.98D-01   DIIS   4    0.48335683s   LL             Wed Aug 27
-It.    6    -19033.77282089      1.15D-02 -1.55D-01  2.19D-02   DIIS   5    0.47169323s   LL             Wed Aug 27
-It.    7    -19033.77289625      7.54D-05 -1.37D-02  6.64D-03   DIIS   6    0.48640073s   LL             Wed Aug 27
-It.    8    -19033.77290397      7.73D-06  2.73D-03  3.72D-04   DIIS   7    0.48904902s   LL             Wed Aug 27
-It.    9    -19033.77290398      3.48D-09  2.43D-05  2.08D-05   DIIS   8    0.49196652s   LL             Wed Aug 27
-It.   10    -19033.77290398      1.09D-11 -4.90D-06  1.57D-06   DIIS   9    0.44767283s   LL             Wed Aug 27
-It.   11    -19033.77290398      1.46D-11  2.08D-07  1.54D-07   DIIS   9    0.44162364s   LL             Wed Aug 27
-It.   12    -19033.77290398     -2.91D-11 -8.43D-08  3.20D-09   DIIS   7    0.40570155s   LL             Wed Aug 27
-It.   13    -19033.77290398     -3.27D-11 -9.28D-09  2.57D-09   DAMP 25%    0.34370831s   LL             Wed Aug 27
-It.   14    -19033.77290398     -5.46D-11  1.32D-08  2.50D-09   DAMP 25%    0.33098051s   LL             Wed Aug 27
-It.   15    -19033.77290398      2.40D-10 -1.42D-08  2.89D-09   DAMP 25%    0.33591091s   LL             Wed Aug 27
-It.   16    -19033.77290398     -1.20D-10 -1.54D-08  2.81D-09   DAMP 25%    0.34265351s   LL             Wed Aug 27
-It.   17    -19033.77290398      4.73D-11 -3.09D-08  2.44D-09   DAMP 25%    0.34151631s   LL             Wed Aug 27
-It.   18    -19033.77290398     -2.18D-10  1.35D-08  2.58D-09   DAMP 25%    0.33590471s   LL             Wed Aug 27
-It.   19    -19033.77290398      6.18D-11  3.78D-09  2.91D-09   DAMP 25%    0.33041851s   LL             Wed Aug 27
-It.   20    -19033.77290398     -2.66D-10  1.59D-08  2.73D-09   DAMP 25%    0.33510301s   LL             Wed Aug 27
-It.   21    -19033.77290398      6.55D-11  3.60D-08  2.50D-09   DAMP 25%    0.33210711s   LL             Wed Aug 27
-It.   22    -19033.77290398     -5.09D-11 -1.31D-08  2.79D-09   DAMP 25%    0.33052500s   LL             Wed Aug 27
-It.   23    -19033.77290398      2.18D-10  8.49D-09  2.92D-09   DAMP 25%    0.34569930s   LL             Wed Aug 27
-It.   24    -19033.77290398     -1.27D-10 -4.34D-08  3.94D-09   DAMP 25%    0.34338730s   LL             Wed Aug 27
-It.   25    -19033.77290398      3.64D-11  9.01D-09  2.83D-09   DAMP 25%    0.34731260s   LL             Wed Aug 27
-It.   26    -19033.77290398     -1.75D-10 -6.72D-09  3.09D-09   DAMP 25%    0.35407679s   LL             Wed Aug 27
-It.   27    -19033.77290398      3.64D-11 -2.48D-08  3.38D-09   DAMP 25%    0.34015150s   LL             Wed Aug 27
-It.   28    -19033.77290398     -2.18D-11  1.26D-08  2.64D-09   DAMP 25%    0.33943850s   LL             Wed Aug 27
-It.   29    -19033.77290398      2.91D-11  1.89D-08  2.64D-09   DAMP 25%    0.33435220s   LL             Wed Aug 27
-It.   30    -19033.77290398     -2.00D-10 -1.91D-08  2.66D-09   DAMP 25%    0.33762219s   LL             Wed Aug 27
-It.   31    -19033.77290398     -3.64D-12 -2.38D-08  2.71D-09   DAMP 25%    0.33070150s   LL             Wed Aug 27
-It.   32    -19033.77290398     -9.09D-11 -1.17D-08  2.53D-09   DAMP 25%    0.33680079s   LL             Wed Aug 27
-It.   33    -19033.77290398      2.91D-11  6.89D-09  3.04D-09   DAMP 25%    0.34878049s   LL             Wed Aug 27
-It.   34    -19033.77290398     -1.09D-11 -1.73D-08  2.56D-09   DAMP 25%    0.33717699s   LL             Wed Aug 27
-It.   35    -19033.77290398      7.28D-11  1.70D-08  2.55D-09   DAMP 25%    0.33465309s   LL             Wed Aug 27
-It.   36    -19033.77290398      6.91D-11 -1.30D-08  2.77D-09   DAMP 25%    0.35979146s   LL             Wed Aug 27
-It.   37    -19033.77290398      3.64D-12  2.17D-08  2.68D-09   DAMP 25%    0.34197401s   LL             Wed Aug 27
-It.   38    -19033.77290398     -1.24D-10 -1.10D-08  2.73D-09   DAMP 25%    0.33698991s   LL             Wed Aug 27
-It.   39    -19033.77290398      4.73D-11 -2.38D-08  2.74D-09   DAMP 25%    0.33548520s   LL             Wed Aug 27
-It.   40    -19033.77290398     -1.75D-10 -6.54D-09  2.68D-09   DAMP 25%    0.34542001s   LL             Wed Aug 27
-It.   41    -19033.77290398     -8.73D-11 -1.79D-08  2.67D-09   DAMP 25%    0.33690640s   LL             Wed Aug 27
-It.   42    -19033.77290397     -2.15D-10  5.98D-09  3.18D-09   DAMP 25%    0.33443740s   LL             Wed Aug 27
-It.   43    -19033.77290397      1.09D-11  1.40D-08  2.89D-09   DAMP 25%    0.33149019s   LL             Wed Aug 27
-It.   44    -19033.77290398      1.09D-11  1.23D-08  2.76D-09   DAMP 25%    0.32332439s   LL             Wed Aug 27
-It.   45    -19033.77290398      3.78D-10  2.39D-08  3.54D-09   DAMP 25%    0.33027279s   LL             Wed Aug 27
-It.   46    -19033.77290398     -5.46D-11 -1.62D-08  3.04D-09   DAMP 25%    0.33597610s   LL             Wed Aug 27
-It.   47    -19033.77290398      2.55D-10 -3.34D-08  3.02D-09   DAMP 25%    0.32877349s   LL             Wed Aug 27
-It.   48    -19033.77290398      0.00D+00 -3.40D-08  2.59D-09   DAMP 25%    0.32169228s   LL             Wed Aug 27
-It.   49    -19033.77290398      1.46D-10  6.72D-08  3.98D-09   DAMP 25%    0.33332889s   LL             Wed Aug 27
-It.   50    -19033.77290398      6.18D-11  7.01D-09  2.47D-09   DAMP 25%    0.32801789s   LL             Wed Aug 27
-It.   51    -19033.77290398     -2.62D-10 -6.21D-09  2.46D-09   DAMP 25%    0.31971048s   LL             Wed Aug 27
-It.   52    -19033.77290398      2.80D-10 -3.06D-08  3.69D-09   DAMP 25%    0.32316518s   LL             Wed Aug 27
-It.   53    -19033.77290398     -3.64D-12 -9.95D-09  2.77D-09   DAMP 25%    0.32149518s   LL             Wed Aug 27
-It.   54    -19033.77290398     -3.27D-11  2.48D-08  3.58D-09   DAMP 25%    0.33061748s   LL             Wed Aug 27
-It.   55    -19033.77290398      1.46D-11  1.28D-08  2.48D-09   DAMP 25%    0.35904110s   LL             Wed Aug 27
+It.    1    -11741.27809429      0.00D+00  0.00D+00  0.00D+00               0.02839400s   Atom. scrpot   Wed Aug 27
+It.    2    -19033.63149781      7.29D+03 -1.22D+02  2.59D+01               0.62080461s   LL             Wed Aug 27
+It.    3    -19033.61437762     -1.71D-02  1.46D+00  2.09D+00   DIIS   2    0.50885303s   LL             Wed Aug 27
+It.    4    -19033.10031986     -5.14D-01 -2.73D+00  3.57D+00   DIIS   3    0.48220151s   LL             Wed Aug 27
+It.    5    -19033.76133087      6.61D-01  1.97D+00  2.98D-01   DIIS   4    0.49494691s   LL             Wed Aug 27
+It.    6    -19033.77282089      1.15D-02 -1.55D-01  2.19D-02   DIIS   5    0.49474401s   LL             Wed Aug 27
+It.    7    -19033.77289625      7.54D-05 -1.37D-02  6.64D-03   DIIS   6    0.48366641s   LL             Wed Aug 27
+It.    8    -19033.77290397      7.73D-06  2.73D-03  3.72D-04   DIIS   7    0.49174631s   LL             Wed Aug 27
+It.    9    -19033.77290398      3.48D-09  2.43D-05  2.08D-05   DIIS   8    0.46462381s   LL             Wed Aug 27
+It.   10    -19033.77290398      1.09D-11 -4.90D-06  1.57D-06   DIIS   9    0.44536651s   LL             Wed Aug 27
+It.   11    -19033.77290398      1.46D-11  2.08D-07  1.54D-07   DIIS   9    0.43394151s   LL             Wed Aug 27
+It.   12    -19033.77290398     -2.91D-11 -8.43D-08  3.20D-09   DIIS   7    0.40906451s   LL             Wed Aug 27
+It.   13    -19033.77290398     -3.27D-11 -9.28D-09  2.57D-09   DAMP 25%    0.34198251s   LL             Wed Aug 27
+It.   14    -19033.77290398     -5.46D-11  1.32D-08  2.50D-09   DAMP 25%    0.32283600s   LL             Wed Aug 27
+It.   15    -19033.77290398      2.40D-10 -1.42D-08  2.89D-09   DAMP 25%    0.33945611s   LL             Wed Aug 27
+It.   16    -19033.77290398     -1.20D-10 -1.54D-08  2.81D-09   DAMP 25%    0.33604880s   LL             Wed Aug 27
+It.   17    -19033.77290398      4.73D-11 -3.09D-08  2.44D-09   DAMP 25%    0.33063520s   LL             Wed Aug 27
+It.   18    -19033.77290398     -2.18D-10  1.35D-08  2.58D-09   DAMP 25%    0.32675680s   LL             Wed Aug 27
+It.   19    -19033.77290398      6.18D-11  3.78D-09  2.91D-09   DAMP 25%    0.33894640s   LL             Wed Aug 27
+It.   20    -19033.77290398     -2.66D-10  1.59D-08  2.73D-09   DAMP 25%    0.33162800s   LL             Wed Aug 27
+It.   21    -19033.77290398      6.55D-11  3.60D-08  2.50D-09   DAMP 25%    0.32679090s   LL             Wed Aug 27
+It.   22    -19033.77290398     -5.09D-11 -1.31D-08  2.79D-09   DAMP 25%    0.33037090s   LL             Wed Aug 27
+It.   23    -19033.77290398      2.18D-10  8.49D-09  2.92D-09   DAMP 25%    0.32953380s   LL             Wed Aug 27
+It.   24    -19033.77290398     -1.27D-10 -4.34D-08  3.94D-09   DAMP 25%    0.33240609s   LL             Wed Aug 27
+It.   25    -19033.77290398      3.64D-11  9.01D-09  2.83D-09   DAMP 25%    0.34300318s   LL             Wed Aug 27
+It.   26    -19033.77290398     -1.75D-10 -6.72D-09  3.09D-09   DAMP 25%    0.33529048s   LL             Wed Aug 27
+It.   27    -19033.77290398      3.64D-11 -2.48D-08  3.38D-09   DAMP 25%    0.33862358s   LL             Wed Aug 27
+It.   28    -19033.77290398     -2.18D-11  1.26D-08  2.64D-09   DAMP 25%    0.34377848s   LL             Wed Aug 27
+It.   29    -19033.77290398      2.91D-11  1.89D-08  2.64D-09   DAMP 25%    0.34036068s   LL             Wed Aug 27
+It.   30    -19033.77290398     -2.00D-10 -1.91D-08  2.66D-09   DAMP 25%    0.33845148s   LL             Wed Aug 27
+It.   31    -19033.77290398     -3.64D-12 -2.38D-08  2.71D-09   DAMP 25%    0.34136258s   LL             Wed Aug 27
+It.   32    -19033.77290398     -9.09D-11 -1.17D-08  2.53D-09   DAMP 25%    0.33671598s   LL             Wed Aug 27
+It.   33    -19033.77290398      2.91D-11  6.89D-09  3.04D-09   DAMP 25%    0.34214958s   LL             Wed Aug 27
+It.   34    -19033.77290398     -1.09D-11 -1.73D-08  2.56D-09   DAMP 25%    0.34145748s   LL             Wed Aug 27
+It.   35    -19033.77290398      7.28D-11  1.70D-08  2.55D-09   DAMP 25%    0.33200658s   LL             Wed Aug 27
+It.   36    -19033.77290398      6.91D-11 -1.30D-08  2.77D-09   DAMP 25%    0.33294958s   LL             Wed Aug 27
+It.   37    -19033.77290398      3.64D-12  2.17D-08  2.68D-09   DAMP 25%    0.33372258s   LL             Wed Aug 27
+It.   38    -19033.77290398     -1.24D-10 -1.10D-08  2.73D-09   DAMP 25%    0.33673658s   LL             Wed Aug 27
+It.   39    -19033.77290398      4.73D-11 -2.38D-08  2.74D-09   DAMP 25%    0.32503048s   LL             Wed Aug 27
+It.   40    -19033.77290398     -1.75D-10 -6.54D-09  2.68D-09   DAMP 25%    0.33676478s   LL             Wed Aug 27
+It.   41    -19033.77290398     -8.73D-11 -1.79D-08  2.67D-09   DAMP 25%    0.33267378s   LL             Wed Aug 27
+It.   42    -19033.77290397     -2.15D-10  5.98D-09  3.18D-09   DAMP 25%    0.35111268s   LL             Wed Aug 27
+It.   43    -19033.77290397      1.09D-11  1.40D-08  2.89D-09   DAMP 25%    0.33976468s   LL             Wed Aug 27
+It.   44    -19033.77290398      1.09D-11  1.23D-08  2.76D-09   DAMP 25%    0.33208418s   LL             Wed Aug 27
+It.   45    -19033.77290398      3.78D-10  2.39D-08  3.54D-09   DAMP 25%    0.33097478s   LL             Wed Aug 27
+It.   46    -19033.77290398     -5.46D-11 -1.62D-08  3.04D-09   DAMP 25%    0.33678307s   LL             Wed Aug 27
+It.   47    -19033.77290398      2.55D-10 -3.34D-08  3.02D-09   DAMP 25%    0.33556848s   LL             Wed Aug 27
+It.   48    -19033.77290398      0.00D+00 -3.40D-08  2.59D-09   DAMP 25%    0.32443849s   LL             Wed Aug 27
+It.   49    -19033.77290398      1.46D-10  6.72D-08  3.98D-09   DAMP 25%    0.34700719s   LL             Wed Aug 27
+It.   50    -19033.77290398      6.18D-11  7.01D-09  2.47D-09   DAMP 25%    0.33283796s   LL             Wed Aug 27
+It.   51    -19033.77290398     -2.62D-10 -6.21D-09  2.46D-09   DAMP 25%    0.32267143s   LL             Wed Aug 27
+It.   52    -19033.77290398      2.80D-10 -3.06D-08  3.69D-09   DAMP 25%    0.31120411s   LL             Wed Aug 27
+It.   53    -19033.77290398     -3.64D-12 -9.95D-09  2.77D-09   DAMP 25%    0.32130483s   LL             Wed Aug 27
+It.   54    -19033.77290398     -3.27D-11  2.48D-08  3.58D-09   DAMP 25%    0.32204503s   LL             Wed Aug 27
+It.   55    -19033.77290398      1.46D-11  1.28D-08  2.48D-09   DAMP 25%    0.32760728s   LL             Wed Aug 27
 --------------------------------------------------------------------------------------------------------------------------------
 * Desired convergence limit not reached after   55 iterations but the current convergence is acceptable.
 * Average elapsed time per iteration: 
-      No 2-ints    :    0.02970649s
-      LL           :    0.36675627s
+      No 2-ints    :    0.03041221s
+      LL           :    0.36451542s
 
 
                                    TOTAL ENERGY
@@ -6318,10 +6287,10 @@ Gross  | L B1uAu fyyz   L B1uAu fzzz   L B2gAu dxz    L B3gAu dyz    L Au Au fxy
 
 
  
-     Date and time (Linux)  : Wed Aug 27 15:29:08 2025
+     Date and time (Linux)  : Wed Aug 27 15:37:37 2025
      Host name              : DESKTOP-7OTLCGO                         
 
->>>> Node 0, utime: 20, stime: 0, minflt: 64732, majflt: 0, nvcsw: 1142, nivcsw: 37, maxrss: 212888
+>>>> Node 0, utime: 20, stime: 0, minflt: 64638, majflt: 49, nvcsw: 1182, nivcsw: 34, maxrss: 211056
 >>>> Total WALL time used in DIRAC: 21s
   
   Dynamical Memory Usage Summary for Master

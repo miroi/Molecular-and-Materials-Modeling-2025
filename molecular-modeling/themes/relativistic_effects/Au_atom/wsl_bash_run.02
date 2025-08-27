@@ -14,7 +14,7 @@ ldd $DIRAC/$BUILD/dirac.x
 $PAM --help
 
 #$PAM  --mpi=1  --gb=12 --ag=13 --noarch --mol=Au.v2z_lsym.mol  --inp=x2c.b3lyp_analyze.inp
-$PAM  --mpi=1  --gb=12 --ag=13 --noarch --mol=Au.xyz  --inp=v2z_x2c.b3lyp_analyze.inp
+$PAM  --mpi=1  --gb=12 --ag=13 --noarch --mol=Au.xyz  --inp=cation1p_v2z_x2c.b3lyp_analyze.inp
 
 echo -e "\n DIRAC run ends on \c"; date
 
