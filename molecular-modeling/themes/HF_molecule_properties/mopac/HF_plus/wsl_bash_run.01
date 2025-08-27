@@ -19,11 +19,16 @@ echo
 #input=BeCl2_PM7
 #input=BF3_PM7
 
-input=HF_PM7_freq_polariz.mop
+#input=HF_PM7_freq_polariz.mop
 #input=HF_PM6_freq_polariz.mop
 
+input=HF+_PM7_UHF.mop
 mopac $input
-#command time -f "%e" mopac $input
+
+input=HF+_PM7_ROHF.mop
+mopac $input
+
+
 
 echo -e "\n MOPAC run ends on \c"; date
 
