@@ -1,0 +1,20 @@
+#!/bin/bash
+
+
+export DIRAC=/home/milias/work/software/dirac/trunk_cloned
+export BUILD=build_gnu_mkl_ilp64
+
+export PAM=$DIRAC/$BUILD/pam
+
+
+echo -e "\n Running DIRAC on server \"`hostname`\" on `date`  \n "
+
+ldd $DIRAC/$BUILD/dirac.x
+
+$PAM --help
+
+$PAM  --mpi=1  --gb=12 --ag=13 --mol=Au.v2z_lsym.mol  --inp=x2c.b3lyp_analyze.inp
+
+echo -e "\n DIRAC run ends on \c"; date
+
+exit 0
