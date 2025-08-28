@@ -13,7 +13,7 @@ sys.stdout.flush()
 # ==============================================
 # 1. Quantum Espresso input parameters
 # ==============================================
-pseudopotentials = {'Si': 'Si.upf'} 
+pseudopotentials = {'Si': 'Si.pbe-nl-kjpaw_psl.1.0.0.UPF'} 
 
 # Base SCF input parameters
 base_input_data = {

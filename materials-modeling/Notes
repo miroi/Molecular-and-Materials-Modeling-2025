@@ -106,3 +106,6 @@ VESTA: (https://jp-minerals.org/vesta/en/download.html)
 Seekpath: (pip install seekpath, https://seekpath.materialscloud.io/)
 postscript: (sudo apt install gv)
 
+---------------------------------------------------------------------------------------------
+Challenge Tasks:
+1) Find different pseudo potentials from http://pseudopotentials.quantum-espresso.org/legacy_tables or other resources. Update the TASK 2: Automated Cutoff and K-points Convergence Test (ASE) python code and run the the convergence test. And make a table of energy and k point cut offs using Si as an example. 
