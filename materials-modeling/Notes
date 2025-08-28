@@ -109,3 +109,4 @@ postscript: (sudo apt install gv)
 ---------------------------------------------------------------------------------------------
 Challenge Tasks:
 1) Find different pseudo potentials from http://pseudopotentials.quantum-espresso.org/legacy_tables or other resources. Update the TASK 2: Automated Cutoff and K-points Convergence Test (ASE) python code and run the the convergence test. And make a table of energy and k point cut offs using Si as an example. 
+2) Modify the the TASK 3: Cell relaxation (QE and ASE), use a custom, tighter etot_conv_thr and forc_conv_thr, shift the atoms manually and run the convergence again
