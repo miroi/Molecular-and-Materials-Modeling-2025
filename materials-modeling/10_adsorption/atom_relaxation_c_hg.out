@@ -1,7 +1,0 @@
-
-Starting cell relaxation by ASE
-
-Relaxation failed: Command '['mpirun', '-np', '8', '/home/dsen/work/bin/qe-7.4.1/bin/pw.x', '-in', 'espresso.pwi']' returned non-zero exit status 1.
-Check output files for error details
-
-Relaxation complete
