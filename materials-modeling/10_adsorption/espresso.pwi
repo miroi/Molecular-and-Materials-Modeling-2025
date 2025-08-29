@@ -1,0 +1,52 @@
+&CONTROL
+   verbosity        = 'low'
+   tstress          = .true.
+   tprnfor          = .true.
+   outdir           = './tmp'
+   prefix           = 'c_hg'
+   pseudo_dir       = './'
+/
+&SYSTEM
+   ibrav            = 0
+   nat              = 9
+   ntyp             = 2
+   ecutwfc          = 65
+   occupations      = 'smearing'
+   degauss          = 0.01
+   smearing         = 'gauss'
+   assume_isolated  = '2D'
+/
+&ELECTRONS
+   conv_thr         = 1e-10
+/
+&IONS
+/
+&CELL
+/
+&FCP
+/
+&RISM
+/
+ATOMIC_SPECIES
+C 12.011 C.upf
+Hg 200.592 Hg.upf
+
+K_POINTS automatic
+1 1 1  0 0 0
+
+CELL_PARAMETERS angstrom
+4.91200017930000 0.00000000000000 0.00000000000000
+-2.45600065610000 4.25391661160000 0.00000000000000
+0.00000000000000 0.00000000000000 0.00000000000000
+
+ATOMIC_POSITIONS angstrom
+C 0.0000000000 0.0000000000 0.5000000000  
+C 0.0000000000 0.5000000000 0.5000000000  
+C 0.5000000001 0.0000000000 0.5000000000  
+C 0.5000000001 0.5000000000 0.5000000000  
+C 0.3333333135 0.1666666568 0.5000000000  
+C 0.3333333134 0.6666666270 0.5000000000  
+C 0.8333333135 0.1666666568 0.5000000000  
+C 0.8333333135 0.6666666270 0.5000000000  
+Hg 0.8333333135 0.6666666270 0.6333333333  
+
